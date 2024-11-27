@@ -17,6 +17,9 @@
         android:theme="@style/Theme.SBDFinal"
         tools:targetApi="31">
         <activity
+            android:name=".SnakeListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ArticleDetailActivity"
             android:exported="false" />
         <activity
