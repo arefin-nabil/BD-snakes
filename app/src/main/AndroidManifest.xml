@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,6 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SBDFinal"
         tools:targetApi="31">
+        <activity
+            android:name=".ArticleDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ArticleListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FaqListActivity"
+            android:exported="false" />
         <activity
             android:name=".RescuerListActivity"
             android:exported="false" />

@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RescuerListActivity"
-    android:background="@color/Theme_color"
-    >
+    tools:context=".ArticleListActivity"
+    android:background="#5C713E">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="RESCUER \nLIST \nACTIVITY"
-        android:textSize="@dimen/_60sdp"
+        android:text="article list"
+        android:textSize="@dimen/_100sdp"
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
