@@ -1,4 +1,4 @@
-package com.example.sbdfinal;
+package com.example.sbdfinal.homefragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.sbdfinal.R;
+import com.example.sbdfinal.SnakeListActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -149,6 +152,7 @@ public class HomeFragment extends Fragment {
 
             //item ke click korle kaj korabo
             holder.cardView.setOnClickListener(v -> {
+
                 if (position == 0){
                     snakelistactivity(0);
                 } else if (position == 1) {
@@ -157,6 +161,7 @@ public class HomeFragment extends Fragment {
                     snakelistactivity(2);
                 } else if (position == 3) {
                     snakelistactivity(3);
+
                 }
 
             });

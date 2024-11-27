@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MidVenimFragment"
+    tools:context=".snakefragments.MidVenimFragment"
     android:background="#5787CF">
 
     <!-- TODO: Update blank fragment layout -->

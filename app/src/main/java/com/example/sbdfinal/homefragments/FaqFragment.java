@@ -1,4 +1,4 @@
-package com.example.sbdfinal;
+package com.example.sbdfinal.homefragments;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,6 +20,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.sbdfinal.FaqListActivity;
+import com.example.sbdfinal.NetworkAccess;
+import com.example.sbdfinal.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

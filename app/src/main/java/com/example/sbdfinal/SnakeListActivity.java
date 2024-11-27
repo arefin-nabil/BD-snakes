@@ -14,13 +14,25 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.sbdfinal.adapter.TabLayoutAdapter;
+import com.example.sbdfinal.models.TabModel;
+import com.example.sbdfinal.snakefragments.MidVenimFragment;
+import com.example.sbdfinal.snakefragments.NonVenomFragment;
+import com.example.sbdfinal.snakefragments.PoisonFragment;
+import com.example.sbdfinal.snakefragments.VenomousFragment;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class SnakeListActivity extends AppCompatActivity {
 
     TabLayout tablayout;
-    TextView myname, credittext, tooltitel;
+    ViewPager2 viewpager;
+    TextView tooltitel;
     ImageView backbtn;
 
     @Override
@@ -29,8 +41,7 @@ public class SnakeListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_snake_list);
 
         tablayout = findViewById(R.id.tablayout);
-        myname = findViewById(R.id.myname);
-        credittext = findViewById(R.id.credittext);
+        viewpager = findViewById(R.id.viewpager);
         backbtn = findViewById(R.id.backbtn);
         tooltitel = findViewById(R.id.tooltitel);
 
@@ -45,80 +56,57 @@ public class SnakeListActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
-
-
-        FragmentManager fragmentManager = SnakeListActivity.this.getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
         int tabPosition = getIntent().getIntExtra("TAB_POSITION", 0);
 
-        if (tabPosition == 0){
-            tablayout.selectTab(tablayout.getTabAt(0));
-            fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
-            fragmentTransaction.replace(R.id.framelayout, new NonVenomFragment());
-            fragmentTransaction.commit();
-        } else if (tabPosition == 1) {
-            tablayout.selectTab(tablayout.getTabAt(1));
-            fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
-            fragmentTransaction.replace(R.id.framelayout, new MidVenimFragment());
-            fragmentTransaction.commit();
-        } else if (tabPosition == 2) {
-            tablayout.selectTab(tablayout.getTabAt(2));
-            fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
-            fragmentTransaction.replace(R.id.framelayout, new VenomousFragment());
-            fragmentTransaction.commit();
-        } else if (tabPosition == 3) {
-            tablayout.selectTab(tablayout.getTabAt(3));
-            fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
-            fragmentTransaction.replace(R.id.framelayout, new PoisonFragment());
-            fragmentTransaction.commit();
-        }
 
+
+        loadtablayout();
+
+        viewpager.setCurrentItem(tabPosition);
+
+
+    }
+
+
+    public void loadtablayout(){
+
+        List<TabModel> tabs = Arrays.asList(
+                new TabModel("নির্বিষ সাপ", NonVenomFragment.class),
+                new TabModel("মৃদু বিষধর সাপ", MidVenimFragment.class),
+                new TabModel("বিষধর সাপ", VenomousFragment.class),
+                new TabModel("বিষাক্ত সাপ", PoisonFragment.class)
+        );
+
+        for (TabModel tab : tabs) {
+            tablayout.addTab(tablayout.newTab().setText(tab.getTitel()));
+        }
 
         tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
-                int tabposition = tab.getPosition();
-
-                FragmentManager fragmentManager = SnakeListActivity.this.getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                if(tabposition == 0){
-                    fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
-                    fragmentTransaction.replace(R.id.framelayout, new NonVenomFragment());
-                    fragmentTransaction.commit();
-                } else if (tabposition == 1) {
-                    fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
-                    fragmentTransaction.replace(R.id.framelayout, new MidVenimFragment());
-                    fragmentTransaction.commit();
-                } else if (tabposition == 2) {
-                    fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
-                    fragmentTransaction.replace(R.id.framelayout, new VenomousFragment());
-                    fragmentTransaction.commit();
-                } else if (tabposition == 3) {
-                    fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
-                    fragmentTransaction.replace(R.id.framelayout, new PoisonFragment());
-                    fragmentTransaction.commit();
-                }
-
-
+                viewpager.setCurrentItem(tab.getPosition());
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
+            public void onTabUnselected(TabLayout.Tab tab) {}
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
+            public void onTabReselected(TabLayout.Tab tab) {}
 
+
+        });
+
+        viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tablayout.selectTab(tablayout.getTabAt(position));
             }
         });
 
-        //================ tab layout finish ====================
+        TabLayoutAdapter adapter = new TabLayoutAdapter(this, tabs);
+        viewpager.setAdapter(adapter);
 
     }
+
 
     public void onBackPressed() {
         super.onBackPressed();

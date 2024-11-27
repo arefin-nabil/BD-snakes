@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PoisonFragment"
+    tools:context=".snakefragments.PoisonFragment"
     android:background="#E3582E">
 
     <!-- TODO: Update blank fragment layout -->

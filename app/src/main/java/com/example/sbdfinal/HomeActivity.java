@@ -25,6 +25,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.sbdfinal.homefragments.ArticleFragment;
+import com.example.sbdfinal.homefragments.FaqFragment;
+import com.example.sbdfinal.homefragments.HomeFragment;
+import com.example.sbdfinal.homefragments.QuizFragment;
+import com.example.sbdfinal.homefragments.RescuerFragment;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;

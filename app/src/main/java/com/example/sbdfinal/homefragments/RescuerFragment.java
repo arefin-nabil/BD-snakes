@@ -1,4 +1,4 @@
-package com.example.sbdfinal;
+package com.example.sbdfinal.homefragments;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -26,6 +26,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.example.sbdfinal.NetworkAccess;
+import com.example.sbdfinal.R;
+import com.example.sbdfinal.RescuerListActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
