@@ -27,7 +27,7 @@
                 android:id="@+id/Mtoolbarid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#4CAF50"
+                android:background="@color/Theme_color"
                 app:menu="@menu/toolmenu"
                 app:titleTextColor="@android:color/transparent"
                 >

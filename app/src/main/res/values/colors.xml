@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorSelected">#4CAF50</color>  <!-- Change to your desired selected color -->
-    <color name="colorUnselected">#616161</color>  <!-- Change to your desired unselected color -->
+    <color name="colorSelected">#96DA37</color>
+    <color name="colorUnselected">#616161</color>
+    <color name="Theme_color">#96DA37</color>
 </resources>
