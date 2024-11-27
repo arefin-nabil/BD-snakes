@@ -5,4 +5,6 @@
     <color name="colorSelected">#96DA37</color>
     <color name="colorUnselected">#616161</color>
     <color name="Theme_color">#96DA37</color>
+    <color name="Day_BG">#FBFCF8</color>
+    <color name="Night_BG">#FBFCF8</color>
 </resources>

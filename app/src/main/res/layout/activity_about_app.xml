@@ -1,10 +1,252 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutApp">
+    tools:context=".AboutApp"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/Theme_color"
+        >
+
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/back"
+            android:layout_gravity="left"
+
+            />
+
+        <TextView
+            android:id="@+id/tooltitel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="সাপে কাটলে ওঝা নয়, হাসপাতালে চিকিৎসা হয়।-WSRTBD"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/font1"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:singleLine="true"
+            android:scrollHorizontally="true"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="15dp"
+            />
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="4dp"
+                android:text="@string/app_name"
+                android:fontFamily="@font/font1"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                tools:ignore="HardcodedText"
+                />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                android:lineSpacingExtra="4dp"
+                android:text="সাপ অত্যন্ত নিরীহ ও শান্ত প্রকৃতির প্রাণী। তবে বর্ষাকালে দেশে সাপের উপদ্রব কিছুটা বৃদ্ধি পায়। স্বাস্থ্য অধিদপ্তরের ২০২৩ সালের পরিসংখ্যান অনুযায়ী, প্রতি বছর দেশে প্রায় চার লাখের বেশি মানুষ সর্প দংশনের শিকার হন, যার মধ্যে প্রায় সাত হাজার পাঁচশত জন মানুষ প্রাণ হারান। অধিকাংশ মৃত্যুর কারণ হলো, ওঝা বা বেদের কাছে অবৈজ্ঞানিক চিকিৎসা নেওয়া এবং হাসপাতালে পৌঁছাতে দেরি হওয়া।"
+                android:fontFamily="@font/font1"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                tools:ignore="HardcodedText"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                android:lineSpacingExtra="4dp"
+                android:text="এই ভয়াবহ পরিস্থিতি মোকাবিলায় সঠিক তথ্য ও সচেতনতা অত্যন্ত জরুরি। এই অ্যাপটির মূল উদ্দেশ্য হলো সর্প দংশনের ঝুঁকি কমানো এবং দংশনের শিকার হলে দ্রুত ও সঠিক চিকিৎসা নিশ্চিত করা।"
+                android:fontFamily="@font/font1"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                tools:ignore="HardcodedText"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                android:lineSpacingExtra="4dp"
+                android:text="অ্যাপটি শিক্ষামূলক উদ্দেশ্যে তৈরি করা হয়েছে। বাংলাদেশে বিভিন্ন সমাজসেবা সংগঠন মানুষকে সাপ সম্পর্কে সচেতন করতে কাজ করছে, কিন্তু তা এখনো যথেষ্ট নয়। তাদের এই মহৎ প্রচেষ্টাকে উৎসাহিত করতেই আমাদের এই ছোট্ট উদ্যোগ।"
+                android:fontFamily="@font/font1"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                tools:ignore="HardcodedText"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font1"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                android:lineSpacingExtra="4dp"
+                android:padding="16dp"
+                android:text="অ্যাপটিতে সাপের পরিচিতি, বন্যপ্রাণী (সংরক্ষণ ও নিরাপত্তা) আইন, সাপ ও বন্যপ্রাণী রেসকিউকারী সংগঠনের নাম ও ফোন নম্বর, রেসকিউয়ারদের নাম ও যোগাযোগের তথ্য, হাসপাতালের ঠিকানা, সাপ বিষয়ক বিশেষ নিবন্ধ, সচরাচর প্রশ্ন এবং তাদের উত্তরসহ বিভিন্ন বিষয় অন্তর্ভুক্ত করা হয়েছে। আশা করি, দেশের মানুষ সাপ সম্পর্কে সচেতন হয়ে উপকৃত হবেন এবং আমাদের এই উদ্যোগ সার্থক হবে।"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="4dp"
+                android:text="তথ্য সংগ্রহ, পরিকল্পনা ও বাস্তবায়নে:"
+                android:fontFamily="@font/font1"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                tools:ignore="HardcodedText"
+                />
+
+            <TextView
+                android:id="@+id/myname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:fontFamily="@font/font1"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                android:lineSpacingExtra="4dp"
+                android:padding="16dp"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_13ssp"
+                tools:ignore="HardcodedText"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="4dp"
+                android:textIsSelectable="true"
+                android:text="তথ্য ও ছবি সংগ্রহ:"
+                android:fontFamily="@font/font1"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                tools:ignore="HardcodedText"
+                />
+
+            <TextView
+                android:id="@+id/credittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                android:lineSpacingExtra="4dp"
+                android:text=""
+                android:fontFamily="@font/font1"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                tools:ignore="HardcodedText"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_14ssp"
+                android:lineSpacingExtra="4dp"
+                android:text="\nঅ্যাপটি যথাসম্ভব নির্ভুল রাখতে চেষ্টা করা হয়েছে। তবে, অজ্ঞাতসারে কিছু ভুল থেকে যেতে পারে। আপনাদের মূল্যবান মতামত আমাদের ভুল সংশোধনের সুযোগ করে দেবে বলে আমরা আশা করি।"
+                android:fontFamily="@font/font1"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                tools:ignore="HardcodedText"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_14ssp"
+                android:lineSpacingExtra="4dp"
+                android:text="আপনার মতামত জানান আমাদের ই-মেইলে"
+                android:fontFamily="@font/font1"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:justificationMode="inter_word"
+                tools:ignore="HardcodedText"
+                />
+
+            <TextView
+                android:id="@+id/contact_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:gravity="center"
+                android:textStyle="bold|italic"
+                android:text="arefinnabil256@gmail.com\n"
+                android:textSize="@dimen/_16ssp"
+                android:textColor="@android:color/black"
+                android:clickable="true"
+                android:focusable="true"
+                android:autoLink="email"
+                android:fontFamily="@font/font1"
+                android:layout_marginBottom="8dp"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

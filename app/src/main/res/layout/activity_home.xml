@@ -8,7 +8,7 @@
     tools:context=".HomeActivity"
     android:orientation="vertical"
     tools:openDrawer="start"
-    android:background="#FBFCF8"
+    android:background="@color/Day_BG"
     >
 
 
@@ -62,7 +62,7 @@
             android:layout_below="@id/Mtoolbarid"
             android:layout_marginTop="?attr/actionBarSize"
             android:layout_marginBottom="?attr/actionBarSize"
-            android:background="#FBFCF8"
+            android:background="@color/Day_BG"
 
             />
 
@@ -72,7 +72,7 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_below="@id/framelayout"
             android:layout_gravity="bottom"
-            android:background="#FBFCF8"
+            android:background="@color/Day_BG"
             app:itemIconTint="@drawable/bottom_nav_item_colors"
             app:itemTextColor="@drawable/bottom_nav_item_colors"
             app:labelVisibilityMode="labeled"
@@ -93,6 +93,6 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/navheader"
         app:menu="@menu/drawermenu"
-        android:background="#FBFCF8"
+        android:background="@color/Day_BG"
         />
 </androidx.drawerlayout.widget.DrawerLayout>
