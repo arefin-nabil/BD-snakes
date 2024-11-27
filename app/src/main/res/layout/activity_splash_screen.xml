@@ -12,11 +12,13 @@
     >
 
     <ImageView
-        android:layout_width="@dimen/_150sdp"
-        android:layout_height="@dimen/_150sdp"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_250sdp"
         android:layout_above="@+id/textView"
         android:layout_gravity="center"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        android:scaleType="centerCrop"
+        />
 
     <TextView
         android:id="@+id/textView"
