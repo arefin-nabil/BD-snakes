@@ -1,20 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/drawerid"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:orientation="vertical"
+    tools:openDrawer="start"
+    android:background="#FBFCF8"
+    >
 
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
-    <ImageView
-        android:id="@+id/imageView"
+        <!-- Toolbar with Navigation Icon, Marquee Text and Menu ======= START ======== -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            >
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/Mtoolbarid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4CAF50"
+                app:menu="@menu/toolmenu"
+                app:titleTextColor="@android:color/transparent"
+                >
+
+                <TextView
+                    android:id="@+id/tooltitel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="সাপে কাটলে ওঝা নয়, হাসপাতালে চিকিৎসা হয়।-WSRTBD"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/font1"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:singleLine="true"
+                    android:scrollHorizontally="true"
+                    android:gravity="center"
+                    />
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+        <!-- Toolbar with Navigation Icon, Marquee Text and Menu ======= FINISH ======== -->
+
+        <FrameLayout
+            android:id="@+id/framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottomnav"
+            android:layout_below="@id/Mtoolbarid"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:background="#FBFCF8"
+
+            />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomnav"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_below="@id/framelayout"
+            android:layout_gravity="bottom"
+            android:background="#FBFCF8"
+            app:itemIconTint="@drawable/bottom_nav_item_colors"
+            app:itemTextColor="@drawable/bottom_nav_item_colors"
+            app:labelVisibilityMode="labeled"
+            style="@style/Widget.MaterialComponents.BottomNavigationView"
+            app:menu="@menu/bottommenu"
+            android:stateListAnimator="@null"
+            app:itemBackground="@drawable/transparentbg"
+            />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationid"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="396dp" />
-
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navheader"
+        app:menu="@menu/drawermenu"
+        android:background="#FBFCF8"
+        />
+</androidx.drawerlayout.widget.DrawerLayout>

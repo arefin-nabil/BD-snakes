@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home"
+        android:title="হোম" />
+
+    <item
+        android:id="@+id/rescuerlist"
+        android:icon="@drawable/rescuerlist"
+        android:title="রেসকিউয়ার" />
+
+    <item
+        android:id="@+id/quiz"
+        android:icon="@drawable/quiz"
+        android:title="কুইজ" />
+
+    <item
+        android:id="@+id/faquestion"
+        android:icon="@drawable/faquestion"
+        android:title="জিজ্ঞাসা" />
+
+    <item
+        android:id="@+id/article"
+        android:icon="@drawable/article"
+        android:title="নিবন্ধ"
+        />
+
+
+
+</menu>

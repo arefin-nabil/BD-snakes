@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/home"
+            android:title="হোম" />
+        <item
+            android:id="@+id/faquestion"
+            android:icon="@drawable/faquestion"
+            android:title="সচরাচর জিজ্ঞাসা" />
+
+        <item
+            android:id="@+id/article"
+            android:icon="@drawable/article"
+            android:title="বিশেষ নিবন্ধ"
+            />
+        <item
+            android:id="@+id/wildlifeact"
+            android:icon="@drawable/wildlifeact"
+            android:title="বণ্যপ্রাণী আইন" />
+
+    </group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/aboutus"
+            android:icon="@drawable/aboutapp"
+            android:title="অ্যাপ সম্পর্কে" />
+
+        <item
+            android:id="@+id/privacypolicy"
+            android:icon="@drawable/privacypolicy"
+            android:title="প্রাইভেসি পলিসি" />
+
+
+    </group>
+
+    <group
+        android:id="@+id/group3"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/contactus"
+            android:icon="@drawable/contactus"
+            android:title="যোগাযোগ" />
+
+        <item
+            android:id="@+id/shareapp"
+            android:icon="@drawable/shareapp"
+            android:title="শেয়ার অ্যাপ" />
+
+        <item
+            android:id="@+id/exitapp"
+            android:icon="@drawable/exitapp"
+            android:title="অ্যাপ থেকে বের হোন" />
+
+    </group>
+</menu>

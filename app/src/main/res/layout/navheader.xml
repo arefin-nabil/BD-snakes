@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_200sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="@dimen/_10sdp"
+    >
+
+    <ImageView
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_70sdp"
+        android:src="@drawable/logo"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:padding="@dimen/_4sdp"
+        android:textSize="@dimen/_22ssp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font1"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="সাপে কাটলে ওঝা নয়,\nহাসপাতালে চিকিৎসা হয়।"
+            android:padding="@dimen/_4sdp"
+            android:textSize="@dimen/_15ssp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:fontFamily="@font/font1"
+            />
+
+    </ScrollView>
+
+
+
+</LinearLayout>
