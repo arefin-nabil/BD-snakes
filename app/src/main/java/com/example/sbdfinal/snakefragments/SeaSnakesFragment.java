@@ -26,7 +26,8 @@ import com.google.android.gms.ads.nativead.NativeAd;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MidVenimFragment extends Fragment {
+public class SeaSnakesFragment extends Fragment {
+
 
     RecyclerView recyclerView;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -36,9 +37,7 @@ public class MidVenimFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_mid_venim, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_sea_snakes, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
 
@@ -47,15 +46,15 @@ public class MidVenimFragment extends Fragment {
 
         // Set up RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new MidVenimFragment.myAdapter());
+        recyclerView.setAdapter(new SeaSnakesFragment.myAdapter());
 
-        MidVenimFragment.myAdapter adapter = new MidVenimFragment.myAdapter();
+        SeaSnakesFragment.myAdapter adapter = new SeaSnakesFragment.myAdapter();
         recyclerView.setAdapter(adapter);
 
 
         return view;
-
     }
+
 
     private void finalArrayList(){
 
@@ -63,7 +62,7 @@ public class MidVenimFragment extends Fragment {
 
         for (int i = 0; i < arrayList.size(); i++) {
 
-            if (i>0 && i%4==0){
+            if (i>0 && i%5==0){
                 hashMap = new HashMap<>();
                 hashMap.put("itemType", "ad");
                 finalarrayList.add(hashMap);
@@ -80,37 +79,37 @@ public class MidVenimFragment extends Fragment {
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakebangname", "কাল নাগিনী");
-        hashMap.put("snakeengname", "Ornate flying snake");
-        hashMap.put("snakesciname", "Chrysopelea ornata");
+        hashMap.put("snakebangname", "ডাউডিন সামুদ্রিক সাপ");
+        hashMap.put("snakeengname", "Daudin’s Sea Snake");
+        hashMap.put("snakesciname", "Hydrophis Nigrocinctus");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakebangname", "সবুজ ফণিমনসা");
-        hashMap.put("snakeengname", "Green Cat snake");
-        hashMap.put("snakesciname", "Boiga cyanea");
+        hashMap.put("snakebangname", "বড়শিনাক সামুদ্রিক সাপ");
+        hashMap.put("snakeengname", "Hook-nosed Sea Snake");
+        hashMap.put("snakesciname", "Enhydrina schistosa");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakebangname", "পাতি ফণিমনসা");
-        hashMap.put("snakeengname", "Common Indian cat snake");
-        hashMap.put("snakesciname", "Collecting");
+        hashMap.put("snakebangname", "কালো-হলুদ বলয় লাঠি সামুদ্রিক সাপ");
+        hashMap.put("snakeengname", "Annulated Sea Snake");
+        hashMap.put("snakesciname", "Hydrophis cyanocinctus");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakebangname", "নোনাবোড়া ");
-        hashMap.put("snakeengname", "Dog-faced water snake");
-        hashMap.put("snakesciname", "Boiga cyanea");
+        hashMap.put("snakebangname", "ডোরা/লাঠি সামুদ্রিক সাপ");
+        hashMap.put("snakeengname", "Striped Sea Snake");
+        hashMap.put("snakesciname", "Hydrophis fasciatus");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakebangname", "মেটে/মাইট্টা সাপ");
-        hashMap.put("snakeengname", "Smooth Scaled water snake");
-        hashMap.put("snakesciname", "Collecting");
+        hashMap.put("snakebangname", "বইঠা টেবি সামুদ্রিক সাপ");
+        hashMap.put("snakeengname", "Shaw’s Sea Snake");
+        hashMap.put("snakesciname", "Lepemis curtus");
         arrayList.add(hashMap);
     }
 
@@ -158,11 +157,11 @@ public class MidVenimFragment extends Fragment {
 
             if (viewType == SNAKE) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.snakeitems, parent, false);
-                return new MidVenimFragment.myAdapter.snakeviewholder(view);
+                return new SeaSnakesFragment.myAdapter.snakeviewholder(view);
             }
             else {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.native_ad, parent, false);
-                return new MidVenimFragment.myAdapter.adviewholder(view);
+                return new SeaSnakesFragment.myAdapter.adviewholder(view);
             }
 
         }
@@ -173,14 +172,14 @@ public class MidVenimFragment extends Fragment {
 
             if (getItemViewType(position) == SNAKE) {
 
-                MidVenimFragment.myAdapter.snakeviewholder snakeviewholder = (MidVenimFragment.myAdapter.snakeviewholder) holder;
+                SeaSnakesFragment.myAdapter.snakeviewholder snakeviewholder = (SeaSnakesFragment.myAdapter.snakeviewholder) holder;
                 HashMap<String, String> hashMap = finalarrayList.get(position);
 
                 String snakebangname = hashMap.get("snakebangname");
                 String snakeengname = hashMap.get("snakeengname");
                 String snakesciname = hashMap.get("snakesciname");
 
-                snakeviewholder.snakecardbg.setCardBackgroundColor(Color.parseColor("#F2E318"));
+                snakeviewholder.snakecardbg.setCardBackgroundColor(Color.parseColor("#FF4545"));
                 snakeviewholder.snakebangname.setText(snakebangname);
                 snakeviewholder.snakeengname.setText(snakeengname);
                 snakeviewholder.snakesciname.setText(snakesciname);
@@ -188,7 +187,7 @@ public class MidVenimFragment extends Fragment {
             }
             else if (getItemViewType(position) == AD){
 
-                MidVenimFragment.myAdapter.adviewholder adviewholder = (MidVenimFragment.myAdapter.adviewholder) holder;
+                SeaSnakesFragment.myAdapter.adviewholder adviewholder = (SeaSnakesFragment.myAdapter.adviewholder) holder;
 
                 if (NetworkAccess.isConnected(getContext())) {
                     new AdmobAd(getActivity(), new AdmobAdCallBack() {
@@ -221,6 +220,7 @@ public class MidVenimFragment extends Fragment {
 
         }
     }
+
 
 
 }

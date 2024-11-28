@@ -1,5 +1,6 @@
 package com.example.sbdfinal.snakefragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -61,7 +62,7 @@ public class NonVenomFragment extends Fragment {
 
         for (int i = 0; i < arrayList.size(); i++) {
 
-            if (i>0 && i%9==0){
+            if (i>0 && i%4==0){
                 hashMap = new HashMap<>();
                 hashMap.put("itemType", "ad");
                 finalarrayList.add(hashMap);
@@ -78,244 +79,102 @@ public class NonVenomFragment extends Fragment {
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "জলঢোড়া");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakebangname", "জলঢোড়া সাপ");
+        hashMap.put("snakeengname", "Checkered keelback snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "দাঁড়াশ");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakebangname", "দাঁড়াশ সাপ");
+        hashMap.put("snakeengname", "Indian Rat Snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "তামাটে মাথা দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakebangname", "ইন্দোচিনা দাঁড়াশ সাপ");
+        hashMap.put("snakeengname", "Indochinese Rat Snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "পাতি দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakebangname", "সবুজ দাঁড়াশ সাপ");
+        hashMap.put("snakeengname", "Green rat snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "হেলে");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakebangname", "পাতি ঘরগিন্নি সাপ");
+        hashMap.put("snakeengname", "Common wolf snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "জলঢোড়া");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakename", "দাগি ঘরগিন্নি সাপ");
+        hashMap.put("snakeengname", "Banded wolf snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "দাঁড়াশ");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakename", "হলুদ-ছাপ ঘরগিন্নি সাপ");
+        hashMap.put("snakeengname", "Twin spotted wolf snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "তামাটে মাথা দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakename", "জাউয়ের ঘরগিন্নি সাপ");
+        hashMap.put("snakeengname", "Zaw's wolf snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "পাতি দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakename", "পাতি বেত আচড়া সাপ");
+        hashMap.put("snakeengname", "Common Bronzeback Tree Snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "হেলে");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakename", "চিত্রিত বেত আচড়া সাপ");
+        hashMap.put("snakeengname", "Eastern Bronzeback Tree Snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "জলঢোড়া");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakename", "জলপাইরঙা বেত আঁচড়া সাপ");
+        hashMap.put("snakeengname", "Green bronzeback tree snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "দাঁড়াশ");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakename", "ব্যান্ড বেত আঁচড়া সাপ\n");
+        hashMap.put("snakeengname", "Painted bronzeback tree snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "তামাটে মাথা দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakename", "পাতি দুধরাজ সাপ");
+        hashMap.put("snakeengname", "common Trinket Snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "পাতি দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
+        hashMap.put("snakename", "তামাটে মাথা দুধরাজ সাপ");
+        hashMap.put("snakeengname", "Copper headed Trinket snake");
+        hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "হেলে");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "জলঢোড়া");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "দাঁড়াশ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "তামাটে মাথা দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "পাতি দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "হেলে");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "জলঢোড়া");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "দাঁড়াশ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "তামাটে মাথা দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "পাতি দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "হেলে");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "জলঢোড়া");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "দাঁড়াশ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "তামাটে মাথা দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "পাতি দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "হেলে");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "জলঢোড়া");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "দাঁড়াশ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "তামাটে মাথা দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "পাতি দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "হেলে");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "জলঢোড়া");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "দাঁড়াশ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "তামাটে মাথা দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "পাতি দুধরাজ");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "হেলে");
-        hashMap.put("venomtype", "নির্বিষ");
-        arrayList.add(hashMap);
 
     }
     //========================= hashmap data created for recyclerview ENDS here ================================
@@ -330,13 +189,14 @@ public class NonVenomFragment extends Fragment {
 
         private class snakeviewholder extends RecyclerView.ViewHolder {
 
-            TextView snakename, venomtype;
+            TextView snakebangname, snakeengname, snakesciname;
             CardView snakecardbg;
             public snakeviewholder(@NonNull View itemView) {
                 super(itemView);
 
-                snakename = itemView.findViewById(R.id.snakename);
-                venomtype = itemView.findViewById(R.id.venomtype);
+                snakebangname = itemView.findViewById(R.id.snakebangname);
+                snakeengname = itemView.findViewById(R.id.snakeengname);
+                snakesciname = itemView.findViewById(R.id.snakesciname);
                 snakecardbg = itemView.findViewById(R.id.snakecardbg);
 
             }
@@ -381,11 +241,14 @@ public class NonVenomFragment extends Fragment {
                 snakeviewholder snakeviewholder = (snakeviewholder) holder;
                 HashMap<String, String> hashMap = finalarrayList.get(position);
 
-                String snakename = hashMap.get("snakename");
-                String venomtype = hashMap.get("venomtype");
+                String snakebangname = hashMap.get("snakebangname");
+                String snakeengname = hashMap.get("snakeengname");
+                String snakesciname = hashMap.get("snakesciname");
 
-                snakeviewholder.snakename.setText(snakename);
-                snakeviewholder.venomtype.setText(venomtype);
+                snakeviewholder.snakecardbg.setCardBackgroundColor(Color.parseColor("#B7E892"));
+                snakeviewholder.snakebangname.setText(snakebangname);
+                snakeviewholder.snakeengname.setText(snakeengname);
+                snakeviewholder.snakesciname.setText(snakesciname);
 
             }
             else if (getItemViewType(position) == AD){

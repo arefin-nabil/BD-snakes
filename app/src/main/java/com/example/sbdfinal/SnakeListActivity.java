@@ -21,6 +21,7 @@ import com.example.sbdfinal.models.TabModel;
 import com.example.sbdfinal.snakefragments.MidVenimFragment;
 import com.example.sbdfinal.snakefragments.NonVenomFragment;
 import com.example.sbdfinal.snakefragments.PoisonFragment;
+import com.example.sbdfinal.snakefragments.SeaSnakesFragment;
 import com.example.sbdfinal.snakefragments.VenomousFragment;
 import com.google.android.material.tabs.TabLayout;
 
@@ -72,7 +73,8 @@ public class SnakeListActivity extends AppCompatActivity {
                 new TabModel("নির্বিষ সাপ", NonVenomFragment.class),
                 new TabModel("মৃদু বিষধর সাপ", MidVenimFragment.class),
                 new TabModel("বিষধর সাপ", VenomousFragment.class),
-                new TabModel("বিষাক্ত সাপ", PoisonFragment.class)
+                new TabModel("বিষাক্ত সাপ", PoisonFragment.class),
+                new TabModel("সামুদ্রিক সাপ", SeaSnakesFragment.class)
         );
 
         for (TabModel tab : tabs) {
