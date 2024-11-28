@@ -21,9 +21,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bdtopcoder.smartadmob.AdmobAd;
+import com.bdtopcoder.smartadmob.AdmobAdCallBack;
 import com.example.sbdfinal.FaqListActivity;
 import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.R;
+import com.example.sbdfinal.RescuerListActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,10 +69,14 @@ public class FaqFragment extends Fragment {
                         // Check network access after the delay
                         if (NetworkAccess.isConnected(getActivity())) {
                             // Network is connected, go to the next activity
-                            Intent intent = new Intent(getActivity(), FaqListActivity.class);
-                            intent.putExtra("FRAGMENT_TO_LOAD", "FaqFragment");
-                            startActivity(intent);
-                            getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                            new AdmobAd(getActivity(), new AdmobAdCallBack() {
+                                @Override
+                                public void onAdDismissed() {
+                                    Intent intent = new Intent(getActivity(), FaqListActivity.class);
+                                    startActivity(intent);
+                                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                }
+                            }).loadAdmobInterstitialAd().showAdmobInterstitial(true);
 
 
                         } else {

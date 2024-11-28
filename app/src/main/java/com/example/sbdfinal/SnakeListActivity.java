@@ -58,8 +58,6 @@ public class SnakeListActivity extends AppCompatActivity {
 
         int tabPosition = getIntent().getIntExtra("TAB_POSITION", 0);
 
-
-
         loadtablayout();
 
         viewpager.setCurrentItem(tabPosition);

@@ -19,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bdtopcoder.smartadmob.AdmobAd;
+import com.bdtopcoder.smartadmob.AdmobAdCallBack;
+import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.R;
 import com.example.sbdfinal.SnakeListActivity;
 
@@ -148,7 +151,6 @@ public class HomeFragment extends Fragment {
             holder.imageView.setImageResource(image);
             holder.textView.setText(titel);
 
-            //eikhane image set korbo
 
             //item ke click korle kaj korabo
             holder.cardView.setOnClickListener(v -> {
@@ -161,7 +163,6 @@ public class HomeFragment extends Fragment {
                     snakelistactivity(2);
                 } else if (position == 3) {
                     snakelistactivity(3);
-
                 }
 
             });

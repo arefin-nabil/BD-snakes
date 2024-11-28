@@ -10,13 +10,16 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bdtopcoder.smartadmob.AdmobAd;
+import com.bdtopcoder.smartadmob.AdmobAdUnit;
+import com.bdtopcoder.smartadmob.GDPR;
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
 
         // Find your views
         ImageView imageView = findViewById(R.id.imageView);
@@ -29,6 +32,14 @@ public class SplashScreen extends AppCompatActivity {
         imageView.startAnimation(slideTopToBottom);
         textView.startAnimation(slideTopToBottom);
 
+
+        //============== ad implementation=======================
+        MyAdmob.loadAdUnit();
+
+        AdmobAd admobAd = new AdmobAd(this);
+        admobAd.loadAdmobInterstitialAd();
+
+        admobAd.initializeAdmobAd();
 
 
 //=============== handle splash screen ==========================
