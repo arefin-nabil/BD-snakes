@@ -82,7 +82,7 @@ public class HomeFragment extends Fragment {
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
-        hashMap.put("titel", "বিষাক্ত সাপ");
+        hashMap.put("titel", "সামুুদ্রিক সাপ");
         hashMap.put("image", R.drawable.logo);
         arrayList.add(hashMap);
 
@@ -163,6 +163,8 @@ public class HomeFragment extends Fragment {
                     snakelistactivity(2);
                 } else if (position == 3) {
                     snakelistactivity(3);
+                }else if (position == 4) {
+
                 }
 
             });
@@ -185,5 +187,8 @@ public class HomeFragment extends Fragment {
         startActivity(intent);
         getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+
+
+
 
 }
