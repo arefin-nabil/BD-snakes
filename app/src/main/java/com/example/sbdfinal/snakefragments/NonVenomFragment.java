@@ -114,63 +114,63 @@ public class NonVenomFragment extends Fragment {
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "দাগি ঘরগিন্নি সাপ");
+        hashMap.put("snakebangname", "দাগি ঘরগিন্নি সাপ");
         hashMap.put("snakeengname", "Banded wolf snake");
         hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "হলুদ-ছাপ ঘরগিন্নি সাপ");
+        hashMap.put("snakebangname", "হলুদ-ছাপ ঘরগিন্নি সাপ");
         hashMap.put("snakeengname", "Twin spotted wolf snake");
         hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "জাউয়ের ঘরগিন্নি সাপ");
+        hashMap.put("snakebangname", "জাউয়ের ঘরগিন্নি সাপ");
         hashMap.put("snakeengname", "Zaw's wolf snake");
         hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "পাতি বেত আচড়া সাপ");
+        hashMap.put("snakebangname", "পাতি বেত আচড়া সাপ");
         hashMap.put("snakeengname", "Common Bronzeback Tree Snake");
         hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "চিত্রিত বেত আচড়া সাপ");
+        hashMap.put("snakebangname", "চিত্রিত বেত আচড়া সাপ");
         hashMap.put("snakeengname", "Eastern Bronzeback Tree Snake");
         hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "জলপাইরঙা বেত আঁচড়া সাপ");
+        hashMap.put("snakebangname", "জলপাইরঙা বেত আঁচড়া সাপ");
         hashMap.put("snakeengname", "Green bronzeback tree snake");
         hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "ব্যান্ড বেত আঁচড়া সাপ\n");
+        hashMap.put("snakebangname", "ব্যান্ড বেত আঁচড়া সাপ");
         hashMap.put("snakeengname", "Painted bronzeback tree snake");
         hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "পাতি দুধরাজ সাপ");
+        hashMap.put("snakebangname", "পাতি দুধরাজ সাপ");
         hashMap.put("snakeengname", "common Trinket Snake");
         hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("itemType", "snake");
-        hashMap.put("snakename", "তামাটে মাথা দুধরাজ সাপ");
+        hashMap.put("snakebangname", "তামাটে মাথা দুধরাজ সাপ");
         hashMap.put("snakeengname", "Copper headed Trinket snake");
         hashMap.put("snakesciname", "Collecting");
         arrayList.add(hashMap);
@@ -251,18 +251,20 @@ public class NonVenomFragment extends Fragment {
                 snakeviewholder.snakesciname.setText(snakesciname);
 
             }
+
+
             else if (getItemViewType(position) == AD){
 
-                adviewholder adviewholder = (adviewholder) holder;
+                NonVenomFragment.myAdapter.adviewholder adviewholder = (NonVenomFragment.myAdapter.adviewholder) holder;
 
                 if (NetworkAccess.isConnected(getContext())) {
                     new AdmobAd(getActivity(), new AdmobAdCallBack() {
                         @Override
                         public void onNativeAdLoaded(NativeAd nativeAd) {
                             AdmobAdCallBack.super.onNativeAdLoaded(nativeAd);
+                            adviewholder.adlinerlayout.setVisibility(View.VISIBLE);
                         }
                     }).initializeAdmobAd().loadAdmobNativeAd(adviewholder.my_template);
-                    adviewholder.adlinerlayout.setVisibility(View.VISIBLE);
                 } else {
                     adviewholder.adlinerlayout.setVisibility(View.GONE); // Hide ad if not ready
                 }

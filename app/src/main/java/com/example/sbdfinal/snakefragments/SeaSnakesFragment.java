@@ -194,9 +194,9 @@ public class SeaSnakesFragment extends Fragment {
                         @Override
                         public void onNativeAdLoaded(NativeAd nativeAd) {
                             AdmobAdCallBack.super.onNativeAdLoaded(nativeAd);
+                            adviewholder.adlinerlayout.setVisibility(View.VISIBLE);
                         }
                     }).initializeAdmobAd().loadAdmobNativeAd(adviewholder.my_template);
-                    adviewholder.adlinerlayout.setVisibility(View.VISIBLE);
                 } else {
                     adviewholder.adlinerlayout.setVisibility(View.GONE); // Hide ad if not ready
                 }
