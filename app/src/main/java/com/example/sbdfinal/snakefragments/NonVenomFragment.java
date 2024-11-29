@@ -32,7 +32,6 @@ public class NonVenomFragment extends Fragment {
     RecyclerView recyclerView;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
     HashMap<String, String> hashMap;
-    ArrayList<HashMap<String, String>> finalarrayList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,7 +42,6 @@ public class NonVenomFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
 
         hashMapdata();
-        finalArrayList();
 
         // Set up RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -56,23 +54,6 @@ public class NonVenomFragment extends Fragment {
 
     }
 
-    private void finalArrayList(){
-
-        finalarrayList = new ArrayList<>();
-
-        for (int i = 0; i < arrayList.size(); i++) {
-
-            if (i>0 && i%4==0){
-                hashMap = new HashMap<>();
-                hashMap.put("itemType", "ad");
-                finalarrayList.add(hashMap);
-            }
-
-            hashMap = arrayList.get(i);
-            finalarrayList.add(hashMap);
-
-        }
-    }
 
     //========================= hashmap data created for recyclerview Starts Here ================================
     private void hashMapdata(){
@@ -180,18 +161,14 @@ public class NonVenomFragment extends Fragment {
     //========================= hashmap data created for recyclerview ENDS here ================================
 
 
-    // ================ adapter =================
+    //=============== Adapter Class created for recyclerview STARTS here================================
+    private class myAdapter extends RecyclerView.Adapter<NonVenomFragment.myAdapter.myViewholder>{
 
-    private class myAdapter extends RecyclerView.Adapter {
-
-        int SNAKE = 0;
-        int AD = 1;
-
-        private class snakeviewholder extends RecyclerView.ViewHolder {
-
+        private class myViewholder extends RecyclerView.ViewHolder{
+            //item view er variable nibo eikhane
             TextView snakebangname, snakeengname, snakesciname;
             CardView snakecardbg;
-            public snakeviewholder(@NonNull View itemView) {
+            public myViewholder(@NonNull View itemView) {
                 super(itemView);
 
                 snakebangname = itemView.findViewById(R.id.snakebangname);
@@ -202,92 +179,38 @@ public class NonVenomFragment extends Fragment {
             }
         }
 
-        private class adviewholder extends RecyclerView.ViewHolder {
-
-            LinearLayout adlinerlayout;
-            TemplateView my_template;
-
-            public adviewholder(@NonNull View itemView) {
-                super(itemView);
-
-                adlinerlayout = itemView.findViewById(R.id.adlinerlayout);
-                my_template = itemView.findViewById(R.id.my_template);
-
-
-            }
-        }
-
         @NonNull
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-            if (viewType == SNAKE) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.snakeitems, parent, false);
-                return new snakeviewholder(view);
-            }
-            else {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.native_ad, parent, false);
-                return new adviewholder(view);
-            }
-
+        public NonVenomFragment.myAdapter.myViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            //item view nibo eikhane,, item view er layout inflate korbo
+            LayoutInflater inflater = getLayoutInflater();
+            View myView = inflater.inflate(R.layout.snakeitems,parent,false);
+            return new NonVenomFragment.myAdapter.myViewholder(myView);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull NonVenomFragment.myAdapter.myViewholder holder, int position) {
+            //hashmap theke ene item view e data set korbo,,
+            HashMap<String, String> hashMap = arrayList.get(position);
+            String snakebangname = hashMap.get("snakebangname");
+            String snakeengname = hashMap.get("snakeengname");
+            String snakesciname = hashMap.get("snakesciname");
+
+            holder.snakecardbg.setCardBackgroundColor(Color.parseColor("#bafabf"));
+            holder.snakebangname.setText(snakebangname);
+            holder.snakeengname.setText(snakeengname);
+            holder.snakesciname.setText(snakesciname);
 
 
-            if (getItemViewType(position) == SNAKE) {
-
-                snakeviewholder snakeviewholder = (snakeviewholder) holder;
-                HashMap<String, String> hashMap = finalarrayList.get(position);
-
-                String snakebangname = hashMap.get("snakebangname");
-                String snakeengname = hashMap.get("snakeengname");
-                String snakesciname = hashMap.get("snakesciname");
-
-                snakeviewholder.snakecardbg.setCardBackgroundColor(Color.parseColor("#B7E892"));
-                snakeviewholder.snakebangname.setText(snakebangname);
-                snakeviewholder.snakeengname.setText(snakeengname);
-                snakeviewholder.snakesciname.setText(snakesciname);
-
-            }
-
-
-            else if (getItemViewType(position) == AD){
-
-                NonVenomFragment.myAdapter.adviewholder adviewholder = (NonVenomFragment.myAdapter.adviewholder) holder;
-
-                if (NetworkAccess.isConnected(getContext())) {
-                    new AdmobAd(getActivity(), new AdmobAdCallBack() {
-                        @Override
-                        public void onNativeAdLoaded(NativeAd nativeAd) {
-                            AdmobAdCallBack.super.onNativeAdLoaded(nativeAd);
-                            adviewholder.adlinerlayout.setVisibility(View.VISIBLE);
-                        }
-                    }).initializeAdmobAd().loadAdmobNativeAd(adviewholder.my_template);
-                } else {
-                    adviewholder.adlinerlayout.setVisibility(View.GONE); // Hide ad if not ready
-                }
-            }
-
+            //item er animation control
             holder.itemView.startAnimation(AnimationUtils.loadAnimation(getContext(), android.R.anim.slide_in_left));
         }
-
         @Override
         public int getItemCount() {
-            return finalarrayList.size();
-        }
-
-        @Override
-        public int getItemViewType(int position) {
-
-            hashMap = finalarrayList.get(position);
-            String itemType = hashMap.get("itemType");
-            if (itemType.contains("snake")) return SNAKE;
-            else return AD;
-
+            return arrayList.size();
         }
     }
+    //=============== Adapter Class for recyclerview ENDS here ================================
 
 
 }

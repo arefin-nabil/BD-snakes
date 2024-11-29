@@ -34,11 +34,11 @@ import java.util.HashMap;
 
 public class FaqFragment extends Fragment {
 
-    RecyclerView recyclerView;
     AppCompatButton seemorebtn;
     LinearLayout loadinglottie;
-    ArrayList<HashMap<String, Object>> arrayList = new ArrayList<>();
-    HashMap<String, Object> hashMap;
+    RecyclerView recyclerView;
+    ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
+    HashMap<String, String> hashMap;
 
 
     @Override
@@ -138,6 +138,7 @@ public class FaqFragment extends Fragment {
         hashMap.put("author", "মো: খোরশেদ আলম");
         arrayList.add(hashMap);
 
+
     }
     //========================= hashmap data created for recyclerview ENDS here ================================
 
@@ -148,6 +149,7 @@ public class FaqFragment extends Fragment {
     private class myAdapter extends RecyclerView.Adapter<FaqFragment.myAdapter.myViewholder>{
 
         private SparseBooleanArray expandedPositions = new SparseBooleanArray();
+        private int expandedPosition = RecyclerView.NO_POSITION;
         private class myViewholder extends RecyclerView.ViewHolder{
             //item view er variable nibo eikhane
             LinearLayout motherLayout, discLayout;
@@ -179,8 +181,9 @@ public class FaqFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull FaqFragment.myAdapter.myViewholder holder, int position) {
+
             //hashmap theke ene item view e data set korbo,,
-            HashMap<String, Object> hashMap = arrayList.get(position);
+            HashMap<String, String> hashMap = arrayList.get(position);
             String question = (String) hashMap.get("question");
             String answer = (String) hashMap.get("answer");
             String author = (String) hashMap.get("author");
@@ -190,7 +193,9 @@ public class FaqFragment extends Fragment {
             holder.author.setText(author);
 
             // Set the visibility and arrow icon based on the expandedPositions state
-            boolean isExpanded = expandedPositions.get(position, false);
+
+            boolean isExpanded = expandedPosition == position;
+
             holder.discLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
             holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#FFFFFF"));
             holder.arrowImg.setImageResource(isExpanded ? R.drawable.uparrow : R.drawable.downarrow);
@@ -198,20 +203,18 @@ public class FaqFragment extends Fragment {
             // Handle click listener to expand/collapse the item
             holder.itemClicked.setOnClickListener(v -> {
                 boolean currentlyExpanded = expandedPositions.get(position, false);
+                int previousExpandedPosition = expandedPosition;
 
-                // Collapse any previously expanded item
-                if (currentlyExpanded) {
-                    expandedPositions.delete(position); // Remove from the expanded list if collapsing
-                } else {
-                    expandedPositions.put(position, true); // Mark this position as expanded
-                }
+                // Set the new expanded position (collapse if clicking the same item)
+                expandedPosition = isExpanded ? RecyclerView.NO_POSITION : position;
 
-                // Notify only this item has changed
-                notifyItemChanged(position);
+                // Notify changes to collapse the previous item and expand the new one
+                notifyItemChanged(previousExpandedPosition);
+                notifyItemChanged(expandedPosition);
             });
 
             //item er animation control
-            holder.itemView.startAnimation(AnimationUtils.loadAnimation(getContext(), android.R.anim.slide_in_left));
+            holder.itemView.setAnimation(null);
         }
         @Override
         public int getItemCount() {

@@ -27,6 +27,7 @@ import com.example.sbdfinal.SnakeListActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
@@ -185,7 +186,7 @@ public class HomeFragment extends Fragment {
         Intent intent = new Intent(getActivity(), SnakeListActivity.class);
         intent.putExtra("TAB_POSITION", tabPosition); // Pass tab position
         startActivity(intent);
-        getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
 

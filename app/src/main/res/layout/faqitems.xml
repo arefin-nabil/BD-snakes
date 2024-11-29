@@ -31,7 +31,8 @@
             <RelativeLayout
                 android:id="@+id/itemClicked"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <ImageView
                     android:id="@+id/bookImg"
@@ -68,8 +69,8 @@
 
                 <ImageView
                     android:id="@+id/arrowImg"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/downarrow" />

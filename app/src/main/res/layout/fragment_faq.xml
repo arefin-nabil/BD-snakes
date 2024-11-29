@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".homefragments.FaqFragment"
     android:background="@color/Day_BG"
-    >
+    tools:context=".homefragments.FaqFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        >
+        android:scrollbars="none">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
-                android:scrollbars="none"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_5sdp"
-                />
+                android:scrollbars="none" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/seemorebtn"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="আরো দেখুন..."
-                android:padding="@dimen/_10sdp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/font1"
-                android:textSize="@dimen/_15ssp"
-                android:background="@color/Theme_color"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_20sdp"
-                />
+                android:elevation="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:cardElevation="@dimen/_5sdp"
+
+                >
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/seemorebtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/Theme_color"
+                    android:fontFamily="@font/font1"
+                    android:padding="@dimen/_10sdp"
+                    android:text="আরো দেখুন..."
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+
+                    />
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
@@ -51,22 +63,20 @@
         android:id="@+id/loadinglottie"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:background="#20404040"
         android:layout_centerInParent="true"
+        android:background="#20404040"
         android:gravity="center"
-        >
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            app:lottie_rawRes="@raw/loadingsquare"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
             android:layout_gravity="center"
+            app:lottie_autoPlay="true"
             app:lottie_colorFilter="@color/Theme_color"
-            />
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loadingsquare" />
 
     </LinearLayout>
 

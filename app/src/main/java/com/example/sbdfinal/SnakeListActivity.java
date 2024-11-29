@@ -4,28 +4,21 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.sbdfinal.adapter.TabLayoutAdapter;
 import com.example.sbdfinal.models.TabModel;
-import com.example.sbdfinal.snakefragments.MidVenimFragment;
+import com.example.sbdfinal.snakefragments.MidVenomFragment;
 import com.example.sbdfinal.snakefragments.NonVenomFragment;
-import com.example.sbdfinal.snakefragments.PoisonFragment;
 import com.example.sbdfinal.snakefragments.SeaSnakesFragment;
 import com.example.sbdfinal.snakefragments.VenomousFragment;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -64,6 +57,17 @@ public class SnakeListActivity extends AppCompatActivity {
         viewpager.setCurrentItem(tabPosition);
 
 
+
+        //---------- Back Button -----------
+        OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
+        onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                finish();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+        //---------- Back Button -----------
     }
 
 
@@ -71,9 +75,8 @@ public class SnakeListActivity extends AppCompatActivity {
 
         List<TabModel> tabs = Arrays.asList(
                 new TabModel("নির্বিষ সাপ", NonVenomFragment.class),
-                new TabModel("মৃদু বিষধর সাপ", MidVenimFragment.class),
+                new TabModel("মৃদু বিষধর সাপ", MidVenomFragment.class),
                 new TabModel("বিষধর সাপ", VenomousFragment.class),
-                new TabModel("বিষাক্ত সাপ", PoisonFragment.class),
                 new TabModel("সামুদ্রিক সাপ", SeaSnakesFragment.class)
         );
 
@@ -108,10 +111,7 @@ public class SnakeListActivity extends AppCompatActivity {
     }
 
 
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    }
+
+
 
 }

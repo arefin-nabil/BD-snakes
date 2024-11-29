@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
@@ -222,9 +224,48 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
+        //---------- Back Button -----------
+        OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
+        onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
 
+                // Check if the navigation drawer is open
+                if (drawerid.isDrawerOpen(GravityCompat.START)) {
+                    // If the drawer is open, close it
+                    drawerid.closeDrawer(GravityCompat.START);
+                } else {
+                    // If the drawer is closed, handle back press logic
+                    Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.framelayout);
 
-    }
+                    if (currentFragment instanceof HomeFragment) {  // Ensure the fragment name starts with uppercase
+                        // If the user is already on the HomeFragment, show a Toast and exit on second back press
+                        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+                            // Exit the app completely
+                            finish();  // This will close the activity
+                            return;
+                        } else {
+                            // Show Toast when back button is pressed the first time
+                            backPressedToast = Toast.makeText(HomeActivity.this, "Press again to exit", Toast.LENGTH_SHORT);
+                            backPressedToast.show();
+                        }
+
+                        backPressedTime = System.currentTimeMillis();
+                    } else {
+                        // If not on the HomeFragment, go back to the HomeFragment
+                        loadHomeFragment();
+
+                        // Update the BottomNavigationView icon to reflect the HomeFragment selection
+                        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnav);
+                        bottomNavigationView.setSelectedItemId(R.id.home); // Use the ID of your home item in the BottomNavigationView
+                    }
+                }
+
+            }
+        });
+        //---------- Back Button -----------
+
+    }//// ============ finish oncreate method ============
 
     //====================== Access about us from ToolBar Menu ========================
     @Override
@@ -246,46 +287,6 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     //====================== Access about us from ToolBar Menu ========================
-
-
-    //==================== On Back Press Method =====================
-    @Override
-    public void onBackPressed() {
-        // Check if the navigation drawer is open
-        if (drawerid.isDrawerOpen(GravityCompat.START)) {
-            // If the drawer is open, close it
-            drawerid.closeDrawer(GravityCompat.START);
-        } else {
-            // If the drawer is closed, handle back press logic
-            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.framelayout);
-
-            if (currentFragment instanceof HomeFragment) {  // Ensure the fragment name starts with uppercase
-                // If the user is already on the HomeFragment, show a Toast and exit on second back press
-                if (backPressedTime + 2000 > System.currentTimeMillis()) {
-                    // Exit the app completely
-                    super.onBackPressed();  // Or use finish() to close the activity
-                    finish();  // This will close the activity
-                    return;
-                } else {
-                    // Show Toast when back button is pressed the first time
-                    backPressedToast = Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT);
-                    backPressedToast.show();
-                }
-
-                backPressedTime = System.currentTimeMillis();
-            } else {
-                // If not on the HomeFragment, go back to the HomeFragment
-                loadHomeFragment();
-
-                // Update the BottomNavigationView icon to reflect the HomeFragment selection
-                BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnav);
-                bottomNavigationView.setSelectedItemId(R.id.home); // Use the ID of your home item in the BottomNavigationView
-            }
-        }
-    }
-    //==================== On Back Press Method =====================
-
-
 
 
     //======================== call Home Fragment ========================

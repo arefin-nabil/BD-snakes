@@ -6,6 +6,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -52,12 +54,21 @@ public class ArticleDetailActivity extends AppCompatActivity {
                 "সাপেরা সাধারণত শিকার ধরার আগে হজম এবং শক্তির সংরক্ষণ প্রক্রিয়ার ওপর নির্ভর করে। তারা দীর্ঘ সময় না খেয়ে বেঁচে থাকতে পারে, কারণ তাদের শরীর অনেক ধীরে শক্তি খরচ করে। তবে, যখন সেই সীমা অতিক্রম করে তাদের শরীর চরম শক্তি সংকটে পড়ে, তখন হয়তো তারা চরম ব্যবস্থা হিসেবে নিজেদের প্রজাতির সাপকেও খাবার হিসেবে ভাবতে পারে।\n" +
                 "তবে মনে রাখা গুরুত্বপূর্ণ, সাপের মধ্যে ক্যানিবালিজম খুবই ব্যতিক্রমী এবং বিরল ঘটনা এবং মূলত এটি প্রজাতিগত বৈচিত্র্যের কারণে ঘটে। সব সাপ একে অপরকে খেয়ে ফেলার চেষ্টা করবে না।");
 
+
+
+
+
+        //---------- Back Button -----------
+        OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
+        onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                finish();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+        //---------- Back Button -----------
     }
 
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    }
 
 }
