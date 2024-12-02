@@ -1,10 +1,13 @@
 package com.example.sbdfinal.homefragments;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.TransitionRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -15,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -165,7 +169,7 @@ public class HomeFragment extends Fragment {
                 } else if (position == 3) {
                     snakelistactivity(3);
                 }else if (position == 4) {
-
+                    showWildlifeActDialog();
                 }
 
             });
@@ -189,6 +193,37 @@ public class HomeFragment extends Fragment {
         requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
+
+
+    //====================== contact us Alert Dialog ========================
+    private void showWildlifeActDialog() {
+        // Inflate the custom layout
+        LayoutInflater inflater = getLayoutInflater();
+        android.view.View customView = inflater.inflate(R.layout.wildlifeactdialog, null);
+
+        Button closebutton = customView.findViewById(R.id.closebutton);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setView(customView);
+        AlertDialog dialog = builder.create();
+
+        // background transparent
+        // Set background transparent
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        }
+
+        // dialog btn workable
+        closebutton.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mccibd.org/wp-content/uploads/2021/09/Wildlife-Conservation-and-Security-Act-2012.pdf"));
+            startActivity(intent);
+            dialog.dismiss();
+
+        });
+
+        dialog.show();
+    }
+    //====================== contact us Alert Dialog ========================
 
 
 

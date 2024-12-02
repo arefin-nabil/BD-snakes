@@ -5,10 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutApp"
+    tools:context=".AboutAppActivity"
     android:orientation="vertical"
     android:layout_gravity="center"
     android:gravity="center"
+    android:background="#FAF0CA"
     >
 
     <LinearLayout
@@ -78,6 +79,14 @@
                 android:gravity="center_horizontal"
                 android:justificationMode="inter_word"
                 tools:ignore="HardcodedText"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/Night_BG"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 />
 
             <TextView
@@ -212,7 +221,13 @@
                 android:justificationMode="inter_word"
                 tools:ignore="HardcodedText"
                 />
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/Night_BG"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -243,6 +258,7 @@
                 android:autoLink="email"
                 android:fontFamily="@font/font1"
                 android:layout_marginBottom="8dp"/>
+
 
         </LinearLayout>
 

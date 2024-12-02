@@ -6,15 +6,11 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-public class AboutApp extends AppCompatActivity {
+public class AboutAppActivity extends AppCompatActivity {
 
     TextView myname, credittext, tooltitel;
     ImageView backbtn;

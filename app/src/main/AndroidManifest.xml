@@ -36,7 +36,7 @@
             android:name=".RescuerListActivity"
             android:exported="false" />
         <activity
-            android:name=".AboutApp"
+            android:name=".AboutAppActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

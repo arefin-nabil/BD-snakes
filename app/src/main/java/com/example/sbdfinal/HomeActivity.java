@@ -27,7 +27,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.bdtopcoder.smartadmob.AdmobAd;
 import com.bdtopcoder.smartadmob.GDPR;
 import com.example.sbdfinal.homefragments.ArticleFragment;
 import com.example.sbdfinal.homefragments.FaqFragment;
@@ -192,7 +191,7 @@ public class HomeActivity extends AppCompatActivity {
                     shareApp();
 
                 }else if (menuItem.getItemId() == R.id.aboutus) {
-                    Intent intent = new Intent(HomeActivity.this, AboutApp.class);
+                    Intent intent = new Intent(HomeActivity.this, AboutAppActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -279,7 +278,7 @@ public class HomeActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.applogo) {
-            Intent intent = new Intent(HomeActivity.this, AboutApp.class);
+            Intent intent = new Intent(HomeActivity.this, AboutAppActivity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             return false;
