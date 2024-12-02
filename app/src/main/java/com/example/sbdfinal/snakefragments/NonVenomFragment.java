@@ -16,13 +16,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bdtopcoder.smartadmob.AdmobAd;
-import com.bdtopcoder.smartadmob.AdmobAdCallBack;
-import com.example.sbdfinal.NetworkAccess;
+
 import com.example.sbdfinal.R;
-import com.example.sbdfinal.homefragments.RescuerFragment;
-import com.google.android.ads.nativetemplates.TemplateView;
-import com.google.android.gms.ads.nativead.NativeAd;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;

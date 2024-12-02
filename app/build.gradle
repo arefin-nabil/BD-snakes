@@ -48,7 +48,7 @@ dependencies {
 
     //Admob Ad
     implementation 'com.github.AtikulSoftware:SmartAdmob:6.0'
-    implementation 'com.google.android.gms:play-services-ads:23.2.0'
-    implementation project(':nativetemplates')
+    implementation 'com.google.android.gms:play-services-ads:23.5.0'
+
 
 }

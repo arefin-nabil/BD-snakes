@@ -4,13 +4,8 @@
 
         <item name="android:statusBarColor">@color/Theme_color</item>
         <item name="android:windowLightStatusBar">true</item>
-        
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        
-        <item name="android:windowBackground">@drawable/defaultsplash</item>
 
-        <item name="android:windowIsTranslucent">true</item>
+
 
     </style>
 

@@ -6,5 +6,7 @@
     <color name="colorUnselected">#616161</color>
     <color name="Theme_color">#96DA37</color>
     <color name="Day_BG">#FBFCF8</color>
-    <color name="Night_BG">#FBFCF8</color>
+    <color name="Night_BG">#303030</color>
+    <color name="Night_card_BG">#424242</color>
+    <color name="Night_AppBar">#212121</color>
 </resources>
