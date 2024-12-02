@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Day_BG"
-    tools:context=".homefragments.RescuerFragment">
+    android:background="@color/Night_BG"
+    tools:context=".homefragments.FaqFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -57,7 +57,6 @@
 
         </LinearLayout>
 
-
     </ScrollView>
 
     <LinearLayout
@@ -65,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:background="#20B1B1B1"
+        android:background="#20404040"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">

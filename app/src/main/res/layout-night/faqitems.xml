@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:background="@color/Day_BG"
+    android:background="@color/Night_BG"
     >
 
 
@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_8sdp"
             android:orientation="vertical"
+            android:background="@color/Night_card_BG"
             >
             <RelativeLayout
                 android:id="@+id/itemClicked"
@@ -58,7 +59,7 @@
                         android:padding="5dp"
                         android:text=""
                         android:fontFamily="@font/font1"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -90,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:layout_marginTop="5dp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/font1"
                     android:textAlignment="viewStart"
                     android:padding="5dp"
@@ -103,7 +104,7 @@
                     android:text="উত্তর - "
                     android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/font1"
                     android:padding="5dp"
                     android:textSize="@dimen/_11ssp"

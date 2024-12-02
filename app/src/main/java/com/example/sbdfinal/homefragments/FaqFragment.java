@@ -1,6 +1,7 @@
 package com.example.sbdfinal.homefragments;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -50,8 +51,6 @@ public class FaqFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         seemorebtn = view.findViewById(R.id.seemorebtn);
         loadinglottie = view.findViewById(R.id.loadinglottie);
-
-
 
 
         //================= click button with dialog ============================
@@ -156,6 +155,7 @@ public class FaqFragment extends Fragment {
             RelativeLayout itemClicked;
             ImageView arrowImg;
             TextView question, answer, author;
+
             public myViewholder(@NonNull View itemView) {
                 super(itemView);
 
@@ -188,6 +188,7 @@ public class FaqFragment extends Fragment {
             String answer = (String) hashMap.get("answer");
             String author = (String) hashMap.get("author");
 
+
             holder.question.setText(question);
             holder.answer.setText(answer);
             holder.author.setText(author);
@@ -196,8 +197,18 @@ public class FaqFragment extends Fragment {
 
             boolean isExpanded = expandedPosition == position;
 
+            boolean isDarkMode = (getContext().getResources().getConfiguration().uiMode
+                    & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
+
             holder.discLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
-            holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#FFFFFF"));
+
+            if (isDarkMode) {
+                holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#33000000"));
+            }else {
+                holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#FFFFFF"));
+            }
+
+
             holder.arrowImg.setImageResource(isExpanded ? R.drawable.uparrow : R.drawable.downarrow);
 
             // Handle click listener to expand/collapse the item
