@@ -53,7 +53,7 @@ public class SplashScreen extends AppCompatActivity {
                 //slide in, out animation for activity
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
-        }, 2750);
+        }, 2000);
 //=============== handle splash screen ==========================
 
     }

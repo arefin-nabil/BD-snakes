@@ -4,6 +4,17 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
 
-        <item name="android:windowIsTranslucent">true</item>        <!-- stop default splash screen -->
+        <item name="android:statusBarColor">@color/Theme_color</item>
+        <item name="android:windowLightStatusBar">true</item>
+
     </style>
+
+    <style name="ThemeSplash" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="android:statusBarColor">@color/Day_BG</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+
+
 </resources>
