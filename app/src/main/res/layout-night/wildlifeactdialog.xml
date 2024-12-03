@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/_10sdp"
+            android:background="@color/Night_card_BG"
             >
 
             <!-- Title -->
@@ -37,6 +38,7 @@
                 android:justificationMode="inter_word"
                 tools:ignore="HardcodedText"
                 android:fontFamily="@font/font1"
+                android:textColor="@color/Day_BG"
                 android:layout_marginTop="@dimen/_4sdp"
                 />
 

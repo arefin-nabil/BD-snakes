@@ -77,22 +77,22 @@ public class HomeFragment extends Fragment {
     private void hashMapdata(){
         hashMap = new HashMap<>();
         hashMap.put("titel", "নির্বিষ সাপ");
-        hashMap.put("image", R.drawable.logo);
+        hashMap.put("image", R.drawable.nonvenom);
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("titel", "মৃদু বিষধর সাপ");
-        hashMap.put("image", R.drawable.logo);
+        hashMap.put("image", R.drawable.midvenom);
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("titel", "বিষধর সাপ");
-        hashMap.put("image", R.drawable.logo);
+        hashMap.put("image", R.drawable.venom);
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("titel", "সামুুদ্রিক সাপ");
-        hashMap.put("image", R.drawable.logo);
+        hashMap.put("image", R.drawable.seasnake);
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
