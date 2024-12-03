@@ -34,7 +34,8 @@
                 android:layout_weight="1"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo"
+                                />
 
             <!-- TextView for item title -->
             <TextView

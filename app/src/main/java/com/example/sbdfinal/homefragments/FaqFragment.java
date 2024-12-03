@@ -205,7 +205,7 @@ public class FaqFragment extends Fragment {
             if (isDarkMode) {
                 holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#33000000"));
             }else {
-                holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#FFFFFF"));
+                holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#FFFFF0"));
             }
 
 

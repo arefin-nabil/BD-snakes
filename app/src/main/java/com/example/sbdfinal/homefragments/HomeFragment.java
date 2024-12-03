@@ -1,5 +1,8 @@
 package com.example.sbdfinal.homefragments;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -20,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -93,7 +97,7 @@ public class HomeFragment extends Fragment {
 
         hashMap = new HashMap<>();
         hashMap.put("titel", "জাতীয় জরুরী নাম্বার সমূহ");
-        hashMap.put("image", R.drawable.numberi);
+        hashMap.put("image", R.drawable.emergencynum);
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
@@ -169,7 +173,7 @@ public class HomeFragment extends Fragment {
                 } else if (position == 3) {
                     snakelistactivity(3);
                 }else if (position == 4) {
-                    showWildlifeActDialog();
+                    emergencycontactdialog();
                 }
 
             });
@@ -196,35 +200,63 @@ public class HomeFragment extends Fragment {
 
 
     //====================== contact us Alert Dialog ========================
-    private void showWildlifeActDialog() {
+    private String[] emergencyNumbers = {"999", "333", "16163", "1090", "16430"}; // Array of emergency numbers
+
+    private void emergencycontactdialog() {
         // Inflate the custom layout
         LayoutInflater inflater = getLayoutInflater();
-        android.view.View customView = inflater.inflate(R.layout.wildlifeactdialog, null);
+        android.view.View customView = inflater.inflate(R.layout.emergencynumdialog, null);
 
+        LinearLayout callicon = customView.findViewById(R.id.callicon);
+        LinearLayout callicon1 = customView.findViewById(R.id.callicon1);
+        LinearLayout callicon2 = customView.findViewById(R.id.callicon2);
+        LinearLayout callicon3 = customView.findViewById(R.id.callicon3);
+        LinearLayout callicon4 = customView.findViewById(R.id.callicon4);
         Button closebutton = customView.findViewById(R.id.closebutton);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(customView);
         AlertDialog dialog = builder.create();
 
-        // background transparent
         // Set background transparent
         if (dialog.getWindow() != null) {
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         }
 
-        // dialog btn workable
+        // Close button action
         closebutton.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mccibd.org/wp-content/uploads/2021/09/Wildlife-Conservation-and-Security-Act-2012.pdf"));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://bangladesh.gov.bd/site/page/aaebba14-f52a-4a3d-98fd-a3f8b911d3d9"));
             startActivity(intent);
             dialog.dismiss();
-
         });
+
+        // Call button actions for each emergency number
+        callicon.setOnClickListener(v -> callNumber(emergencyNumbers[0])); // Call 999
+        callicon1.setOnClickListener(v -> callNumber(emergencyNumbers[1])); // Call 333
+        callicon2.setOnClickListener(v -> callNumber(emergencyNumbers[2])); // Call 16163
+        callicon3.setOnClickListener(v -> callNumber(emergencyNumbers[3])); // Call 1090
+        callicon4.setOnClickListener(v -> callNumber(emergencyNumbers[4])); // Call 16430
 
         dialog.show();
     }
-    //====================== contact us Alert Dialog ========================
 
+    // Method to handle calling a specific number
+    private void callNumber(String number) {
+        String phoneNumber = "tel:" + number; // Construct the tel URI
+        Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+        dialIntent.setData(Uri.parse(phoneNumber));
 
+        // Check if there is an app that can handle this intent (like the phone dialer)
+        if (dialIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivity(dialIntent); // Open the dialer with the phone number pre-filled
+        } else {
+            ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("phone number", number); // Only the number, not "tel:"
+            clipboard.setPrimaryClip(clip);
+
+            // Show a toast to notify the user
+            Toast.makeText(getContext(), "No dialer app found. Number copied to clipboard.", Toast.LENGTH_LONG).show();
+        }
+    }
 
 }

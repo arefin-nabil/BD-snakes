@@ -1,5 +1,6 @@
 package com.example.sbdfinal.snakefragments;
 
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -119,7 +120,15 @@ public class MidVenomFragment extends Fragment {
             String snakeengname = hashMap.get("snakeengname");
             String snakesciname = hashMap.get("snakesciname");
 
-            holder.snakecardbg.setCardBackgroundColor(Color.parseColor("#fefda9"));
+            boolean isDarkMode = (getContext().getResources().getConfiguration().uiMode
+                    & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
+
+            if (isDarkMode) {
+                holder.snakecardbg.setCardBackgroundColor(Color.parseColor("#33000000"));
+            } else {
+                holder.snakecardbg.setCardBackgroundColor(Color.parseColor("#fefda9"));
+            }
+
             holder.snakebangname.setText(snakebangname);
             holder.snakeengname.setText(snakeengname);
             holder.snakesciname.setText(snakesciname);

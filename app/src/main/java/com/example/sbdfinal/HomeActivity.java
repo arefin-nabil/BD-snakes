@@ -1,6 +1,7 @@
 package com.example.sbdfinal;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -76,7 +77,13 @@ public class HomeActivity extends AppCompatActivity {
         drawerid.addDrawerListener(toggle);
         //built in menu icon
         toggle.syncState();
-        toggle.getDrawerArrowDrawable().setColorFilter(getResources().getColor(android.R.color.black), PorterDuff.Mode.SRC_ATOP);
+        boolean isDarkMode = (this.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
+        if (isDarkMode) {
+            toggle.getDrawerArrowDrawable().setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_ATOP);
+        }else {
+            toggle.getDrawerArrowDrawable().setColorFilter(getResources().getColor(android.R.color.black), PorterDuff.Mode.SRC_ATOP);
+        }
         //---------------------------------Toolbar Finish-----------------------------------
 
         //---------- Marquee Text for ToolBar -----------
