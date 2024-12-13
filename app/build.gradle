@@ -40,15 +40,16 @@ dependencies {
 
 
     //ssp and sdp library
-    implementation 'com.intuit.ssp:ssp-android:1.1.1'
-    implementation 'com.intuit.sdp:sdp-android:1.1.1'
+    implementation libs.ssp.android
+    implementation libs.sdp.android
 
     //lottie animation
-    implementation 'com.airbnb.android:lottie:6.6.0'
+    implementation libs.lottie
 
     //Admob Ad
-    implementation 'com.github.AtikulSoftware:SmartAdmob:6.0'
-    implementation 'com.google.android.gms:play-services-ads:23.5.0'
+    implementation libs.gms.play.services.ads
 
+    //volley library
+    implementation libs.volley
 
 }

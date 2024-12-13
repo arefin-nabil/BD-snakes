@@ -16,8 +16,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bdtopcoder.smartadmob.AdmobAd;
-import com.bdtopcoder.smartadmob.AdmobAdCallBack;
 import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.R;
 

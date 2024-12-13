@@ -19,8 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bdtopcoder.smartadmob.AdmobAd;
-import com.bdtopcoder.smartadmob.AdmobAdCallBack;
+
 import com.example.sbdfinal.ArticleDetailActivity;
 import com.example.sbdfinal.ArticleListActivity;
 import com.example.sbdfinal.NetworkAccess;
@@ -63,14 +62,11 @@ public class ArticleFragment extends Fragment {
                         // Check network access after the delay
                         if (getActivity() != null && NetworkAccess.isConnected(getActivity())) {
                             // Network is connected, go to the next activity
-                            new AdmobAd(getActivity(), new AdmobAdCallBack() {
-                                @Override
-                                public void onAdDismissed() {
+
                                     Intent intent = new Intent(getActivity(), ArticleListActivity.class);
                                     startActivity(intent);
                                     getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                                }
-                            }).loadAdmobInterstitialAd().showAdmobInterstitial(true);
+
                         } else {
                             // Network is not connected, show the no connection dialog
                             if (getActivity() != null) {

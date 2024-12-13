@@ -26,9 +26,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.bdtopcoder.smartadmob.AdmobAd;
-import com.bdtopcoder.smartadmob.AdmobAdCallBack;
 import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.R;
 import com.example.sbdfinal.RescuerListActivity;
@@ -73,14 +70,10 @@ public class RescuerFragment extends Fragment {
                         // Check network access after the delay
                         if (NetworkAccess.isConnected(getActivity())) {
                             // Network is connected, go to the next activity
-                            new AdmobAd(getActivity(), new AdmobAdCallBack() {
-                                @Override
-                                public void onAdDismissed() {
-                                    Intent intent = new Intent(getActivity(), RescuerListActivity.class);
-                                    startActivity(intent);
-                                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                                }
-                            }).loadAdmobInterstitialAd().showAdmobInterstitial(true);
+
+                            Intent intent = new Intent(getActivity(), RescuerListActivity.class);
+                            startActivity(intent);
+                            getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                         } else {
                             // Network is not connected, show the no connection dialog
@@ -111,7 +104,7 @@ public class RescuerFragment extends Fragment {
     }
 
     //========================= hashmap data created for recyclerview Starts Here ================================
-    private void hashMapdata(){
+    private void hashMapdata() {
         hashMap = new HashMap<>();
         hashMap.put("name", "জাতীয় জরুরী সেবা ");
         hashMap.put("number", "999");
@@ -146,17 +139,17 @@ public class RescuerFragment extends Fragment {
     //========================= hashmap data created for recyclerview ENDS here ================================
 
 
-
-
     //=============== Adapter Class created for recyclerview STARTS here================================
-    private class myAdapter extends RecyclerView.Adapter<RescuerFragment.myAdapter.myViewholder>{
+    private class myAdapter extends RecyclerView.Adapter<RescuerFragment.myAdapter.myViewholder> {
 
         private SparseBooleanArray expandedPositions = new SparseBooleanArray();
-        private class myViewholder extends RecyclerView.ViewHolder{
+
+        private class myViewholder extends RecyclerView.ViewHolder {
             //item view er variable nibo eikhane
             ImageView profileimg;
             TextView name, number;
             LinearLayout locationlayout, callicon;
+
             public myViewholder(@NonNull View itemView) {
                 super(itemView);
 
@@ -174,7 +167,7 @@ public class RescuerFragment extends Fragment {
         public RescuerFragment.myAdapter.myViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             //item view nibo eikhane,, item view er layout inflate korbo
             LayoutInflater inflater = getLayoutInflater();
-            View myView = inflater.inflate(R.layout.rescueritems,parent,false);
+            View myView = inflater.inflate(R.layout.rescueritems, parent, false);
             return new RescuerFragment.myAdapter.myViewholder(myView);
         }
 
@@ -217,14 +210,13 @@ public class RescuerFragment extends Fragment {
             //item er animation control
             holder.itemView.startAnimation(AnimationUtils.loadAnimation(getContext(), android.R.anim.slide_in_left));
         }
+
         @Override
         public int getItemCount() {
             return arrayList.size();
         }
     }
     //=============== Adapter Class for recyclerview ENDS here ================================
-
-
 
 
 }

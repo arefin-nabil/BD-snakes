@@ -1,5 +1,6 @@
 package com.example.sbdfinal.snakefragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 
 import com.example.sbdfinal.R;
+import com.example.sbdfinal.SnakeDetail;
 
 
 import java.util.ArrayList;
@@ -197,6 +199,14 @@ public class NonVenomFragment extends Fragment {
             holder.snakeengname.setText(snakeengname);
             holder.snakesciname.setText(snakesciname);
 
+            holder.snakecardbg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), SnakeDetail.class);
+                    intent.putExtra("bgColor", "#FFC107");
+                    startActivity(intent);
+                }
+            });
 
             //item er animation control
             holder.itemView.startAnimation(AnimationUtils.loadAnimation(getContext(), android.R.anim.slide_in_left));

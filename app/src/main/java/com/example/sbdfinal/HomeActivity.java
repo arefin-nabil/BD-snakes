@@ -28,7 +28,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.bdtopcoder.smartadmob.GDPR;
 import com.example.sbdfinal.homefragments.ArticleFragment;
 import com.example.sbdfinal.homefragments.FaqFragment;
 import com.example.sbdfinal.homefragments.HomeFragment;
@@ -66,8 +65,7 @@ public class HomeActivity extends AppCompatActivity {
         //====================== ID will define here ========================
 
         //_________________GDPR_______________________
-        GDPR gdpr = new GDPR(this);
-        gdpr.setGDPR();
+
         //_________________GDPR_______________________
 
         // Setup ActionBarDrawerToggle

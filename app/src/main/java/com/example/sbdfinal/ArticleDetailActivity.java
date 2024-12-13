@@ -3,6 +3,7 @@ package com.example.sbdfinal;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -13,8 +14,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.bdtopcoder.smartadmob.AdmobAd;
-import com.bdtopcoder.smartadmob.AdmobAdCallBack;
+import com.example.sbdfinal.admob.admobad;
 
 public class ArticleDetailActivity extends AppCompatActivity {
 
@@ -27,8 +27,9 @@ public class ArticleDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_detail);
 
-        AdmobAd admobAd = new AdmobAd(this);
-        admobAd.loadBanner(findViewById(R.id.bannerAd));
+        LinearLayout bannerAd = findViewById(R.id.bannerAd);
+        admobad.sdkinitialize(this);
+        admobad.setBannerAd(bannerAd, this);
 
         // Initialize views
         tooltitel = findViewById(R.id.tooltitel);

@@ -27,9 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bdtopcoder.smartadmob.AdmobAd;
-import com.bdtopcoder.smartadmob.AdmobAdCallBack;
-import com.example.sbdfinal.NetworkAccess;
+
 import com.example.sbdfinal.R;
 import com.example.sbdfinal.SnakeListActivity;
 
