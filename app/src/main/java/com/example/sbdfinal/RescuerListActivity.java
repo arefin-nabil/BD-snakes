@@ -162,7 +162,6 @@ public class RescuerListActivity extends AppCompatActivity {
 
                             }
 
-
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
                         }

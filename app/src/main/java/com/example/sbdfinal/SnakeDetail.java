@@ -13,9 +13,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.HashMap;
+
 public class SnakeDetail extends AppCompatActivity {
 
-    TextView textView;
+    TextView textView, textView1, textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,8 @@ public class SnakeDetail extends AppCompatActivity {
 
 
         textView = findViewById(R.id.textView);
+        textView1 = findViewById(R.id.textView1);
+        textView2 = findViewById(R.id.textView2);
 
 
         // Retrieve the color passed via Intent
@@ -32,27 +36,16 @@ public class SnakeDetail extends AppCompatActivity {
             getWindow().getDecorView().setBackgroundColor(Color.parseColor(color));
         }
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.56.1/Apps/data.php";
+        String snakebangname = getIntent().getStringExtra("snakebangname");
+        String snakeengname = getIntent().getStringExtra("snakeengname");
+        String snakesciname = getIntent().getStringExtra("snakesciname");
+        String text1 = getIntent().getStringExtra("text1");
+        String text2 = getIntent().getStringExtra("text2");
+        String text3 = getIntent().getStringExtra("text3");
 
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
-                        textView.setText(response);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                textView.setText("That didn't work!");
-            }
-        });
-
-
-        queue.add(stringRequest);
-
+        textView.setText(text1);
+        textView1.setText(text2);
+        textView2.setText(text3);
 
 
     }

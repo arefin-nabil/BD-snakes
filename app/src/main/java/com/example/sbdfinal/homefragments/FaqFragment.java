@@ -66,11 +66,9 @@ public class FaqFragment extends Fragment {
                         // Check network access after the delay
                         if (NetworkAccess.isConnected(getActivity())) {
                             // Network is connected, go to the next activity
-
                                     Intent intent = new Intent(getActivity(), FaqListActivity.class);
                                     startActivity(intent);
                                     getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
 
                         } else {
                             // Network is not connected, show the no connection dialog
@@ -112,7 +110,7 @@ public class FaqFragment extends Fragment {
         hashMap = new HashMap<>();
         hashMap.put("question", "জলাতঙ্ক রোগ কিভাবে সংক্রামিত হয়?");
         hashMap.put("answer", "জলাতঙ্ক ভাইরাস স্তন্যপায়ী প্রাণীর স্নায়ুতন্ত্রে ছরিয়ে পড়ে। জলাতঙ্ক জীবাণু আক্রান্ত প্রাণীর লালাতে থাকে। জলাতঙ্ক আক্রান্ত প্রাণীর কামড় বা আঁচড়ের ফলে প্রাথমিকভাবে এই রোগ ছড়ায়। আক্রান্ত স্থানের চামড়ায় নখের আঁচড়েক্ষত থেকে এ রোগ ছড়াতে পারে।");
-        hashMap.put("author", "মো: খোরশেদ আলম");
+        hashMap.put("author", "উত্তর - মো: খোরশেদ আলম");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
@@ -121,14 +119,14 @@ public class FaqFragment extends Fragment {
                 "⚫১০-১৫ মিনিট ধরে সাবান ও পানি দিয়ে দ্রুত ক্ষতস্থান পরিষ্কার করতে হবে। সাবান পাওয়া না গেলে শুধু পানি দিয়েই ধুয়ে ফেলতে হবে। এটাই জলাতঙ্কের সব চেয়ে ফলপ্রসু প্রাথমিক চিকিৎসা।\n" +
                 "⚫যদি পাওয়া যায় ৭০% অ্যালকোহল/ইথানল অথবা প্রভিডন আয়োডিন দ্বারা ক্ষতস্থান সম্পূর্ণভাবে পরিষ্কার করতে হবে।\n" +
                 "⚫পরবর্তী চিকিৎসার জন্য আক্রান্ত ব্যক্তিকে যত দ্রুত সম্ভব স্বাস্থ্যকেন্দ্রে নিতে হবে।");
-        hashMap.put("author", "মো: খোরশেদ আলম");
+        hashMap.put("author", "উত্তর - মো: খোরশেদ আলম");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("question", "প্রাণীর কামড়ে ক্ষতস্থানে কি করা উচিত নয়?");
         hashMap.put("answer", "মরিচের গুঁড়া, গাছের রস, অ্যাসিড অথবা অ্যালকালিস জাতীয় জ্বলাতনকর বস্তু লাগানো।\n" +
                 "ক্ষতস্থান পট্টি বা ব্যান্ডেজ দ্বারা ঢেকে দেওয়া।");
-        hashMap.put("author", "মো: খোরশেদ আলম");
+        hashMap.put("author", "উত্তর - মো: খোরশেদ আলম");
         arrayList.add(hashMap);
 
 

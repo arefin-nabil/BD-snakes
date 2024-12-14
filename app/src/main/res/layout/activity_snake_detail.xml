@@ -16,6 +16,18 @@
         android:text="Snake Detail"
         android:textSize="@dimen/_80sdp"
         />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Snake Detail"
+        />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Snake Detail"
+        />
 
 
 </LinearLayout>
