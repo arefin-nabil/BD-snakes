@@ -52,4 +52,7 @@ dependencies {
     //volley library
     implementation libs.volley
 
+    //glide imageview
+    implementation libs.glide
+
 }
