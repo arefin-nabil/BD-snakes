@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,12 +26,14 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -45,20 +48,21 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class RescuerListActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-
+    SearchView searchview;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
     HashMap<String, String> hashMap;
+    ImageView backbtn;
+    TextView tooltitel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rescuer_list);
-
-        recyclerView = findViewById(R.id.recyclerView);
 
         //---------- Back Button -----------
         OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
@@ -70,6 +74,55 @@ public class RescuerListActivity extends AppCompatActivity {
             }
         });
         //---------- Back Button -----------
+
+        recyclerView = findViewById(R.id.recyclerView);
+        tooltitel = findViewById(R.id.tooltitel);
+        backbtn = findViewById(R.id.backbtn);
+
+        // Back button click handler
+        backbtn.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        });
+
+        // Marquee text for toolbar title
+        tooltitel.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        tooltitel.setMarqueeRepeatLimit(-1);
+        tooltitel.setSelected(true);
+        // marquee text
+
+        searchview = findViewById(R.id.searchview);
+        searchview.clearFocus();
+
+
+        // Initialize RecyclerView
+        recyclerView.setLayoutManager(new LinearLayoutManager(RescuerListActivity.this));
+
+        // Initialize the adapter with the populated data
+        recyclerView.setAdapter(new myAdapter(RescuerListActivity.this, arrayList));
+
+
+
+
+        // Set listener for the SearchView
+        searchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Optional: Handle the query submission
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Filter the RecyclerView data based on the text input in the SearchView
+
+                myAdapter adapter = (myAdapter) recyclerView.getAdapter();
+                adapter.filter(newText);// Call filter method of the adapter
+                return false;
+            }
+        });
+
+
 
         String url = "http://192.168.56.1/Apps/rescuerlist.json";
 
@@ -102,7 +155,7 @@ public class RescuerListActivity extends AppCompatActivity {
                                 hashMap.put("profileimg",profileimg);
                                 arrayList.add(hashMap);
 
-                                myAdapter adapter = new myAdapter();
+                                myAdapter adapter = new myAdapter(RescuerListActivity.this, arrayList);
                                 recyclerView.setAdapter(adapter);
                                 recyclerView.setLayoutManager(new LinearLayoutManager(RescuerListActivity.this));
 
@@ -127,94 +180,114 @@ public class RescuerListActivity extends AppCompatActivity {
 
 
     }
-    private class myAdapter extends RecyclerView.Adapter<myAdapter.myViewholder>{
+    private class myAdapter extends RecyclerView.Adapter<RescuerListActivity.myAdapter.myViewholder> {
+        private Context context;
+        private List<HashMap<String, String>> originalList;
+        private List<HashMap<String, String>> filteredList;
 
-
-        private class myViewholder extends RecyclerView.ViewHolder{
-
-            TextView name, number, location;
-            ImageView rescuerprofileimg;
-            LinearLayout callicon;
-            public myViewholder(@NonNull View itemView) {
-                super(itemView);
-
-
-                name = itemView.findViewById(R.id.name);
-                number = itemView.findViewById(R.id.number);
-                location = itemView.findViewById(R.id.location);
-                rescuerprofileimg = itemView.findViewById(R.id.rescuerprofileimg);
-                callicon = itemView.findViewById(R.id.callicon);
-
-
-            }
+        // Constructor
+        public myAdapter(Context context, List<HashMap<String, String>> arrayList) {
+            this.context = context;
+            this.originalList = new ArrayList<>(arrayList); // Store the original list
+            this.filteredList = new ArrayList<>(arrayList); // Copy the data for filtering
         }
 
+        // ViewHolder class
+        public class myViewholder extends RecyclerView.ViewHolder {
+            ImageView rescuerprofileimg;
+            TextView name, number, location;
+            LinearLayout callicon;
+
+            public myViewholder(@NonNull View itemView) {
+                super(itemView);
+                rescuerprofileimg = itemView.findViewById(R.id.rescuerprofileimg);
+                name = itemView.findViewById(R.id.name);
+                number = itemView.findViewById(R.id.number);
+                callicon = itemView.findViewById(R.id.callicon);
+                location = itemView.findViewById(R.id.location);
+            }
+        }
 
         @NonNull
         @Override
         public myViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-            LayoutInflater inflater = getLayoutInflater();
-            View myView = inflater.inflate(R.layout.rescueritems,parent,false);
-
+            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+            View myView = inflater.inflate(R.layout.rescueritems, parent, false);
             return new myViewholder(myView);
         }
 
         @Override
         public void onBindViewHolder(@NonNull myViewholder holder, int position) {
+            HashMap<String, String> hashMap = filteredList.get(position);
 
+            String name = hashMap.get("name");
+            String number = hashMap.get("number");
+            String location = hashMap.get("location");
+            String imgeurl = hashMap.get("profileimg");
 
-            HashMap <String,String> hashMap = arrayList.get(position);
-
-            String sname = hashMap.get("name");
-            String snumber = hashMap.get("number");
-            String slocation = hashMap.get("location");
-            String sprofileimg = hashMap.get("profileimg");
-
-            holder.name.setText(sname);
-            holder.number.setText(snumber);
-            holder.location.setText(slocation);
-
-            Glide
-                    .with(RescuerListActivity.this)
-                    .load(sprofileimg)
+            // Load profile image using Glide
+            Glide.with(context)
+                    .load(imgeurl)
                     .circleCrop()
                     .placeholder(R.drawable.logo)
                     .into(holder.rescuerprofileimg);
 
-            holder.itemView.startAnimation(AnimationUtils.loadAnimation(RescuerListActivity.this, android.R.anim.slide_in_left));
+            // Set data
+            holder.name.setText(name);
+            holder.number.setText(number);
+            holder.location.setText(location);
 
+            // Set click listener for call icon
+            holder.callicon.setOnClickListener(v -> {
+                String phoneNumber = "tel:" + number;
+                Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+                dialIntent.setData(Uri.parse(phoneNumber));
 
-            holder.callicon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String phoneNumber = "tel:" + snumber; // Replace with the phone number you want to call
-                    Intent dialIntent = new Intent(Intent.ACTION_DIAL);
-                    dialIntent.setData(Uri.parse(phoneNumber));
+                if (dialIntent.resolveActivity(context.getPackageManager()) != null) {
+                    // Start the dialer app
+                    context.startActivity(dialIntent);
+                } else {
+                    // No dialer app found, copy the number to the clipboard
+                    ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("phone number", number); // Only the number, not "tel:"
+                    clipboard.setPrimaryClip(clip);
 
-                    // Check if there is an app that can handle this intent (like the phone dialer)
-                    if (dialIntent.resolveActivity(RescuerListActivity.this.getPackageManager()) != null) {
-                        startActivity(dialIntent); // Open the dialer with the phone number pre-filled
-                    } else {
-                        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                        ClipData clip = ClipData.newPlainText("phone number", snumber);
-                        clipboard.setPrimaryClip(clip);
-
-                        // Show a toast to notify the user
-                        Toast.makeText(RescuerListActivity.this, "No dialer app found. Number copied to clipboard.", Toast.LENGTH_LONG).show();
-                    }
+                    // Show a toast to notify the user
+                    Toast.makeText(context, "No dialer app found. Number copied to clipboard.", Toast.LENGTH_LONG).show();
                 }
             });
 
+            // Animate item view
+            holder.itemView.startAnimation(AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left));
         }
 
         @Override
         public int getItemCount() {
-            return arrayList.size();
+            return filteredList.size(); // Return size of filtered list
         }
 
+        // Filter method for SearchView
+        public void filter(String query) {
+            filteredList.clear(); // Clear the filtered list before adding new results
 
+            if (query.isEmpty()) {
+                // If query is empty, show all items
+                filteredList.addAll(originalList);
+            } else {
+                // Loop through the original list and filter based on name or location
+                for (HashMap<String, String> item : originalList) {
+                    String name = item.get("name");
+                    String location = item.get("location");
+
+                    // Case-insensitive check for name and location
+                    if ((name != null && name.toLowerCase().contains(query.toLowerCase())) ||
+                            (location != null && location.toLowerCase().contains(query.toLowerCase()))) {
+                        filteredList.add(item); // Add the item to filteredList if it matches
+                    }
+                }
+            }
+
+            notifyDataSetChanged(); // Notify adapter to refresh the RecyclerView with filtered data
+        }
     }
-
-
 }
