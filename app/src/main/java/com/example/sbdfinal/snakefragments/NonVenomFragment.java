@@ -143,6 +143,10 @@ public class NonVenomFragment extends Fragment {
             String snakebangname = hashMap.get("snakebangname");
             String snakeengname = hashMap.get("snakeengname");
             String snakesciname = hashMap.get("snakesciname");
+            String identity = hashMap.get("identity");
+            String detail = hashMap.get("detail");
+            String ending = hashMap.get("ending");
+
 
             holder.snakecardbg.setCardBackgroundColor(Color.parseColor("#bafabf"));
             holder.snakebangname.setText(snakebangname);
@@ -153,6 +157,13 @@ public class NonVenomFragment extends Fragment {
                 Toast.makeText(context, "Item Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, SnakeDetail.class);
                 intent.putExtra("bgColor", "#bafabf");
+                intent.putExtra("snakebangname", snakebangname);
+                intent.putExtra("snakeengname", snakeengname);
+                intent.putExtra("snakesciname", snakesciname);
+                intent.putExtra("identity", identity);
+                intent.putExtra("detail", detail);
+                intent.putExtra("ending", ending);
+
                 context.startActivity(intent);
             });
 

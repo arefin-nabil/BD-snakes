@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 public class SnakeDetail extends AppCompatActivity {
 
-    TextView textView, textView1, textView2;
+    TextView textView, textView1, textView2, textView3, textView4, textView5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,9 @@ public class SnakeDetail extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         textView1 = findViewById(R.id.textView1);
         textView2 = findViewById(R.id.textView2);
+        textView3 = findViewById(R.id.textView3);
+        textView4 = findViewById(R.id.textView4);
+        textView5 = findViewById(R.id.textView5);
 
 
         // Retrieve the color passed via Intent
@@ -39,13 +42,17 @@ public class SnakeDetail extends AppCompatActivity {
         String snakebangname = getIntent().getStringExtra("snakebangname");
         String snakeengname = getIntent().getStringExtra("snakeengname");
         String snakesciname = getIntent().getStringExtra("snakesciname");
-        String text1 = getIntent().getStringExtra("text1");
-        String text2 = getIntent().getStringExtra("text2");
-        String text3 = getIntent().getStringExtra("text3");
+        String identity = getIntent().getStringExtra("identity");
+        String detail = getIntent().getStringExtra("detail");
+        String ending = getIntent().getStringExtra("ending");
 
-        textView.setText(text1);
-        textView1.setText(text2);
-        textView2.setText(text3);
+
+        textView.setText(snakebangname);
+        textView1.setText(snakeengname);
+        textView2.setText(snakesciname);
+        textView3.setText(identity);
+        textView4.setText(detail);
+        textView5.setText(ending);
 
 
     }
