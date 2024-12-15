@@ -124,7 +124,7 @@ public class RescuerListActivity extends AppCompatActivity {
 
 
 
-        String url = "http://192.168.56.1/Apps/rescuerlist.json";
+        String url = "http://192.168.0.114/Apps/rescuerlist.json";
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {

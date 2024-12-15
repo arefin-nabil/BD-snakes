@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.R;
 import com.example.sbdfinal.RescuerListActivity;
@@ -43,14 +45,15 @@ import java.util.HashMap;
 
 public class NonVenomFragment extends Fragment {
 
-    RecyclerView recyclerView, recyclerView2;
+    RecyclerView recyclerView;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
-    HashMap<String, String> hashMap;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_non_venom, container, false);
+
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -58,7 +61,7 @@ public class NonVenomFragment extends Fragment {
         NonVenomFragment.myAdapter adapter = new NonVenomFragment.myAdapter(getContext(), arrayList);
         recyclerView.setAdapter(adapter);
 
-        String url = "http://192.168.56.1/Apps/snakedetail.json";
+        String url = "http://192.168.0.114/Apps/snakedetail.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -75,6 +78,9 @@ public class NonVenomFragment extends Fragment {
                                 String identity = jsnarray.getString("identity");
                                 String detail = jsnarray.getString("detail");
                                 String ending = jsnarray.getString("ending");
+                                String image1 = jsnarray.getString("image1");
+                                String image2 = jsnarray.getString("image2");
+                                String image3 = jsnarray.getString("image3");
 
                                 HashMap<String, String> hashMap = new HashMap<>();
                                 hashMap.put("snakebangname", snakebangname);
@@ -83,6 +89,10 @@ public class NonVenomFragment extends Fragment {
                                 hashMap.put("identity", identity);
                                 hashMap.put("detail", detail);
                                 hashMap.put("ending", ending);
+                                hashMap.put("image1", image1);
+                                hashMap.put("image2", image2);
+                                hashMap.put("image3", image3);
+
                                 arrayList.add(hashMap);
                             }
 
@@ -119,6 +129,7 @@ public class NonVenomFragment extends Fragment {
         private class myViewholder extends RecyclerView.ViewHolder {
             TextView snakebangname, snakeengname, snakesciname;
             CardView snakecardbg;
+            ImageView snakeimg;
 
             public myViewholder(@NonNull View itemView) {
                 super(itemView);
@@ -126,6 +137,7 @@ public class NonVenomFragment extends Fragment {
                 snakeengname = itemView.findViewById(R.id.snakeengname);
                 snakesciname = itemView.findViewById(R.id.snakesciname);
                 snakecardbg = itemView.findViewById(R.id.snakecardbg);
+                snakeimg = itemView.findViewById(R.id.snakeimg);
             }
         }
 
@@ -146,7 +158,16 @@ public class NonVenomFragment extends Fragment {
             String identity = hashMap.get("identity");
             String detail = hashMap.get("detail");
             String ending = hashMap.get("ending");
+            String image1 = hashMap.get("image1");
+            String image2 = hashMap.get("image2");
+            String image3 = hashMap.get("image3");
 
+            // Load profile image using Glide
+            Glide.with(context)
+                    .load(image1)
+                    .circleCrop()
+                    .placeholder(R.drawable.logo)
+                    .into(holder.snakeimg);
 
             holder.snakecardbg.setCardBackgroundColor(Color.parseColor("#bafabf"));
             holder.snakebangname.setText(snakebangname);
@@ -154,7 +175,6 @@ public class NonVenomFragment extends Fragment {
             holder.snakesciname.setText(snakesciname);
 
             holder.snakecardbg.setOnClickListener(v -> {
-                Toast.makeText(context, "Item Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, SnakeDetail.class);
                 intent.putExtra("bgColor", "#bafabf");
                 intent.putExtra("snakebangname", snakebangname);
@@ -163,8 +183,12 @@ public class NonVenomFragment extends Fragment {
                 intent.putExtra("identity", identity);
                 intent.putExtra("detail", detail);
                 intent.putExtra("ending", ending);
+                intent.putExtra("image1", image1);
+                intent.putExtra("image2", image2);
+                intent.putExtra("image3", image3);
 
                 context.startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             });
 
             // item animation
