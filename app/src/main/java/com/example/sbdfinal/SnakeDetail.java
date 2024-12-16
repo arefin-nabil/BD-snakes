@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
@@ -17,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.sbdfinal.admob.admobad;
 
 import java.util.HashMap;
 
@@ -42,7 +44,9 @@ public class SnakeDetail extends AppCompatActivity {
         image2 = findViewById(R.id.image2);
         image3 = findViewById(R.id.image3);
 
-
+        LinearLayout bannerAd = findViewById(R.id.bannerAd);
+        admobad.sdkinitialize(this);
+        admobad.setBannerAd(bannerAd, this);
 
         // Initialize views
         tooltitel = findViewById(R.id.tooltitel);

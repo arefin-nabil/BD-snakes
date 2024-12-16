@@ -28,6 +28,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.sbdfinal.FaqListActivity;
+import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.R;
 import com.example.sbdfinal.SnakeListActivity;
 
@@ -50,11 +52,9 @@ public class HomeFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView);
 
-
         // Set up RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new myAdapter());
-
 
         myAdapter adapter = new myAdapter();
         recyclerView.setAdapter(adapter);
@@ -62,10 +62,6 @@ public class HomeFragment extends Fragment {
 
         //Hashmap data function
         hashMapdata();
-
-
-
-
 
         return view;
     }
@@ -94,23 +90,23 @@ public class HomeFragment extends Fragment {
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
-        hashMap.put("titel", "জাতীয় জরুরী নাম্বার সমূহ");
-        hashMap.put("image", R.drawable.emergencynum);
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("titel", "হাসপাতাল তালিকা");
+        hashMap.put("titel", "সাপে কাটলে করনীয়");
         hashMap.put("image", R.drawable.logo);
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
-        hashMap.put("titel", "চিকিৎসামৃদু বিষধর সাপ মৃদু বিষধর সাপ");
+        hashMap.put("titel", "হাসপাতাল ও এন্টিভেনম");
         hashMap.put("image", R.drawable.logo);
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("titel", "যোগাযোগ");
         hashMap.put("image", R.drawable.logo);
+        arrayList.add(hashMap);
+
+        hashMap = new HashMap<>();
+        hashMap.put("titel", "জাতীয় জরুরী নাম্বার সমূহ");
+        hashMap.put("image", R.drawable.emergencynum);
         arrayList.add(hashMap);
     }
 
@@ -163,14 +159,31 @@ public class HomeFragment extends Fragment {
             holder.cardView.setOnClickListener(v -> {
 
                 if (position == 0){
-                    snakelistactivity(0);
+                    // Check network access after the delay
+                    if (NetworkAccess.isConnected(getActivity())) {
+                        snakelistactivity(0);
+                    } else {
+                        NetworkAccess.showNoConnectionDialog(getActivity(), "দয়াকরে ইন্টারনেটে সংযোগ চালু করুন");
+                    }
                 } else if (position == 1) {
-                    snakelistactivity(1);
+                    if (NetworkAccess.isConnected(getActivity())) {
+                        snakelistactivity(1);
+                    } else {
+                        NetworkAccess.showNoConnectionDialog(getActivity(), "দয়াকরে ইন্টারনেটে সংযোগ চালু করুন");
+                    }
                 } else if (position == 2) {
-                    snakelistactivity(2);
+                    if (NetworkAccess.isConnected(getActivity())) {
+                        snakelistactivity(2);
+                    } else {
+                        NetworkAccess.showNoConnectionDialog(getActivity(), "দয়াকরে ইন্টারনেটে সংযোগ চালু করুন");
+                    }
                 } else if (position == 3) {
-                    snakelistactivity(3);
-                }else if (position == 4) {
+                    if (NetworkAccess.isConnected(getActivity())) {
+                        snakelistactivity(3);
+                    } else {
+                        NetworkAccess.showNoConnectionDialog(getActivity(), "দয়াকরে ইন্টারনেটে সংযোগ চালু করুন");
+                    }
+                }else if (position == 7) {
                     emergencycontactdialog();
                 }
 
@@ -211,6 +224,7 @@ public class HomeFragment extends Fragment {
         LinearLayout callicon3 = customView.findViewById(R.id.callicon3);
         LinearLayout callicon4 = customView.findViewById(R.id.callicon4);
         Button closebutton = customView.findViewById(R.id.closebutton);
+        Button seemorebtn = customView.findViewById(R.id.seemorebtn);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(customView);
@@ -222,11 +236,13 @@ public class HomeFragment extends Fragment {
         }
 
         // Close button action
-        closebutton.setOnClickListener(v -> {
+        seemorebtn.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://bangladesh.gov.bd/site/page/aaebba14-f52a-4a3d-98fd-a3f8b911d3d9"));
             startActivity(intent);
             dialog.dismiss();
         });
+
+        closebutton.setOnClickListener(v -> dialog.dismiss());
 
         // Call button actions for each emergency number
         callicon.setOnClickListener(v -> callNumber(emergencyNumbers[0])); // Call 999

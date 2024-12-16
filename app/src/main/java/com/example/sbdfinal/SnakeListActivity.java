@@ -3,6 +3,7 @@ package com.example.sbdfinal;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.sbdfinal.adapter.TabLayoutAdapter;
+import com.example.sbdfinal.admob.admobad;
 import com.example.sbdfinal.models.TabModel;
 import com.example.sbdfinal.snakefragments.MidVenomFragment;
 import com.example.sbdfinal.snakefragments.NonVenomFragment;
@@ -38,6 +40,10 @@ public class SnakeListActivity extends AppCompatActivity {
         viewpager = findViewById(R.id.viewpager);
         backbtn = findViewById(R.id.backbtn);
         tooltitel = findViewById(R.id.tooltitel);
+
+        LinearLayout bannerAd = findViewById(R.id.bannerAd);
+        admobad.sdkinitialize(this);
+        admobad.setBannerAd(bannerAd, this);
 
         //---------- Marquee Text for ToolBar -----------
         tooltitel.setEllipsize(TextUtils.TruncateAt.MARQUEE);

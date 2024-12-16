@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -46,6 +47,7 @@ import java.util.HashMap;
 public class NonVenomFragment extends Fragment {
 
     RecyclerView recyclerView;
+    LottieAnimationView lottieAnimationView;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
 
 
@@ -55,13 +57,15 @@ public class NonVenomFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_non_venom, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
+        lottieAnimationView = view.findViewById(R.id.lottieAnimationView);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Set up RecyclerView Adapter
         NonVenomFragment.myAdapter adapter = new NonVenomFragment.myAdapter(getContext(), arrayList);
         recyclerView.setAdapter(adapter);
 
-        String url = "http://192.168.0.106/Apps/snakedetail.json";
+        String url = "http://192.168.0.106/Apps/nonvenom.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -107,7 +111,9 @@ public class NonVenomFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("Volley Error", error.toString());
-                Toast.makeText(getContext(), "Network error, please try again", Toast.LENGTH_SHORT).show();
+                lottieAnimationView.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
+                Toast.makeText(getContext(), "Please ensure you have an active internet connection and try again.", Toast.LENGTH_SHORT).show();
             }
         });
 
