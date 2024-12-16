@@ -58,8 +58,7 @@
         android:layout_weight="1"
         android:paddingLeft="@dimen/_5sdp"
         android:paddingRight="@dimen/_5sdp"
-        android:visibility="visible"
-        android:background="#A6EDFA"
+        android:background="@color/Day_BG"
         >
 
         <LinearLayout
@@ -79,8 +78,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="২ টা একই প্রজাতির সাপকে একটা বয়ামে আটকে রাখি,, এবং অনেক দিন কোনো কিছু খেতে না দেই,, তবে কী তারা একে অপরকে খেয়ে ফেলতে চাইবে?"
-                    android:textSize="@dimen/_15ssp"
+                    android:textSize="@dimen/_17ssp"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:fontFamily="@font/font1"
                     android:layout_margin="@dimen/_4sdp"
                     />
@@ -116,14 +116,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="মাহাদী হিমু"
-                            android:textSize="@dimen/_14sdp"
+                            android:textSize="@dimen/_15sdp"
                             android:gravity="center"
+                            android:textStyle="bold"
                             android:fontFamily="@font/font1"
 
                             />
 
                         <TextView
-                            android:id="@+id/authordesignation"
+                            android:id="@+id/authordes"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Member,, wsrtbd"
@@ -142,7 +143,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/article"
+                    android:id="@+id/text1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -151,7 +152,25 @@
                     android:textAlignment="viewStart"
                     android:padding="5dp"
                     android:textSize="@dimen/_14ssp"
+                    />
 
+                <ImageView
+                    android:id="@+id/coverimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logo"
+                    />
+
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/font1"
+                    android:textAlignment="viewStart"
+                    android:padding="5dp"
+                    android:textSize="@dimen/_14ssp"
                     />
 
 

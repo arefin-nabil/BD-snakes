@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.bumptech.glide.Glide;
 import com.example.sbdfinal.ArticleDetailActivity;
 import com.example.sbdfinal.ArticleListActivity;
 import com.example.sbdfinal.NetworkAccess;
@@ -34,8 +35,8 @@ public class ArticleFragment extends Fragment {
     RecyclerView recyclerView;
     AppCompatButton seemorebtn;
     LinearLayout loadinglottie;
-    ArrayList<HashMap<String, Object>> arrayList = new ArrayList<>();
-    HashMap<String, Object> hashMap;
+    ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
+    HashMap<String, String> hashMap;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -105,21 +106,23 @@ public class ArticleFragment extends Fragment {
     private void hashMapdata(){
 
         hashMap = new HashMap<>();
-        hashMap.put("titel", "একই প্রজাতির দুইটি সাপকে খাবার ছাড়া দীর্ঘ দিন বন্দি করে রাখলে কী হবে?");
+        hashMap.put("title", "একই প্রজাতির দুইটি সাপকে খাবার ছাড়া দীর্ঘ দিন বন্দি করে রাখলে কী হবে?");
         hashMap.put("author", "মো: মেহেদী হিমু");
-        hashMap.put("coverimg", R.drawable.logo);
+        hashMap.put("coverimg", "https://blogger.googleusercontent.com/img/a/AVvXsEg42Yd-JIIsWyp__e-bHrjuh1jyYl_DpKbzzQxmIDNwnatThBaTse8V6dmvoJwQjes-fsNKBCazVg19w41Kra_otq2LaGxJaH0nGYagj03D4sQdXy5cr2eBYIe46Su119pWGyhYGkX5Nf964E29BCWAmOnmAKIjVhmvuHD377iuR6fCvCA3n44NyNQZecU");
+        hashMap.put("authorimg", "https://blogger.googleusercontent.com/img/a/AVvXsEg42Yd-JIIsWyp__e-bHrjuh1jyYl_DpKbzzQxmIDNwnatThBaTse8V6dmvoJwQjes-fsNKBCazVg19w41Kra_otq2LaGxJaH0nGYagj03D4sQdXy5cr2eBYIe46Su119pWGyhYGkX5Nf964E29BCWAmOnmAKIjVhmvuHD377iuR6fCvCA3n44NyNQZecU");
+        hashMap.put("authordesc", "a");
+        hashMap.put("text1", "b");
+        hashMap.put("text2", "c");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
-        hashMap.put("titel", "বিভিন্নপ্রকার সর্প বিষ ও এদের কার্যকারীতা");
+        hashMap.put("title", "কালাচ সাপ রাতে ঘুমন্ত মানুষকে কেন কামড়ায়?");
         hashMap.put("author", "নাবিদ আল জুবায়ের");
-        hashMap.put("coverimg", R.drawable.logo);
-        arrayList.add(hashMap);
-
-        hashMap = new HashMap<>();
-        hashMap.put("titel", "কালাচ সাপ রাতে ঘুমন্ত মানুষকে কেন কামড়ায়?");
-        hashMap.put("author", "নাবিদ আল জুবায়ের");
-        hashMap.put("coverimg", R.drawable.logo);
+        hashMap.put("coverimg", "https://blogger.googleusercontent.com/img/a/AVvXsEg42Yd-JIIsWyp__e-bHrjuh1jyYl_DpKbzzQxmIDNwnatThBaTse8V6dmvoJwQjes-fsNKBCazVg19w41Kra_otq2LaGxJaH0nGYagj03D4sQdXy5cr2eBYIe46Su119pWGyhYGkX5Nf964E29BCWAmOnmAKIjVhmvuHD377iuR6fCvCA3n44NyNQZecU");
+        hashMap.put("authorimg", "https://blogger.googleusercontent.com/img/a/AVvXsEg42Yd-JIIsWyp__e-bHrjuh1jyYl_DpKbzzQxmIDNwnatThBaTse8V6dmvoJwQjes-fsNKBCazVg19w41Kra_otq2LaGxJaH0nGYagj03D4sQdXy5cr2eBYIe46Su119pWGyhYGkX5Nf964E29BCWAmOnmAKIjVhmvuHD377iuR6fCvCA3n44NyNQZecU");
+        hashMap.put("authordesc", "d");
+        hashMap.put("text1", "r");
+        hashMap.put("text2", "f");
         arrayList.add(hashMap);
 
     }
@@ -160,20 +163,27 @@ public class ArticleFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull ArticleFragment.myAdapter.myViewholder holder, int position) {
             //hashmap theke ene item view e data set korbo,,
-            HashMap<String, Object> hashMap = arrayList.get(position);
+            HashMap<String, String> hashMap = arrayList.get(position);
 
-            String title = (String) hashMap.get("titel");
-            String author = (String) hashMap.get("author");
-            int image = (int) hashMap.get("coverimg");
+            String coverimg = hashMap.get("coverimg");
+            String title = hashMap.get("title");
+            String author = hashMap.get("author");
+            String authorimg = hashMap.get("authorimg");
+            String authordesc = hashMap.get("authordesc");
+            String text1 = hashMap.get("text1");
+            String text2 = hashMap.get("text2");
 
-            holder.coverimg.setImageResource(image);
             holder.title.setText(title);
             holder.author.append(author);
 
 
             //eikhane image set korbo
 
-
+            Glide.with(getContext())
+                    .load(coverimg)
+                    .centerCrop()
+                    .placeholder(R.drawable.logo)
+                    .into(holder.coverimg);
 
 
             //item ke click korle kaj korabo
@@ -187,6 +197,13 @@ public class ArticleFragment extends Fragment {
                     public void run() {
 
                         Intent intent = new Intent(getContext(), ArticleDetailActivity.class);
+                        intent.putExtra("coverimg", coverimg);
+                        intent.putExtra("title", title);
+                        intent.putExtra("author", author);
+                        intent.putExtra("authorimg", authorimg);
+                        intent.putExtra("authordesc", authordesc);
+                        intent.putExtra("text1", text1);
+                        intent.putExtra("text2", text2);
                         startActivity(intent);
                         // Hide the loading animation (regardless of network status)
                         if (loadinglottie != null) {

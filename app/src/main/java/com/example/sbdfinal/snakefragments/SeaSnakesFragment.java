@@ -60,7 +60,7 @@ public class SeaSnakesFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
-        String url = "http://192.168.0.114/Apps/seasnakes.json";
+        String url = "http://192.168.0.106/Apps/seasnakes.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

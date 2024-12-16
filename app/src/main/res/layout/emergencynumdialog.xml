@@ -752,20 +752,34 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <Button
-                    android:id="@+id/closebutton"
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="আরো দেখুন"
-                    android:textSize="@dimen/_18ssp"
-                    android:fontFamily="@font/font1"
-                    android:layout_gravity="right"
-                    android:textColor="@color/black"
-                    android:backgroundTint="@color/Theme_color"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginRight="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    />
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:elevation="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_15sdp"
+                    app:cardElevation="@dimen/_5sdp"
+
+                    >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/closebutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/Theme_color"
+                        android:fontFamily="@font/font1"
+                        android:padding="@dimen/_10sdp"
+                        android:text="আরো দেখুন..."
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15ssp"
+
+                        />
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 

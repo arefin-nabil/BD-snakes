@@ -58,7 +58,7 @@ public class MidVenomFragment extends Fragment {
         MidVenomFragment.myAdapter adapter = new MidVenomFragment.myAdapter(getContext(), arrayList);
         recyclerView.setAdapter(adapter);
 
-        String url = "http://192.168.0.114/Apps/midvenom.json";
+        String url = "http://192.168.0.106/Apps/midvenom.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

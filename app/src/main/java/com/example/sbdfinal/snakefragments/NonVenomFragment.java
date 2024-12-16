@@ -61,7 +61,7 @@ public class NonVenomFragment extends Fragment {
         NonVenomFragment.myAdapter adapter = new NonVenomFragment.myAdapter(getContext(), arrayList);
         recyclerView.setAdapter(adapter);
 
-        String url = "http://192.168.0.114/Apps/snakedetail.json";
+        String url = "http://192.168.0.106/Apps/snakedetail.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

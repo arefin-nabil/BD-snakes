@@ -60,7 +60,7 @@ public class VenomousFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
-        String url = "http://192.168.0.114/Apps/venemous.json";
+        String url = "http://192.168.0.106/Apps/venemous.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
