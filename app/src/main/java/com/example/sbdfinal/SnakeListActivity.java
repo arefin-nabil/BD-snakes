@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.bdtopcoder.smartadmob.AdmobAd;
 import com.example.sbdfinal.adapter.TabLayoutAdapter;
-import com.example.sbdfinal.admob.admobad;
 import com.example.sbdfinal.models.TabModel;
 import com.example.sbdfinal.snakefragments.MidVenomFragment;
 import com.example.sbdfinal.snakefragments.NonVenomFragment;
@@ -41,9 +41,10 @@ public class SnakeListActivity extends AppCompatActivity {
         backbtn = findViewById(R.id.backbtn);
         tooltitel = findViewById(R.id.tooltitel);
 
-        LinearLayout bannerAd = findViewById(R.id.bannerAd);
-        admobad.sdkinitialize(this);
-        admobad.setBannerAd(bannerAd, this);
+        MyAdmob.loadAdUnit();
+
+        AdmobAd admobAd = new AdmobAd(this);
+        admobAd.loadBanner(findViewById(R.id.bannerAd));
 
         //---------- Marquee Text for ToolBar -----------
         tooltitel.setEllipsize(TextUtils.TruncateAt.MARQUEE);

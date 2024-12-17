@@ -1,6 +1,5 @@
 package com.example.sbdfinal;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
@@ -11,16 +10,8 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.bdtopcoder.smartadmob.AdmobAd;
 import com.bumptech.glide.Glide;
-import com.example.sbdfinal.admob.admobad;
-
-import java.util.HashMap;
 
 public class SnakeDetail extends AppCompatActivity {
 
@@ -44,9 +35,10 @@ public class SnakeDetail extends AppCompatActivity {
         image2 = findViewById(R.id.image2);
         image3 = findViewById(R.id.image3);
 
-        LinearLayout bannerAd = findViewById(R.id.bannerAd);
-        admobad.sdkinitialize(this);
-        admobad.setBannerAd(bannerAd, this);
+        MyAdmob.loadAdUnit();
+
+        AdmobAd admobAd = new AdmobAd(this);
+        admobAd.loadBanner(findViewById(R.id.bannerAd));
 
         // Initialize views
         tooltitel = findViewById(R.id.tooltitel);

@@ -1,5 +1,7 @@
 package com.example.sbdfinal;
 
+import static android.content.Intent.getIntent;
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
@@ -11,8 +13,9 @@ import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.bdtopcoder.smartadmob.AdmobAd;
+import com.bdtopcoder.smartadmob.AdmobAdCallBack;
 import com.bumptech.glide.Glide;
-import com.example.sbdfinal.admob.admobad;
 
 public class ArticleDetailActivity extends AppCompatActivity {
 
@@ -25,9 +28,10 @@ public class ArticleDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_detail);
 
-        LinearLayout bannerAd = findViewById(R.id.bannerAd);
-        admobad.sdkinitialize(this);
-        admobad.setBannerAd(bannerAd, this);
+        MyAdmob.loadAdUnit();
+
+        AdmobAd admobAd = new AdmobAd(this);
+        admobAd.loadBanner(findViewById(R.id.bannerAd));
 
         // Initialize views
         tooltitel = findViewById(R.id.tooltitel);

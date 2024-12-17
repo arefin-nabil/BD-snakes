@@ -19,8 +19,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bdtopcoder.smartadmob.AdmobAd;
+import com.bdtopcoder.smartadmob.AdmobAdCallBack;
 import com.bumptech.glide.Glide;
-import com.example.sbdfinal.admob.admobad;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,10 +41,13 @@ public class SnakeBiteList extends AppCompatActivity {
         tooltitel = findViewById(R.id.tooltitel);
         recyclerView = findViewById(R.id.recyclerView);
 
-        LinearLayout bannerAd = findViewById(R.id.bannerAd);
-        admobad.sdkinitialize(this);
-        admobad.setBannerAd(bannerAd, this);
+        MyAdmob.loadAdUnit();
 
+        AdmobAd admobAd = new AdmobAd(this);
+        admobAd.loadBanner(findViewById(R.id.bannerAd));
+
+        admobAd.initializeAdmobAd();
+        admobAd.loadAdmobInterstitialAd();
         //---------- Marquee Text for ToolBar -----------
         tooltitel.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         tooltitel.setMarqueeRepeatLimit(-1);
@@ -254,12 +258,18 @@ public class SnakeBiteList extends AppCompatActivity {
                     .into(holder.image);
 
             holder.cardbg.setOnClickListener(v -> {
-                Intent intent = new Intent(SnakeBiteList.this, SnakeBiteDetail.class);
-                intent.putExtra("title", title);
-                intent.putExtra("detail", detail);
 
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                new AdmobAd(SnakeBiteList.this, new AdmobAdCallBack() {
+                    @Override
+                    public void onAdDismissed() {
+                        Intent intent = new Intent(SnakeBiteList.this, SnakeBiteDetail.class);
+                        intent.putExtra("title", title);
+                        intent.putExtra("detail", detail);
+
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    }
+                }).showAdmobInterstitial(true);
 
                 });
 

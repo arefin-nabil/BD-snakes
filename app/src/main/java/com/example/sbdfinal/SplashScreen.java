@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bdtopcoder.smartadmob.AdmobAd;
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -27,6 +29,10 @@ public class SplashScreen extends AppCompatActivity {
         // Start animations
         imageView.startAnimation(slideTopToBottom);
         textView.startAnimation(slideTopToBottom);
+
+        AdmobAd admobAd = new AdmobAd(this);
+        admobAd.initializeAdmobAd();
+        admobAd.loadAdmobInterstitialAd();
 
 
 

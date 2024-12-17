@@ -9,8 +9,10 @@ lottie = "6.6.0"
 material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.2.0"
+playServicesAds = "23.2.0"
 playServicesAdsVersion = "23.6.0"
 sdpAndroid = "1.1.1"
+smartadmob = "6.0"
 sspAndroid = "1.1.1"
 volley = "1.2.1"
 
@@ -25,7 +27,9 @@ lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+play-services-ads-v2320 = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAds" }
 sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdpAndroid" }
+smartadmob = { module = "com.github.AtikulSoftware:SmartAdmob", version.ref = "smartadmob" }
 ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "sspAndroid" }
 volley = { module = "com.android.volley:volley", version.ref = "volley" }
 

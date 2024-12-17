@@ -6,15 +6,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.sbdfinal.admob.admobad;
+import com.bdtopcoder.smartadmob.AdmobAd;
 
 public class SnakeBiteDetail extends AppCompatActivity {
 
@@ -31,9 +27,11 @@ public class SnakeBiteDetail extends AppCompatActivity {
         backbtn = findViewById(R.id.backbtn);
         tooltitel = findViewById(R.id.tooltitel);
 
-        LinearLayout bannerAd = findViewById(R.id.bannerAd);
-        admobad.sdkinitialize(this);
-        admobad.setBannerAd(bannerAd, this);
+
+        MyAdmob.loadAdUnit();
+
+        AdmobAd admobAd = new AdmobAd(this);
+        admobAd.loadBanner(findViewById(R.id.bannerAd));
 
         // Initialize views
         tooltitel = findViewById(R.id.tooltitel);

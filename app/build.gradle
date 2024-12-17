@@ -47,12 +47,11 @@ dependencies {
     implementation libs.lottie
 
     //Admob Ad
-    implementation libs.gms.play.services.ads
+    implementation libs.smartadmob
+    implementation libs.play.services.ads.v2320
 
     //volley library
     implementation libs.volley
-    implementation libs.volley
-
 
     //glide imageview
     implementation libs.glide
