@@ -63,12 +63,6 @@ public class SnakeDetail extends AppCompatActivity {
         tooltitel.setMarqueeRepeatLimit(-1);
         tooltitel.setSelected(true);
 
-        // Retrieve the color passed via Intent
-        String color = getIntent().getStringExtra("bgColor");
-        if (color != null) {
-            getWindow().getDecorView().setBackgroundColor(Color.parseColor(color));
-        }
-
         String snakebangname = getIntent().getStringExtra("snakebangname");
         String snakeengname = getIntent().getStringExtra("snakeengname");
         String snakesciname = getIntent().getStringExtra("snakesciname");

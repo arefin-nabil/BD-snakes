@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.TransitionRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -28,14 +27,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.sbdfinal.FaqListActivity;
 import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.R;
+import com.example.sbdfinal.SnakeBiteList;
 import com.example.sbdfinal.SnakeListActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
@@ -183,7 +181,11 @@ public class HomeFragment extends Fragment {
                     } else {
                         NetworkAccess.showNoConnectionDialog(getActivity(), "দয়াকরে ইন্টারনেটে সংযোগ চালু করুন");
                     }
-                }else if (position == 7) {
+                } else if (position == 4) {
+                    Intent intent = new Intent(getActivity(), SnakeBiteList.class);
+                    startActivity(intent);
+                    requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else if (position == 7) {
                     emergencycontactdialog();
                 }
 

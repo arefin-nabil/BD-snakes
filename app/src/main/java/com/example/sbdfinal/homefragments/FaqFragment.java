@@ -52,7 +52,6 @@ public class FaqFragment extends Fragment {
 
 
         //================= click button with dialog ============================
-
         seemorebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

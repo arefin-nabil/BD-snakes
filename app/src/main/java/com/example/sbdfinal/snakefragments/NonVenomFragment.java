@@ -65,7 +65,7 @@ public class NonVenomFragment extends Fragment {
         NonVenomFragment.myAdapter adapter = new NonVenomFragment.myAdapter(getContext(), arrayList);
         recyclerView.setAdapter(adapter);
 
-        String url = "http://192.168.0.106/Apps/nonvenom.json";
+        String url = "http://192.168.0.112/Apps/nonvenom.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -182,7 +182,6 @@ public class NonVenomFragment extends Fragment {
 
             holder.snakecardbg.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SnakeDetail.class);
-                intent.putExtra("bgColor", "#bafabf");
                 intent.putExtra("snakebangname", snakebangname);
                 intent.putExtra("snakeengname", snakeengname);
                 intent.putExtra("snakesciname", snakesciname);

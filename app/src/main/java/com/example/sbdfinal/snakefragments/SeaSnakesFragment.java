@@ -63,7 +63,7 @@ public class SeaSnakesFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
-        String url = "http://192.168.0.106/Apps/seasnakes.json";
+        String url = "http://192.168.0.112/Apps/seasnakes.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -187,7 +187,6 @@ public class SeaSnakesFragment extends Fragment {
 
             holder.snakecardbg.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SnakeDetail.class);
-                intent.putExtra("bgColor", "#bafabf");
                 intent.putExtra("snakebangname", snakebangname);
                 intent.putExtra("snakeengname", snakeengname);
                 intent.putExtra("snakesciname", snakesciname);

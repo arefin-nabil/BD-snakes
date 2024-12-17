@@ -61,7 +61,7 @@ public class MidVenomFragment extends Fragment {
         MidVenomFragment.myAdapter adapter = new MidVenomFragment.myAdapter(getContext(), arrayList);
         recyclerView.setAdapter(adapter);
 
-        String url = "http://192.168.0.106/Apps/midvenom.json";
+        String url = "http://192.168.0.112/Apps/midvenom.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -195,7 +195,6 @@ public class MidVenomFragment extends Fragment {
 
             holder.snakecardbg.setOnClickListener(v -> {
                 Intent intent = new Intent(context, SnakeDetail.class);
-                intent.putExtra("bgColor", "#bafabf");
                 intent.putExtra("snakebangname", snakebangname);
                 intent.putExtra("snakeengname", snakeengname);
                 intent.putExtra("snakesciname", snakesciname);
