@@ -32,6 +32,10 @@ public class SnakeBiteList extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
     HashMap<String, String> hashMap;
+    // Class-level variable to store the last ad shown timestamp
+    private long lastAdShownTime = 0; // Initialize to 0 (no ad shown yet)
+    private static final long AD_INTERVAL = 100000; // 1.4 minute in milliseconds
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +50,10 @@ public class SnakeBiteList extends AppCompatActivity {
         AdmobAd admobAd = new AdmobAd(this);
         admobAd.loadBanner(findViewById(R.id.bannerAd));
 
-        admobAd.initializeAdmobAd();
         admobAd.loadAdmobInterstitialAd();
+        admobAd.initializeAdmobAd();
+
+
         //---------- Marquee Text for ToolBar -----------
         tooltitel.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         tooltitel.setMarqueeRepeatLimit(-1);
@@ -124,7 +130,7 @@ public class SnakeBiteList extends AppCompatActivity {
         hashMap = new HashMap<>();
         hashMap.put("title", "সর্প দংশন প্রতিরোধে করণীয়");
         hashMap.put("detail", "আমাদের দেশে সাধারণত গ্রামাঞ্চলে মানুষ বেশি সৰ্প দংশনের শিকার হয়। সাপ বন জঙ্গল ছাড়াও বাড়িঘরের আশেপাশে থাকে। সর্প দংশন প্রতিরোধ করার উপায়সমূহঃ\n" +
-                "১. সাপ নিয়ে নাড়াচড়া বা খেলাধুলা করা যাবে না;\n" +
+                "\n১. সাপ নিয়ে নাড়াচড়া বা খেলাধুলা করা যাবে না;\n" +
                 "২. সাপ থাকতে পারে এমন জায়গা যেমন- ঘন ঘাস বা ঝোপঝাড়, ইট বা পাথরের ফাঁক, ইঁদুর বা কোন প্রকার গর্ত ইত্যাদি এড়িয়ে চলতে হবে;\n" +
                 "৩. জঙ্গল বা ঝোপঝাড়ে যেতে হলে অবশ্যই লম্বা লাঠি ব্যবহার করতে হবে;\n" +
                 "৪. রাতে চলাফেরার সময় টর্চ লাইট বা অন্য কোনো বাতি ব্যবহার করতে হবে;\n" +
@@ -132,7 +138,7 @@ public class SnakeBiteList extends AppCompatActivity {
                 "৬. রাতে মাটিতে ঘুমানো যাবে না;\n" +
                 "৭. রাতে ঘুমানোর সময় অবশ্যই মশারি ব্যবহার করতে হবে ও বিছানার চারপাশে ভালভাবে গুঁজে দিতে হবে;\n" +
                 "৮. ঘরবাড়ি ইঁদুর মুক্ত রাখতে হবে;\n" +
-                "৯. বাড়ির ভেতর-বাহিরে কোন গর্ত থাকলে তা ভরাট করে দিতে হবে;" +
+                "৯. বাড়ির ভেতর-বাহিরে কোন গর্ত থাকলে তা ভরাট করে দিতে হবে;\n" +
                 "১০. মাছ ধরার সময় ‘চাই’ কিংবা ‘জালের' মধ্যে হাত দেওয়ার আগে সাপ আছে কি-না তা দেখে নিতে হবে;\n" +
                 "১১. খালি পায়ে চলাচল না করা;\n" +
                 "১২. কৃষি কাজ করার সময় প্রয়োজনে গামবুট ব্যবহার করতে হবে;\n" +
@@ -148,9 +154,7 @@ public class SnakeBiteList extends AppCompatActivity {
                 "৩. প্রযোজ্য ক্ষেত্রে সর্প দংশিত স্থানের দুই আঙ্গুল উপরে ক্রেপ ব্যান্ডেজ/তিন ইঞ্চি শাড়ির পাড়/গামছা দিয়ে হালকা করে বাধঁতে হবে, যাতে হৎপিন্ডের দিকে রক্তের প্রবাহের গতি কমে যায়;\n" +
                 "৪. বাঁধন যেন কোন অবস্থাতেই খুব বেশী শক্ত না হয়, সেদিকে লক্ষ্য রাখতে হবে। বাধঁনে নাইলনের মিহি বা চিকন সূতা/দড়ি ব্যবহার করা যাবে না;\n" +
                 "৫. রোগীকে কোন ভাবেই হাঁটাচলা করতে দেওয়া যাবে না;\n" +
-                "৬.\n" +
-                "হবে;\n" +
-                "রোগীকে যথাসম্ভব স্থির অবস্থায় বসিয়ে রাখতে\n" +
+                "৬.রোগীকে যথাসম্ভব স্থির অবস্থায় বসিয়ে রাখতে হবে;\n" +
                 "৭. শরীরের যে অংশে সাপ কেটেছে তা বুকের অবস্থান থেকে যথেষ্ট নিচে রাখতে হবে;\n" +
                 "৮. সাপে কাটলে তাৎক্ষণিকভাবে শরীরের আংটি, চুরি, ব্রেসলেট, ঘড়ি খুলে ফেলতে হবে;\n" +
                 "৯. ওঝা বা বেদের মাধ্যমে অবৈজ্ঞানিক উপায়ে চিকিৎসা করিয়ে সময় নষ্ট করা যাবে না;\n" +
@@ -168,7 +172,7 @@ public class SnakeBiteList extends AppCompatActivity {
                 "৫. রোগীকে কেঁচো/কেঁচোর রস খাওয়ানোর চেষ্টা করা;\n" +
                 "৬. গাছ-গাছড়ার রস দিয়ে প্রলেপ দেয়া ও কাঁচা ডিম, কফি, গোবর, তেঁতুল জাতীয় বিভিন্ন টক খাবার খাওয়ানো;\n" +
                 "৭. একাধিক স্থানে নাইলনের রশি দিয়ে খুব শক্ত করে বাঁধন দেয়া;\n" +
-                "৮. কাকিল৷ মাছের ঠোঁট ও বেল গাছের কাঁটা দিয়ে সর্পদংশনের স্থান ছিদ্র করে রক্ত বের করার চেষ্টা করা;\n" +
+                "৮. কাকিল মাছের ঠোঁট ও বেল গাছের কাঁটা দিয়ে সর্পদংশনের স্থান ছিদ্র করে রক্ত বের করার চেষ্টা করা;\n" +
                 "৯. এসিড জাতীয় রাসায়নিক দ্রব্য দিয়ে সর্পদংশনের স্থান পুড়িয়ে দেয়৷ ও মরিচের গুঁড়া লাগানো;\n" +
                 "১০. রোগীর দংশিত স্থানে চুন ও শিমের বিচি লাগানো;\n" +
                 "১১. রাসেল'স ভাইপার, গ্রিন পিট ভাইপার দংশন হলে আক্রান্ত স্থান ফুলে গেলে ছিদ্র করে রক্ত বের করার চেষ্টা করা;\n" +
@@ -181,8 +185,10 @@ public class SnakeBiteList extends AppCompatActivity {
         hashMap = new HashMap<>();
         hashMap.put("title", "সাপ সম্পর্কিত প্রচলিত কুসংস্কার");
         hashMap.put("detail", "■ সাপের মাথায় মণি থাকে;\n" +
-                "■ বীণ বাজালে সাপ আসে ও নাচে; ■ সাপ গরুর দুধ খায়;\n" +
-                "■ ফুলের গন্ধে সাপ আসে; ■ সাপ উড়তে পারে;\n" +
+                "■ বীণ বাজালে সাপ আসে ও নাচে;\n " +
+                "■ সাপ গরুর দুধ খায়;\n" +
+                "■ ফুলের গন্ধে সাপ আসে;\n" +
+                "■ সাপ উড়তে পারে;\n" +
                 "■ কড়ি চালান দিয়ে দংশিত সাপ আনা যায়; দাঁড়াশ সাপ মারাত্মক বিষধর- এটি লেজ দিয়ে আঘাত করলে স্থানটি পঁচে যায়;\n" +
                 "■ সাপ মানুষকে চিনে রাখে, দিনের বেলায় আঘাত করলে রাতে ঘরে এসে কামড় দেয়;\n" +
                 "■ কার্বলিক এসিড এবং মন্ত্রতন্ত্রতে সাপ নিয়ন্ত্রন করা যায়;\n" +
@@ -258,21 +264,36 @@ public class SnakeBiteList extends AppCompatActivity {
                     .into(holder.image);
 
             holder.cardbg.setOnClickListener(v -> {
+                long currentTime = System.currentTimeMillis();
 
-                new AdmobAd(SnakeBiteList.this, new AdmobAdCallBack() {
-                    @Override
-                    public void onAdDismissed() {
-                        Intent intent = new Intent(SnakeBiteList.this, SnakeBiteDetail.class);
-                        intent.putExtra("title", title);
-                        intent.putExtra("detail", detail);
+                // Check if 1 minute has passed since the last ad was shown
+                if (currentTime - lastAdShownTime >= AD_INTERVAL) {
+                    // Show the ad
+                    new AdmobAd(SnakeBiteList.this, new AdmobAdCallBack() {
+                        @Override
+                        public void onAdDismissed() {
+                            // Update the last ad shown time
+                            lastAdShownTime = System.currentTimeMillis();
 
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                    }
-                }).showAdmobInterstitial(true);
+                            // Navigate to the next activity
+                            Intent intent = new Intent(SnakeBiteList.this, SnakeBiteDetail.class);
+                            intent.putExtra("title", title);
+                            intent.putExtra("detail", detail);
 
-                });
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                        }
+                    }).showAdmobInterstitial(true);
+                } else {
+                    // If less than 1.4 minute has passed, navigate without showing the ad
+                    Intent intent = new Intent(SnakeBiteList.this, SnakeBiteDetail.class);
+                    intent.putExtra("title", title);
+                    intent.putExtra("detail", detail);
 
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                }
+            });
             //item er animation control
             holder.itemView.startAnimation(AnimationUtils.loadAnimation(SnakeBiteList.this, android.R.anim.slide_in_left));
         }

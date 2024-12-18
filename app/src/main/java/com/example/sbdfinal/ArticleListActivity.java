@@ -117,7 +117,7 @@ public class ArticleListActivity extends AppCompatActivity {
         });
 
 
-        String url = "http://192.168.0.106/Apps/articlelist.json";
+        String url = "http://192.168.0.112/Apps/articlelist.json";
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
