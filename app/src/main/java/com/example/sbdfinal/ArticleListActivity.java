@@ -13,6 +13,7 @@ import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -37,6 +38,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.bdtopcoder.smartadmob.AdmobAd;
+import com.bdtopcoder.smartadmob.AdmobAdCallBack;
 import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
@@ -54,10 +57,21 @@ public class ArticleListActivity extends AppCompatActivity {
     HashMap<String, String> hashMap;
     ImageView backbtn;
     TextView tooltitel;
+    private long lastAdShownTime = 0; // Initialize to 0 (no ad shown yet)
+    private static final long AD_INTERVAL = 180000; // 3 minute in milliseconds
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
+
+        MyAdmob.loadAdUnit();
+
+        AdmobAd admobAd = new AdmobAd(this);
+
+        admobAd.loadAdmobInterstitialAd();
+
+
+
 
         //---------- Back Button -----------
         OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
@@ -240,19 +254,48 @@ public class ArticleListActivity extends AppCompatActivity {
                     .placeholder(R.drawable.logo)
                     .into(holder.coverimg);
 
-            holder.cardView.setOnClickListener(v -> {
-                Intent intent = new Intent(context, ArticleDetailActivity.class);
-                intent.putExtra("coverimg", coverimg);
-                intent.putExtra("title", title);
-                intent.putExtra("author", author);
-                intent.putExtra("authorimg", authorimg);
-                intent.putExtra("authordesc", authordesc);
-                intent.putExtra("text1", text1);
-                intent.putExtra("text2", text2);
-                context.startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            });
 
+            holder.cardView.setOnClickListener(v -> {
+
+                long currentTime = System.currentTimeMillis();
+
+                // Check if 1 minute has passed since the last ad was shown
+                if (currentTime - lastAdShownTime >= AD_INTERVAL) {
+                    // Show the ad
+                    new AdmobAd(ArticleListActivity.this, new AdmobAdCallBack() {
+                        @Override
+                        public void onAdDismissed() {
+                            // Update the last ad shown time
+                            lastAdShownTime = System.currentTimeMillis();
+
+                            Intent intent = new Intent(context, ArticleDetailActivity.class);
+                            intent.putExtra("coverimg", coverimg);
+                            intent.putExtra("title", title);
+                            intent.putExtra("author", author);
+                            intent.putExtra("authorimg", authorimg);
+                            intent.putExtra("authordesc", authordesc);
+                            intent.putExtra("text1", text1);
+                            intent.putExtra("text2", text2);
+                            context.startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+                        }}).showAdmobInterstitial(true);
+
+                }else {
+                    Intent intent = new Intent(context, ArticleDetailActivity.class);
+                    intent.putExtra("coverimg", coverimg);
+                    intent.putExtra("title", title);
+                    intent.putExtra("author", author);
+                    intent.putExtra("authorimg", authorimg);
+                    intent.putExtra("authordesc", authordesc);
+                    intent.putExtra("text1", text1);
+                    intent.putExtra("text2", text2);
+                    context.startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                }
+            });
+            //item er animation control
+            holder.itemView.startAnimation(AnimationUtils.loadAnimation(ArticleListActivity.this, android.R.anim.slide_in_left));
         }
 
         @Override

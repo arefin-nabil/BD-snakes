@@ -40,6 +40,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.bdtopcoder.smartadmob.AdmobAd;
 import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
@@ -124,7 +125,7 @@ public class RescuerListActivity extends AppCompatActivity {
 
 
 
-        String url = "http://192.168.0.106/Apps/rescuerlist.json";
+        String url = "http://192.168.0.112/Apps/rescuerlist.json";
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {

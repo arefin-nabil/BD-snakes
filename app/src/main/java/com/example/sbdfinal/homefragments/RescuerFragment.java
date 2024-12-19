@@ -105,11 +105,6 @@ public class RescuerFragment extends Fragment {
 
     //========================= hashmap data created for recyclerview Starts Here ================================
     private void hashMapdata() {
-        hashMap = new HashMap<>();
-        hashMap.put("name", "জাতীয় জরুরী সেবা ");
-        hashMap.put("number", "999");
-        hashMap.put("profileimg", R.drawable.tplnine);
-        arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("name", "Wildlife And Snake Rescue Team in Bangladesh-WSRTBD ");

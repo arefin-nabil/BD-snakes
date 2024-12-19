@@ -122,7 +122,7 @@ public class FaqListActivity extends AppCompatActivity {
         });
 
 
-        String url = "http://192.168.0.106/Apps/faq.json";
+        String url = "http://192.168.0.112/Apps/faq.json";
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {

@@ -98,7 +98,6 @@ public class HomeActivity extends AppCompatActivity {
         //=================Home page=================
 
 
-
         //==================== Bottom Navigation =================
         bottomnav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
