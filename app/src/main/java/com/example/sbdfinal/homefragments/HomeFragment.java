@@ -27,7 +27,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.sbdfinal.HospitalActivity;
 import com.example.sbdfinal.NetworkAccess;
+import com.example.sbdfinal.PosterActivity;
 import com.example.sbdfinal.R;
 import com.example.sbdfinal.SnakeBiteList;
 import com.example.sbdfinal.SnakeListActivity;
@@ -98,7 +100,7 @@ public class HomeFragment extends Fragment {
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
-        hashMap.put("titel", "যোগাযোগ");
+        hashMap.put("titel", "পোস্টার ও লিফলেট");
         hashMap.put("image", R.drawable.logo);
         arrayList.add(hashMap);
 
@@ -183,6 +185,14 @@ public class HomeFragment extends Fragment {
                     }
                 } else if (position == 4) {
                     Intent intent = new Intent(getActivity(), SnakeBiteList.class);
+                    startActivity(intent);
+                    requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else if (position == 5) {
+                    Intent intent = new Intent(getActivity(), HospitalActivity.class);
+                    startActivity(intent);
+                    requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else if (position == 6) {
+                    Intent intent = new Intent(getActivity(), PosterActivity.class);
                     startActivity(intent);
                     requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 } else if (position == 7) {
