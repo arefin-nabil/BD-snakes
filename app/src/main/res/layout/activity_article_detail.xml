@@ -121,7 +121,6 @@
                             android:gravity="center"
                             android:textStyle="bold"
                             android:fontFamily="@font/font1"
-
                             />
 
                         <TextView
@@ -153,6 +152,8 @@
                     android:textAlignment="viewStart"
                     android:padding="5dp"
                     android:textSize="@dimen/_14ssp"
+                    android:justificationMode="inter_word"
+                    tools:ignore="NewApi"
                     />
 
                 <ImageView
@@ -172,6 +173,8 @@
                     android:textAlignment="viewStart"
                     android:padding="5dp"
                     android:textSize="@dimen/_14ssp"
+                    android:justificationMode="inter_word"
+                    tools:ignore="NewApi"
                     />
 
 

@@ -104,7 +104,7 @@ public class HomeFragment extends Fragment {
 
         hashMap = new HashMap<>();
         hashMap.put("titel", "জাতীয় জরুরী নাম্বার সমূহ");
-        hashMap.put("image", R.drawable.emergencynum);
+        hashMap.put("image", R.drawable.emergency);
         arrayList.add(hashMap);
     }
 

@@ -45,7 +45,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class NonVenomFragment extends Fragment {
-
+    LinearLayout loadinglottie;
     RecyclerView recyclerView;
     LottieAnimationView lottieAnimationView;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -58,12 +58,15 @@ public class NonVenomFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView);
         lottieAnimationView = view.findViewById(R.id.lottieAnimationView);
+        loadinglottie = view.findViewById(R.id.loadinglottie);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Set up RecyclerView Adapter
         NonVenomFragment.myAdapter adapter = new NonVenomFragment.myAdapter(getContext(), arrayList);
         recyclerView.setAdapter(adapter);
+
+        loadinglottie.setVisibility(View.VISIBLE);
 
         String url = "http://192.168.0.112/Apps/nonvenom.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -72,6 +75,8 @@ public class NonVenomFragment extends Fragment {
                     public void onResponse(JSONArray jsonArray) {
                         try {
                             for (int x = 0; x < jsonArray.length(); x++) {
+
+                                loadinglottie.setVisibility(View.GONE);
                                 JSONObject jsnarray = jsonArray.getJSONObject(x);
 
                                 Log.d("Sresponse", jsnarray.toString());
@@ -111,6 +116,7 @@ public class NonVenomFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("Volley Error", error.toString());
+                loadinglottie.setVisibility(View.GONE);
                 lottieAnimationView.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.GONE);
                 Toast.makeText(getContext(), "Please ensure you have an active internet connection and try again.", Toast.LENGTH_SHORT).show();

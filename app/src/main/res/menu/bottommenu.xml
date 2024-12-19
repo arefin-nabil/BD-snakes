@@ -13,11 +13,6 @@
         android:title="রেসকিউয়ার" />
 
     <item
-        android:id="@+id/quiz"
-        android:icon="@drawable/quiz"
-        android:title="কুইজ" />
-
-    <item
         android:id="@+id/faquestion"
         android:icon="@drawable/faquestion"
         android:title="জিজ্ঞাসা" />

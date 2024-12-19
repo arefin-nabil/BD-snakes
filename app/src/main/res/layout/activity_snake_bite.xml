@@ -41,30 +41,21 @@
             android:paddingRight="15dp"
             android:scrollHorizontally="true"
             android:singleLine="true"
-            android:text="সাপে কাটলে ওঝা নয়, হাসপাতালে চিকিৎসা হয়।-WSRTBD"
+            android:text="@string/marquetxt"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="19sp" />
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/titellinear"
-        android:layout_above="@+id/bannerAd"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"
         android:clipToPadding="false"
         android:scrollbars="none"
-        />
-
-    <LinearLayout
-        android:id="@+id/bannerAd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
         />
 
 </RelativeLayout>

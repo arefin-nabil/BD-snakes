@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sbdfinal.FaqListActivity;
 import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.R;
 import com.example.sbdfinal.RescuerListActivity;
@@ -56,7 +57,6 @@ public class RescuerFragment extends Fragment {
 
 
         //================= click button with dialog ============================
-
         seemorebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,20 +70,19 @@ public class RescuerFragment extends Fragment {
                         // Check network access after the delay
                         if (NetworkAccess.isConnected(getActivity())) {
                             // Network is connected, go to the next activity
-
                             Intent intent = new Intent(getActivity(), RescuerListActivity.class);
                             startActivity(intent);
                             getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                         } else {
                             // Network is not connected, show the no connection dialog
-                            NetworkAccess.showNoConnectionDialog(getActivity(), "আরো রেসিউয়ারের তথ্য দেখতে ইন্টারনেটে সংযোগ চালু করুন");
+                            NetworkAccess.showNoConnectionDialog(getActivity(), "আরো প্রশ্নোত্তর দেখতে ইন্টারনেটে সংযোগ চালু করুন");
                         }
 
                         // Hide the loading animation (regardless of network status)
                         loadinglottie.setVisibility(View.GONE);
                     }
-                }, 700); // Delay for seconds
+                }, 700); // Delay for 1 seconds (1000 milliseconds)
             }
         });
         //================= click button with dialog ============================

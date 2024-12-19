@@ -31,7 +31,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.sbdfinal.homefragments.ArticleFragment;
 import com.example.sbdfinal.homefragments.FaqFragment;
 import com.example.sbdfinal.homefragments.HomeFragment;
-import com.example.sbdfinal.homefragments.QuizFragment;
 import com.example.sbdfinal.homefragments.RescuerFragment;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -113,13 +112,6 @@ public class HomeActivity extends AppCompatActivity {
                     if (!(currentFragment instanceof HomeFragment)) {
                         fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
                         fragmentTransaction.replace(R.id.framelayout, new HomeFragment());
-                        fragmentTransaction.commit();
-                    }
-                }
-                else if (menuItem.getItemId() == R.id.quiz) {
-                    if (!(currentFragment instanceof QuizFragment)) {
-                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
-                        fragmentTransaction.replace(R.id.framelayout, new QuizFragment());
                         fragmentTransaction.commit();
                     }
                 }
@@ -344,11 +336,6 @@ public class HomeActivity extends AppCompatActivity {
 
         // background transparent
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
-        // Disable dismiss on outside touch and back button
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
-
 
         // dialog btn workable
         dialogButtonYes.setOnClickListener(v -> finishAffinity());

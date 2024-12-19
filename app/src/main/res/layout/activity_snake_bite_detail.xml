@@ -96,6 +96,8 @@
                 android:padding="5dp"
                 android:textSize="@dimen/_14ssp"
                 android:layout_margin="@dimen/_4sdp"
+                android:justificationMode="inter_word"
+                tools:ignore="NewApi"
                 />
 
         </LinearLayout>

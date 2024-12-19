@@ -52,13 +52,14 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RescuerListActivity extends AppCompatActivity {
-
+    LinearLayout loadinglottie;
     RecyclerView recyclerView;
     SearchView searchview;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
     HashMap<String, String> hashMap;
     ImageView backbtn;
     TextView tooltitel;
+    LottieAnimationView lottieAnimationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,8 @@ public class RescuerListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         tooltitel = findViewById(R.id.tooltitel);
         backbtn = findViewById(R.id.backbtn);
+        loadinglottie = findViewById(R.id.loadinglottie);
+        lottieAnimationView = findViewById(R.id.lottieAnimationView);
 
         // Back button click handler
         backbtn.setOnClickListener(v -> {
@@ -123,7 +126,8 @@ public class RescuerListActivity extends AppCompatActivity {
             }
         });
 
-
+        loadinglottie.setVisibility(View.VISIBLE);
+        searchview.setVisibility(View.GONE);
 
         String url = "http://192.168.0.112/Apps/rescuerlist.json";
 
@@ -136,18 +140,17 @@ public class RescuerListActivity extends AppCompatActivity {
 
                             for (int x=0; x<jsonArray.length(); x++){
 
+                                loadinglottie.setVisibility(View.GONE);
+                                searchview.setVisibility(View.VISIBLE);
+
                                 JSONObject jsnarray = jsonArray.getJSONObject(x);
 
                                 Log.d("Sresponse", jsnarray.toString());
-
-
 
                                 String name = jsnarray.getString("name");
                                 String number = jsnarray.getString("number");
                                 String location = jsnarray.getString("location");
                                 String profileimg = jsnarray.getString("profileimg");
-
-
 
                                 hashMap=new HashMap<>();
                                 hashMap.put("name",name);
@@ -171,7 +174,11 @@ public class RescuerListActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                loadinglottie.setVisibility(View.GONE);
+                lottieAnimationView.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
+                searchview.setVisibility(View.GONE);
+                Toast.makeText(RescuerListActivity.this, "Please ensure you have an active internet connection and try again.", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -32,6 +33,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -51,6 +53,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ArticleListActivity extends AppCompatActivity {
+    LinearLayout loadinglottie;
+    LottieAnimationView lottieAnimationView;
     RecyclerView recyclerView;
     SearchView searchview;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -88,6 +92,8 @@ public class ArticleListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         tooltitel = findViewById(R.id.tooltitel);
         backbtn = findViewById(R.id.backbtn);
+        loadinglottie = findViewById(R.id.loadinglottie);
+        lottieAnimationView = findViewById(R.id.lottieAnimationView);
 
         // Back button click handler
         backbtn.setOnClickListener(v -> {
@@ -130,6 +136,8 @@ public class ArticleListActivity extends AppCompatActivity {
             }
         });
 
+        loadinglottie.setVisibility(View.VISIBLE);
+        searchview.setVisibility(View.GONE);
 
         String url = "http://192.168.0.112/Apps/articlelist.json";
 
@@ -141,6 +149,9 @@ public class ArticleListActivity extends AppCompatActivity {
                         try {
 
                             for (int x=0; x<jsonArray.length(); x++){
+
+                                loadinglottie.setVisibility(View.GONE);
+                                searchview.setVisibility(View.VISIBLE);
 
                                 JSONObject jsnarray = jsonArray.getJSONObject(x);
 
@@ -185,6 +196,11 @@ public class ArticleListActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                loadinglottie.setVisibility(View.GONE);
+                lottieAnimationView.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
+                searchview.setVisibility(View.GONE);
+                Toast.makeText(ArticleListActivity.this, "Please ensure you have an active internet connection and try again.", Toast.LENGTH_SHORT).show();
 
             }
         });
