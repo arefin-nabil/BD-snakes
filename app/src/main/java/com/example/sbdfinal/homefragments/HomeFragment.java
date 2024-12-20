@@ -95,7 +95,7 @@ public class HomeFragment extends Fragment {
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
-        hashMap.put("titel", "হাসপাতাল ও এন্টিভেনম");
+        hashMap.put("titel", "হাসপাতাল");
         hashMap.put("image", R.drawable.logo);
         arrayList.add(hashMap);
 

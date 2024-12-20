@@ -297,7 +297,6 @@ public class FaqListActivity extends AppCompatActivity {
                 // Loop through the original list and filter based on name or location
                 for (HashMap<String, String> item : originalList) {
                     String question = item.get("question");
-                    String answer = item.get("answer");
 
                     // Case-insensitive check for name and location
                     if ((question != null && question.toLowerCase().contains(query.toLowerCase()))) {

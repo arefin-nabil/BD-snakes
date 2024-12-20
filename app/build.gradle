@@ -56,4 +56,7 @@ dependencies {
     //glide imageview
     implementation libs.glide
 
+    //photoview
+    implementation libs.photoview
+
 }
