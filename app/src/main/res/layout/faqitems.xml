@@ -13,10 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/_5sdp"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_margin="@dimen/_8sdp"
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardElevation="@dimen/_5sdp"
         >

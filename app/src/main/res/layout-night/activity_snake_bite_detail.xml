@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".SnakeBiteDetail"
     android:orientation="vertical"
-    android:background="@color/Day_BG"
+    android:background="@color/Night_BG"
     >
 
     <!-- ToolBar Section -->
@@ -15,7 +15,7 @@
         android:id="@+id/titellinear"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/Theme_color"
+        android:background="@color/Night_AppBar"
         android:orientation="horizontal"
         android:padding="16dp">
 
@@ -44,7 +44,7 @@
             android:scrollHorizontally="true"
             android:singleLine="true"
             android:text="সাপে কাটলে ওঝা নয়, হাসপাতালে চিকিৎসা হয়।-WSRTBD"
-            android:textColor="@color/black"
+            android:textColor="@color/Theme_color"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -54,7 +54,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:padding="@dimen/_5sdp"
-        android:background="@color/Day_BG"
+        android:background="@color/Night_BG"
         android:scrollbars="none"
         android:layout_marginBottom="@dimen/_10sdp"
         >
@@ -75,13 +75,13 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/font1"
                 android:layout_margin="@dimen/_4sdp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/Night_BG"
+                android:background="@color/Day_BG"
                 android:layout_margin="@dimen/_4sdp"
                 android:padding="5dp"
                 />
@@ -91,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:fontFamily="@font/font1"
                 android:textAlignment="viewStart"
                 android:padding="5dp"

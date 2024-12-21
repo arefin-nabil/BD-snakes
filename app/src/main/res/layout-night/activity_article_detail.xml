@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/Night_BG"
     >
 
     <!-- ToolBar Section -->
@@ -17,7 +18,7 @@
         android:paddingEnd="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
-        android:background="@color/Theme_color"
+        android:background="@color/Night_AppBar"
         android:gravity="center_vertical"
         android:id="@+id/toolbar"
         >
@@ -28,7 +29,9 @@
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:src="@drawable/back"
-            android:layout_marginEnd="16dp"/>
+            android:layout_marginEnd="16dp"
+
+            />
 
         <!-- Title Text -->
         <TextView
@@ -37,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="সাপে কাটলে ওঝা নয়, হাসপাতালে চিকিৎসা হয়।-WSRTBD"
             android:textSize="19sp"
-            android:textColor="@color/black"
+            android:textColor="@color/Theme_color"
             android:fontFamily="@font/font1"
             android:ellipsize="marquee"
             android:marqueeRepeatLimit="marquee_forever"
@@ -58,7 +61,7 @@
         android:layout_weight="1"
         android:paddingLeft="@dimen/_5sdp"
         android:paddingRight="@dimen/_5sdp"
-        android:background="@color/Day_BG"
+        android:background="@color/Night_BG"
         android:scrollbars="none"
         >
 
@@ -84,13 +87,13 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/font1"
                     android:layout_margin="@dimen/_4sdp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/Night_BG"
+                    android:background="@color/Day_BG"
                     />
 
                 <LinearLayout
@@ -124,7 +127,7 @@
                             android:gravity="center"
                             android:textStyle="bold"
                             android:fontFamily="@font/font1"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             />
 
                         <TextView
@@ -136,7 +139,7 @@
                             android:gravity="center"
                             android:fontFamily="@font/font1"
                             android:layout_weight="1"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             />
 
                     </LinearLayout>
@@ -156,7 +159,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/Night_BG"
+                    android:background="@color/Day_BG"
                     />
 
                 <TextView
@@ -164,7 +167,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/font1"
                     android:textAlignment="viewStart"
                     android:padding="5dp"
@@ -185,7 +188,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/white"
                     android:fontFamily="@font/font1"
                     android:textAlignment="viewStart"
                     android:padding="5dp"

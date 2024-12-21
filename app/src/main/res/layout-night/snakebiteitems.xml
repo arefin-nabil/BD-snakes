@@ -10,12 +10,19 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardbg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/_5sdp"
-        android:layout_margin="@dimen/_8sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardElevation="@dimen/_5sdp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         >
         <LinearLayout
             android:id="@+id/motherLayout"
@@ -23,16 +30,14 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_8sdp"
             android:orientation="vertical"
-            android:background="@color/Night_card_BG"
             >
             <RelativeLayout
                 android:id="@+id/itemClicked"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
-
                 <ImageView
-                    android:id="@+id/bookImg"
+                    android:id="@+id/image"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_centerVertical="true"
@@ -45,70 +50,27 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_toStartOf="@id/arrowImg"
-                    android:layout_toEndOf="@+id/bookImg"
+                    android:layout_toEndOf="@+id/image"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/question"
+                        android:id="@+id/title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
                         android:text=""
                         android:fontFamily="@font/font1"
                         android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        />
 
 
 
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/arrowImg"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/downarrow" />
-
             </RelativeLayout>
-
-
-            <LinearLayout
-                android:visibility="gone"
-                android:id="@+id/discLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <TextView
-                    android:id="@+id/answer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/font1"
-                    android:textAlignment="viewStart"
-                    android:padding="5dp"
-                    android:textSize="@dimen/_14ssp"
-                    />
-                <TextView
-                    android:id="@+id/author"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="উত্তর - "
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/font1"
-                    android:padding="5dp"
-                    android:textSize="@dimen/_11ssp"
-                    />
-            </LinearLayout>
-
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:background="@color/Day_BG"
+    android:background="@color/Night_BG"
     >
 
 
@@ -23,6 +23,7 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:layout_gravity="center"
+        android:background="@color/Night_card_BG"
         >
 
         <ImageView

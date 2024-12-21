@@ -55,7 +55,7 @@ public class HospitalActivity extends AppCompatActivity {
 
         medicalcollage.setOnClickListener(v -> {
             Intent intent = new Intent(HospitalActivity.this, HospitalListActivity.class);
-            intent.putExtra("url", "http://192.168.0.112/Apps/medicalclg.json");
+            intent.putExtra("url", "https://www.arefinnabil.site/medicalclg.json");
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
@@ -63,7 +63,7 @@ public class HospitalActivity extends AppCompatActivity {
 
         zelasadar.setOnClickListener(v -> {
             Intent intent = new Intent(HospitalActivity.this, HospitalListActivity.class);
-            intent.putExtra("url", "http://192.168.0.112/Apps/zelasadarhosp.json");
+            intent.putExtra("url", "https://www.arefinnabil.site/zelasadarhosp.json");
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });

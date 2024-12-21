@@ -18,6 +18,7 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
+        android:background="@color/Night_card_BG"
         >
 
         <LinearLayout
@@ -46,7 +47,7 @@
                         android:padding="2dp"
                         android:text=""
                         android:fontFamily="@font/font1"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/Day_BG"
                         android:textSize="@dimen/_14ssp"
                         android:textStyle="bold"
                         />
@@ -62,7 +63,7 @@
                             android:padding="2dp"
                             android:text="Hotline: "
                             android:fontFamily="@font/font1"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/Day_BG"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
                         <TextView
@@ -72,7 +73,7 @@
                             android:padding="2dp"
                             android:text=""
                             android:fontFamily="@font/font1"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/Day_BG"
                             android:textSize="@dimen/_14ssp"
                             />
 
@@ -121,7 +122,7 @@
                             android:layout_height="20dp"
                             android:text="Map"
                             android:fontFamily="@font/font1"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/Day_BG"
                             android:textSize="16sp"
                             android:gravity="center"
                             android:layout_gravity="center"
@@ -166,7 +167,7 @@
                             android:layout_height="20dp"
                             android:text="Call Now"
                             android:fontFamily="@font/font1"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/Day_BG"
                             android:textSize="16sp"
                             android:gravity="center"
                             android:layout_gravity="center"

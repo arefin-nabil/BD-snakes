@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
@@ -19,8 +18,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bdtopcoder.smartadmob.AdmobAd;
-import com.bdtopcoder.smartadmob.AdmobAdCallBack;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -37,7 +34,7 @@ public class SnakeBiteList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_snake_bite);
+        setContentView(R.layout.activity_snake_bite_list);
 
         backbtn = findViewById(R.id.backbtn);
         tooltitel = findViewById(R.id.tooltitel);

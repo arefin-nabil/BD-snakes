@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HospitalActivity"
+    android:orientation="vertical"
+    android:background="@color/Night_BG"
+    >
+
+    <LinearLayout
+        android:id="@+id/titellinear"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/Night_AppBar"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="left"
+            android:src="@drawable/back"
+
+            />
+
+        <TextView
+            android:id="@+id/tooltitel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/font1"
+            android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingLeft="16dp"
+            android:paddingRight="15dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@string/marquetxt"
+            android:textColor="@color/Theme_color"
+            android:textSize="19sp" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="বাংলাদেশের প্রায় প্রতিটি মেডিক্যাল কলেজ ও জেলা সদর হাসপাতালে সাপে কামড়ের যথাযথ চিকিৎসা সেবা ও এন্টিভেনম মজুদ আছে।"
+                android:textSize="@dimen/_20sdp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:fontFamily="@font/font1"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="সরকারি হাসপাতাল সমূহে সাপে কামড়ের চিকিৎসা সেবা সম্পূর্ন ফ্রি। তবে বেশ কিছু বেসরকারি ও প্রাইভেট হাসপাতালেও সাপে কামড়ের যথাযথ চিকিৎসা সেবা প্রদান করা হয়ে থাকে।"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:fontFamily="@font/font1"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginTop="10dp"
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/medicalcollage"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_15sdp"
+                    app:cardElevation="@dimen/_4sdp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:layout_weight="1"
+                    android:background="@color/Night_card_BG"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <!-- ImageView with aspect ratio to keep it responsive -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:scaleType="centerCrop"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/logo"
+                            />
+
+                        <!-- TextView for item title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:text="মেডিক্যাল কলেজ"
+                            android:fontFamily="@font/font1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13ssp"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/zelasadar"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_15sdp"
+                    app:cardElevation="@dimen/_4sdp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:layout_weight="1"
+                    android:background="@color/Night_card_BG"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <!-- ImageView with aspect ratio to keep it responsive -->
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:scaleType="centerCrop"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/logo"
+                            />
+
+                        <!-- TextView for item title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:text="জেলা সদর হাসপাতাল"
+                            android:fontFamily="@font/font1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_13ssp"
+                            android:gravity="center" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>
