@@ -53,6 +53,9 @@
                     android:text="আরো দেখুন..."
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
 
                     />
             </androidx.cardview.widget.CardView>

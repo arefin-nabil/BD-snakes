@@ -97,6 +97,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="@dimen/_10sdp"
+                    android:layout_weight="2"
                     >
 
                     <ImageView
@@ -111,6 +112,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         >
                         <TextView
                             android:id="@+id/authorname"
@@ -131,9 +133,21 @@
                             android:textSize="@dimen/_12sdp"
                             android:gravity="center"
                             android:fontFamily="@font/font1"
+                            android:layout_weight="1"
                             />
 
                     </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/facebook"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/facebook"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        />
                 </LinearLayout>
 
                 <View

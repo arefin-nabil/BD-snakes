@@ -34,7 +34,6 @@ import java.util.HashMap;
 public class FaqFragment extends Fragment {
 
     AppCompatButton seemorebtn;
-    LinearLayout loadinglottie;
     RecyclerView recyclerView;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
     HashMap<String, String> hashMap;
@@ -48,40 +47,25 @@ public class FaqFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView);
         seemorebtn = view.findViewById(R.id.seemorebtn);
-        loadinglottie = view.findViewById(R.id.loadinglottie);
-
 
         //================= click button with dialog ============================
         seemorebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Show the loading animation
-                loadinglottie.setVisibility(View.VISIBLE);
 
-                // Delay for 2 seconds before checking network and taking action
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Check network access after the delay
-                        if (NetworkAccess.isConnected(getActivity())) {
-                            // Network is connected, go to the next activity
-                                    Intent intent = new Intent(getActivity(), FaqListActivity.class);
-                                    startActivity(intent);
-                                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                if (NetworkAccess.isConnected(getActivity())) {
+                    // Network is connected, go to the next activity
+                    Intent intent = new Intent(getActivity(), FaqListActivity.class);
+                    startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                        } else {
-                            // Network is not connected, show the no connection dialog
-                            NetworkAccess.showNoConnectionDialog(getActivity(), "আরো প্রশ্নোত্তর দেখতে ইন্টারনেটে সংযোগ চালু করুন");
-                        }
-
-                        // Hide the loading animation (regardless of network status)
-                        loadinglottie.setVisibility(View.GONE);
-                    }
-                }, 700); // Delay for 1 seconds (1000 milliseconds)
+                } else {
+                    // Network is not connected, show the no connection dialog
+                    NetworkAccess.showNoConnectionDialog(getActivity(), "আরো প্রশ্নোত্তর দেখতে ইন্টারনেটে সংযোগ চালু করুন");
+                }
             }
         });
         //================= click button with dialog ============================
-
 
 
         // Set up RecyclerView
@@ -99,7 +83,7 @@ public class FaqFragment extends Fragment {
     }
 
     //========================= hashmap data created for recyclerview Starts Here ================================
-    private void hashMapdata(){
+    private void hashMapdata() {
         hashMap = new HashMap<>();
         hashMap.put("question", "রয়েল বেঙ্গল টাইগার নাকি হরিণ শুকর বানর ও বনের অন্যান্য প্রাণীর কন্ঠ হুবহু নকল করতে পারে? এটা কি আসলেই সম্ভব?");
         hashMap.put("answer", "হ্যাঁ, এটা সত্যি।\n'রয়েল বেঙ্গল টাইগার' হরিণ, শুকর, বানর সহ কিছু প্রাণীর সাউন্ড অনুকরণ করতে সক্ষম; এটি তাঁদের একটি ইউনিক হান্টিং স্ট্র্যাটেজি। শিকারের সাউন্ড অনুকরণ করার মাধ্যমে শিকারকে কাছে টেনে নিয়ে আসে।");
@@ -133,14 +117,13 @@ public class FaqFragment extends Fragment {
     //========================= hashmap data created for recyclerview ENDS here ================================
 
 
-
-
     //=============== Adapter Class created for recyclerview STARTS here================================
-    private class myAdapter extends RecyclerView.Adapter<FaqFragment.myAdapter.myViewholder>{
+    private class myAdapter extends RecyclerView.Adapter<FaqFragment.myAdapter.myViewholder> {
 
         private SparseBooleanArray expandedPositions = new SparseBooleanArray();
         private int expandedPosition = RecyclerView.NO_POSITION;
-        private class myViewholder extends RecyclerView.ViewHolder{
+
+        private class myViewholder extends RecyclerView.ViewHolder {
             //item view er variable nibo eikhane
             LinearLayout motherLayout, discLayout;
             RelativeLayout itemClicked;
@@ -166,7 +149,7 @@ public class FaqFragment extends Fragment {
         public FaqFragment.myAdapter.myViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             //item view nibo eikhane,, item view er layout inflate korbo
             LayoutInflater inflater = getLayoutInflater();
-            View myView = inflater.inflate(R.layout.faqitems,parent,false);
+            View myView = inflater.inflate(R.layout.faqitems, parent, false);
             return new FaqFragment.myAdapter.myViewholder(myView);
         }
 
@@ -195,7 +178,7 @@ public class FaqFragment extends Fragment {
 
             if (isDarkMode) {
                 holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#33000000"));
-            }else {
+            } else {
                 holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#FFFFF0"));
             }
 
@@ -218,6 +201,7 @@ public class FaqFragment extends Fragment {
             //item er animation control
             holder.itemView.setAnimation(null);
         }
+
         @Override
         public int getItemCount() {
             return arrayList.size();

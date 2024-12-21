@@ -129,7 +129,7 @@ public class RescuerListActivity extends AppCompatActivity {
         loadinglottie.setVisibility(View.VISIBLE);
         searchview.setVisibility(View.GONE);
 
-        String url = "http://arefinnabil.site/rescuerlist.json";
+        String url = "https://arefinnabil.site/rescuerlist.json";
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {

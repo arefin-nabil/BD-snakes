@@ -2,6 +2,8 @@ package com.example.sbdfinal;
 
 import static android.content.Intent.getIntent;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
@@ -19,7 +21,7 @@ import com.bumptech.glide.Glide;
 
 public class ArticleDetailActivity extends AppCompatActivity {
 
-    ImageView backbtn, authorimage, coverimg;
+    ImageView backbtn, authorimage, coverimg, facebook;
     TextView tooltitel, text1, text2, articletitel, authordes, authorname;
 
 
@@ -43,6 +45,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         authordes = findViewById(R.id.authordes);
         authorname = findViewById(R.id.authorname);
         coverimg = findViewById(R.id.coverimg);
+        facebook = findViewById(R.id.facebook);
 
 
         // Back button click handler
@@ -75,16 +78,23 @@ public class ArticleDetailActivity extends AppCompatActivity {
         String authordesc = getIntent().getStringExtra("authordesc");
         String text1 = getIntent().getStringExtra("text1");
         String text2 = getIntent().getStringExtra("text2");
+        String sfacebook = getIntent().getStringExtra("facebook");
 
 
         Glide.with(this).load(coverimg).into(this.coverimg);
-        Glide.with(this).load(authorimg).circleCrop().into(this.authorimage);
+        Glide.with(this).load(authorimg).circleCrop().placeholder(R.drawable.logo).into(this.authorimage);
 
         articletitel.setText(title);
         authorname.setText(author);
         authordes.setText(authordesc);
         this.text1.setText(text1);
         this.text2.setText(text2);
+
+
+        facebook.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + sfacebook));
+            startActivity(intent);
+        });
 
 
     }

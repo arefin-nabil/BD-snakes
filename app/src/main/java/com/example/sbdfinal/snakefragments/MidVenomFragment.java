@@ -65,7 +65,7 @@ public class MidVenomFragment extends Fragment {
 
         loadinglottie.setVisibility(View.VISIBLE);
 
-        String url = "http://192.168.0.112/Apps/midvenom.json";
+        String url = "https://arefinnabil.site/midvenom.json";
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

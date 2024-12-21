@@ -139,7 +139,7 @@ public class ArticleListActivity extends AppCompatActivity {
         loadinglottie.setVisibility(View.VISIBLE);
         searchview.setVisibility(View.GONE);
 
-        String url = "http://192.168.0.112/Apps/articlelist.json";
+        String url = "https://www.arefinnabil.site/articlelist.json";
 
         JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -166,6 +166,7 @@ public class ArticleListActivity extends AppCompatActivity {
                                 String authordesc = jsnarray.getString("authordesc");
                                 String text1 = jsnarray.getString("text1");
                                 String text2 = jsnarray.getString("text2");
+                                String facebook = jsnarray.getString("facebook");
 
 
 
@@ -178,6 +179,7 @@ public class ArticleListActivity extends AppCompatActivity {
                                 hashMap.put("authordesc",authordesc);
                                 hashMap.put("text1",text1);
                                 hashMap.put("text2",text2);
+                                hashMap.put("facebook",facebook);
                                 arrayList.add(hashMap);
 
                                 ArticleListActivity.myAdapter adapter = new ArticleListActivity.myAdapter(ArticleListActivity.this, arrayList);
@@ -258,6 +260,7 @@ public class ArticleListActivity extends AppCompatActivity {
             String authordesc = hashMap.get("authordesc");
             String text1 = hashMap.get("text1");
             String text2 = hashMap.get("text2");
+            String facebook = hashMap.get("facebook");
 
 
             holder.title.setText(title);
@@ -266,7 +269,7 @@ public class ArticleListActivity extends AppCompatActivity {
             // Load profile image using Glide
             Glide.with(context)
                     .load(coverimg)
-                    .centerCrop()
+                    .fitCenter()
                     .placeholder(R.drawable.logo)
                     .into(holder.coverimg);
 
@@ -292,6 +295,7 @@ public class ArticleListActivity extends AppCompatActivity {
                             intent.putExtra("authordesc", authordesc);
                             intent.putExtra("text1", text1);
                             intent.putExtra("text2", text2);
+                            intent.putExtra("facebook", facebook);
                             context.startActivity(intent);
                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -306,6 +310,7 @@ public class ArticleListActivity extends AppCompatActivity {
                     intent.putExtra("authordesc", authordesc);
                     intent.putExtra("text1", text1);
                     intent.putExtra("text2", text2);
+                    intent.putExtra("facebook", facebook);
                     context.startActivity(intent);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 }

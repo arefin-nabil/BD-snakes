@@ -34,7 +34,6 @@ public class ArticleFragment extends Fragment {
 
     RecyclerView recyclerView;
     AppCompatButton seemorebtn;
-    LinearLayout loadinglottie;
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
     HashMap<String, String> hashMap;
 
@@ -46,7 +45,7 @@ public class ArticleFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         seemorebtn = view.findViewById(R.id.seemorebtn);
-        loadinglottie = view.findViewById(R.id.loadinglottie);
+
 
         //================= click button with dialog ============================
 
@@ -54,32 +53,22 @@ public class ArticleFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Show the loading animation
-                loadinglottie.setVisibility(View.VISIBLE);
 
-                // Delay for 2 seconds before checking network and taking action
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Check network access after the delay
-                        if (getActivity() != null && NetworkAccess.isConnected(getActivity())) {
-                            // Network is connected, go to the next activity
 
-                                    Intent intent = new Intent(getActivity(), ArticleListActivity.class);
-                                    startActivity(intent);
-                                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                if (getActivity() != null && NetworkAccess.isConnected(getActivity())) {
+                    // Network is connected, go to the next activity
 
-                        } else {
-                            // Network is not connected, show the no connection dialog
-                            if (getActivity() != null) {
-                                NetworkAccess.showNoConnectionDialog(getActivity(), "আরো চমৎকার সব নিবন্ধ দেখতে ইন্টারনেটে সংযোগ চালু করুন");
-                            }
-                        }
-                        // Hide the loading animation (regardless of network status)
-                        if (loadinglottie != null) {
-                            loadinglottie.setVisibility(View.GONE);
-                        }
+                    Intent intent = new Intent(getActivity(), ArticleListActivity.class);
+                    startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+                } else {
+                    // Network is not connected, show the no connection dialog
+                    if (getActivity() != null) {
+                        NetworkAccess.showNoConnectionDialog(getActivity(), "আরো চমৎকার সব নিবন্ধ দেখতে ইন্টারনেটে সংযোগ চালু করুন");
                     }
-                }, 700); // Delay for seconds
+                }
+
             }
         });
 
@@ -101,9 +90,8 @@ public class ArticleFragment extends Fragment {
     }
 
 
-
     //========================= hashmap data created for recyclerview Starts Here ================================
-    private void hashMapdata(){
+    private void hashMapdata() {
 
         hashMap = new HashMap<>();
         hashMap.put("title", "একই প্রজাতির দুইটি সাপকে খাবার ছাড়া দীর্ঘ দিন বন্দি করে রাখলে কী হবে?");
@@ -130,16 +118,14 @@ public class ArticleFragment extends Fragment {
     //========================= hashmap data created for recyclerview ENDS here ================================
 
 
-
-
-
     //=============== Adapter Class created for recyclerview STARTS here================================
-    private class myAdapter extends RecyclerView.Adapter<ArticleFragment.myAdapter.myViewholder>{
-        private class myViewholder extends RecyclerView.ViewHolder{
+    private class myAdapter extends RecyclerView.Adapter<ArticleFragment.myAdapter.myViewholder> {
+        private class myViewholder extends RecyclerView.ViewHolder {
             //item view er variable nibo eikhane
             TextView title, author;
             ImageView coverimg;
             CardView cardView;
+
             public myViewholder(@NonNull View itemView) {
                 super(itemView);
 
@@ -156,7 +142,7 @@ public class ArticleFragment extends Fragment {
         public ArticleFragment.myAdapter.myViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             //item view nibo eikhane,, item view er layout inflate korbo
             LayoutInflater inflater = getLayoutInflater();
-            View myView = inflater.inflate(R.layout.articleitems,parent,false);
+            View myView = inflater.inflate(R.layout.articleitems, parent, false);
             return new ArticleFragment.myAdapter.myViewholder(myView);
         }
 
@@ -188,30 +174,19 @@ public class ArticleFragment extends Fragment {
 
             //item ke click korle kaj korabo
             holder.cardView.setOnClickListener(v -> {
-                // Show the loading animation
-                loadinglottie.setVisibility(View.VISIBLE);
 
-                // Delay for 2 seconds before checking network and taking action
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
 
-                        Intent intent = new Intent(getContext(), ArticleDetailActivity.class);
-                        intent.putExtra("coverimg", coverimg);
-                        intent.putExtra("title", title);
-                        intent.putExtra("author", author);
-                        intent.putExtra("authorimg", authorimg);
-                        intent.putExtra("authordesc", authordesc);
-                        intent.putExtra("text1", text1);
-                        intent.putExtra("text2", text2);
-                        startActivity(intent);
-                        // Hide the loading animation (regardless of network status)
-                        if (loadinglottie != null) {
-                            loadinglottie.setVisibility(View.GONE);
-                        }
-                        getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                    }
-                }, 1000); // Delay for seconds
+                Intent intent = new Intent(getContext(), ArticleDetailActivity.class);
+                intent.putExtra("coverimg", coverimg);
+                intent.putExtra("title", title);
+                intent.putExtra("author", author);
+                intent.putExtra("authorimg", authorimg);
+                intent.putExtra("authordesc", authordesc);
+                intent.putExtra("text1", text1);
+                intent.putExtra("text2", text2);
+                startActivity(intent);
+
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
 
             });
@@ -220,15 +195,13 @@ public class ArticleFragment extends Fragment {
             //item er animation control
             holder.itemView.startAnimation(AnimationUtils.loadAnimation(getContext(), android.R.anim.slide_in_left));
         }
+
         @Override
         public int getItemCount() {
             return arrayList.size();
         }
     }
     //=============== Adapter Class for recyclerview ENDS here ================================
-
-
-
 
 
 }

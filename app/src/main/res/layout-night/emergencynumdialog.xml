@@ -783,7 +783,11 @@
                             android:padding="@dimen/_10sdp"
                             android:text="আরো দেখুন..."
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_15ssp" />
+                            android:textSize="@dimen/_15ssp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            />
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
@@ -810,7 +814,11 @@
                             android:padding="@dimen/_10sdp"
                             android:text="বন্ধ করুন"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_15ssp" />
+                            android:textSize="@dimen/_15ssp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            />
                     </androidx.cardview.widget.CardView>
 
                 </LinearLayout>

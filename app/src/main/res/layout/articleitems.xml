@@ -38,13 +38,14 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_4sdp"
+                android:paddingTop="@dimen/_2sdp"
                 android:text="সাপের সরিক্ষা আাসদের দাযয়িত্ব"
                 android:fontFamily="@font/font1"
                 android:textColor="@android:color/black"
                 android:maxLines="2"
                 android:ellipsize="end"
                 android:textSize="@dimen/_15ssp"
+                android:background="#F7FFE7"
                 android:gravity="center" />
 
             <!-- TextView for item author -->

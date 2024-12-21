@@ -51,6 +51,9 @@
                     android:text="আরো দেখুন..."
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15ssp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
 
                     />
             </androidx.cardview.widget.CardView>
@@ -58,27 +61,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/loadinglottie"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:background="#20404040"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_colorFilter="@color/Theme_color"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/loadingsquare" />
-
-    </LinearLayout>
-
 
 </RelativeLayout>
