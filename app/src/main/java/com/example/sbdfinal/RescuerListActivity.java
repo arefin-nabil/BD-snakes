@@ -235,8 +235,9 @@ public class RescuerListActivity extends AppCompatActivity {
             // Load profile image using Glide
             Glide.with(context)
                     .load(imgeurl)
+                    .fitCenter()
                     .circleCrop()
-                    .placeholder(R.drawable.logo)
+                    .placeholder(R.drawable.loadingimg)
                     .into(holder.rescuerprofileimg);
 
             // Set data

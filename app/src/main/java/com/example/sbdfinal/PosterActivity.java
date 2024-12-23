@@ -177,7 +177,7 @@ public class PosterActivity extends AppCompatActivity {
             // Load image with Glide
             Glide.with(context)
                     .load(imageUrl)
-                    .placeholder(R.drawable.poster)
+                    .placeholder(R.drawable.loadingimg)
                     .into(holder.image);
 
             // OnClick to view full image

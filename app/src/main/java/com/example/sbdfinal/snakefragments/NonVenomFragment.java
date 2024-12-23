@@ -176,8 +176,9 @@ public class NonVenomFragment extends Fragment {
             // Load profile image using Glide
             Glide.with(context)
                     .load(image1)
+                    .fitCenter()
                     .circleCrop()
-                    .placeholder(R.drawable.logo)
+                    .placeholder(R.drawable.loadingimg)
                     .into(holder.snakeimg);
 
             holder.snakecardbg.setCardBackgroundColor(Color.parseColor("#bafabf"));

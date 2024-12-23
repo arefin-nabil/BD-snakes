@@ -259,8 +259,9 @@ public class SnakeBiteList extends AppCompatActivity {
             // Load profile image using Glide
             Glide.with(SnakeBiteList.this)
                     .load(image)
+                    .fitCenter()
                     .circleCrop()
-                    .placeholder(R.drawable.logo)
+                    .placeholder(R.drawable.loadingimg)
                     .into(holder.image);
 
             holder.cardbg.setOnClickListener(v -> {

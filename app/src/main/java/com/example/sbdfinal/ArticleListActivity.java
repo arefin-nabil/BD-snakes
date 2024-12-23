@@ -270,7 +270,7 @@ public class ArticleListActivity extends AppCompatActivity {
             Glide.with(context)
                     .load(coverimg)
                     .fitCenter()
-                    .placeholder(R.drawable.logo)
+                    .placeholder(R.drawable.loadingimg)
                     .into(holder.coverimg);
 
 

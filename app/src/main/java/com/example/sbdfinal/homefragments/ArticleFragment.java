@@ -82,21 +82,23 @@ public class ArticleFragment extends Fragment {
         hashMap = new HashMap<>();
         hashMap.put("title", "একই প্রজাতির দুইটি সাপকে খাবার ছাড়া দীর্ঘ দিন বন্দি করে রাখলে কী হবে?");
         hashMap.put("author", "মো: মেহেদী হিমু");
-        hashMap.put("coverimg", "https://blogger.googleusercontent.com/img/a/AVvXsEg42Yd-JIIsWyp__e-bHrjuh1jyYl_DpKbzzQxmIDNwnatThBaTse8V6dmvoJwQjes-fsNKBCazVg19w41Kra_otq2LaGxJaH0nGYagj03D4sQdXy5cr2eBYIe46Su119pWGyhYGkX5Nf964E29BCWAmOnmAKIjVhmvuHD377iuR6fCvCA3n44NyNQZecU");
-        hashMap.put("authorimg", "https://blogger.googleusercontent.com/img/a/AVvXsEg42Yd-JIIsWyp__e-bHrjuh1jyYl_DpKbzzQxmIDNwnatThBaTse8V6dmvoJwQjes-fsNKBCazVg19w41Kra_otq2LaGxJaH0nGYagj03D4sQdXy5cr2eBYIe46Su119pWGyhYGkX5Nf964E29BCWAmOnmAKIjVhmvuHD377iuR6fCvCA3n44NyNQZecU");
-        hashMap.put("authordesc", "a");
-        hashMap.put("text1", "b");
-        hashMap.put("text2", "c");
+        hashMap.put("coverimg", "");
+        hashMap.put("authorimg", "");
+        hashMap.put("authordesc", "");
+        hashMap.put("text1", "");
+        hashMap.put("text2", "");
+        hashMap.put("facebook","");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("title", "কালাচ সাপ রাতে ঘুমন্ত মানুষকে কেন কামড়ায়?");
         hashMap.put("author", "নাবিদ আল জুবায়ের");
-        hashMap.put("coverimg", "https://blogger.googleusercontent.com/img/a/AVvXsEg42Yd-JIIsWyp__e-bHrjuh1jyYl_DpKbzzQxmIDNwnatThBaTse8V6dmvoJwQjes-fsNKBCazVg19w41Kra_otq2LaGxJaH0nGYagj03D4sQdXy5cr2eBYIe46Su119pWGyhYGkX5Nf964E29BCWAmOnmAKIjVhmvuHD377iuR6fCvCA3n44NyNQZecU");
-        hashMap.put("authorimg", "https://blogger.googleusercontent.com/img/a/AVvXsEg42Yd-JIIsWyp__e-bHrjuh1jyYl_DpKbzzQxmIDNwnatThBaTse8V6dmvoJwQjes-fsNKBCazVg19w41Kra_otq2LaGxJaH0nGYagj03D4sQdXy5cr2eBYIe46Su119pWGyhYGkX5Nf964E29BCWAmOnmAKIjVhmvuHD377iuR6fCvCA3n44NyNQZecU");
-        hashMap.put("authordesc", "d");
-        hashMap.put("text1", "r");
-        hashMap.put("text2", "f");
+        hashMap.put("coverimg", "");
+        hashMap.put("authorimg", "");
+        hashMap.put("authordesc", "");
+        hashMap.put("text1", "");
+        hashMap.put("text2", "");
+        hashMap.put("facebook","");
         arrayList.add(hashMap);
 
     }
@@ -144,6 +146,7 @@ public class ArticleFragment extends Fragment {
             String authordesc = hashMap.get("authordesc");
             String text1 = hashMap.get("text1");
             String text2 = hashMap.get("text2");
+            String facebook = hashMap.get("facebook");
 
             holder.title.setText(title);
             holder.author.append(author);
@@ -154,7 +157,7 @@ public class ArticleFragment extends Fragment {
             Glide.with(getContext())
                     .load(coverimg)
                     .centerCrop()
-                    .placeholder(R.drawable.logo)
+                    .placeholder(R.drawable.loadingimg)
                     .into(holder.coverimg);
 
 
@@ -170,6 +173,7 @@ public class ArticleFragment extends Fragment {
                 intent.putExtra("authordesc", authordesc);
                 intent.putExtra("text1", text1);
                 intent.putExtra("text2", text2);
+                intent.putExtra("facebook", facebook);
                 startActivity(intent);
 
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

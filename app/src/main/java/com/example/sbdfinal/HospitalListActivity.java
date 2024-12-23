@@ -109,7 +109,6 @@ public class HospitalListActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 // Filter the RecyclerView data based on the text input in the SearchView
-
                 HospitalListActivity.myAdapter adapter = (HospitalListActivity.myAdapter) recyclerView.getAdapter();
                 adapter.filter(newText);// Call filter method of the adapter
                 return false;
