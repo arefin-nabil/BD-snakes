@@ -18,6 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
@@ -47,32 +48,17 @@ public class ArticleFragment extends Fragment {
         seemorebtn = view.findViewById(R.id.seemorebtn);
 
 
-        //================= click button with dialog ============================
-
+        //================= See more button ============================
         seemorebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Show the loading animation
-
-
-                if (getActivity() != null && NetworkAccess.isConnected(getActivity())) {
-                    // Network is connected, go to the next activity
-
-                    Intent intent = new Intent(getActivity(), ArticleListActivity.class);
-                    startActivity(intent);
-                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
-                } else {
-                    // Network is not connected, show the no connection dialog
-                    if (getActivity() != null) {
-                        NetworkAccess.showNoConnectionDialog(getActivity(), "আরো চমৎকার সব নিবন্ধ দেখতে ইন্টারনেটে সংযোগ চালু করুন");
-                    }
-                }
-
+                Toast.makeText(getContext(), "Hang tight! We're loading your data.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ArticleListActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
-
-        //================= click button with dialog ============================
+        //================= See more button ============================
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

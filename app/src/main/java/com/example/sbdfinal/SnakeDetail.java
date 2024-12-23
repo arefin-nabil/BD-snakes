@@ -35,10 +35,12 @@ public class SnakeDetail extends AppCompatActivity {
         image2 = findViewById(R.id.image2);
         image3 = findViewById(R.id.image3);
 
-        MyAdmob.loadAdUnit();
+
+        MyAdmob.checkAdStatus(this);
 
         AdmobAd admobAd = new AdmobAd(this);
         admobAd.loadBanner(findViewById(R.id.bannerAd));
+
 
         // Initialize views
         tooltitel = findViewById(R.id.tooltitel);

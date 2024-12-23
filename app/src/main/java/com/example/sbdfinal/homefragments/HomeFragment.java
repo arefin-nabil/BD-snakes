@@ -158,43 +158,16 @@ public class HomeFragment extends Fragment {
             //item ke click korle kaj korabo
             holder.cardView.setOnClickListener(v -> {
 
-                if (position == 0){
-                    // Check network access after the delay
-                    if (NetworkAccess.isConnected(getActivity())) {
-                        snakelistactivity(0);
-                    } else {
-                        NetworkAccess.showNoConnectionDialog(getActivity(), "দয়াকরে ইন্টারনেটে সংযোগ চালু করুন");
-                    }
-                } else if (position == 1) {
-                    if (NetworkAccess.isConnected(getActivity())) {
-                        snakelistactivity(1);
-                    } else {
-                        NetworkAccess.showNoConnectionDialog(getActivity(), "দয়াকরে ইন্টারনেটে সংযোগ চালু করুন");
-                    }
-                } else if (position == 2) {
-                    if (NetworkAccess.isConnected(getActivity())) {
-                        snakelistactivity(2);
-                    } else {
-                        NetworkAccess.showNoConnectionDialog(getActivity(), "দয়াকরে ইন্টারনেটে সংযোগ চালু করুন");
-                    }
-                } else if (position == 3) {
-                    if (NetworkAccess.isConnected(getActivity())) {
-                        snakelistactivity(3);
-                    } else {
-                        NetworkAccess.showNoConnectionDialog(getActivity(), "দয়াকরে ইন্টারনেটে সংযোগ চালু করুন");
-                    }
+                if (position >= 0 && position <= 3) {
+                    snakelistactivity(position);
+                    Toast.makeText(getContext(), "Hang tight! We're loading your data.", Toast.LENGTH_SHORT).show();
                 } else if (position == 4) {
-                    Intent intent = new Intent(getActivity(), SnakeBiteList.class);
-                    startActivity(intent);
-                    requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    openActivity(SnakeBiteList.class, false);
                 } else if (position == 5) {
-                    Intent intent = new Intent(getActivity(), HospitalActivity.class);
-                    startActivity(intent);
-                    requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    openActivity(HospitalActivity.class, false);
                 } else if (position == 6) {
-                    Intent intent = new Intent(getActivity(), PosterActivity.class);
-                    startActivity(intent);
-                    requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    Toast.makeText(getContext(), "Hang tight! We're loading your data.", Toast.LENGTH_SHORT).show();
+                    openActivity(PosterActivity.class, false);
                 } else if (position == 7) {
                     emergencycontactdialog();
                 }
@@ -220,7 +193,15 @@ public class HomeFragment extends Fragment {
         requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-
+    // Helper method for opening activities
+    private void openActivity(Class<?> activityClass, boolean showToast) {
+        if (showToast) {
+            Toast.makeText(getContext(), "Hang tight! We're loading your data.", Toast.LENGTH_SHORT).show();
+        }
+        Intent intent = new Intent(getActivity(), activityClass);
+        startActivity(intent);
+        requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
 
     //====================== contact us Alert Dialog ========================
     private String[] emergencyNumbers = {"999", "333", "16163", "1090", "16430"}; // Array of emergency numbers

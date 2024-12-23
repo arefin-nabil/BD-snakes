@@ -117,7 +117,7 @@ public class SeaSnakesFragment extends Fragment {
                 loadinglottie.setVisibility(View.GONE);
                 lottieAnimationView.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "Please ensure you have an active internet connection and try again.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "It looks like you're offline. Please reconnect to the internet to continue.", Toast.LENGTH_SHORT).show();
             }
         });
 

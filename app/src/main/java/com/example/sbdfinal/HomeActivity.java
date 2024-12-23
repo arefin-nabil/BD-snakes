@@ -411,7 +411,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // dialog btn workable
         closebutton.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://mccibd.org/wp-content/uploads/2021/09/Wildlife-Conservation-and-Security-Act-2012.pdf"));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.arefinnabil.site/imageresource/Wildlife%20Act%202012.pdf"));
             startActivity(intent);
             dialog.dismiss();
 

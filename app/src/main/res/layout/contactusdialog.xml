@@ -72,10 +72,6 @@
                 android:layout_gravity="right"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/Theme_color"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-
                 />
 
 

@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sbdfinal.ArticleListActivity;
 import com.example.sbdfinal.FaqListActivity;
 import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.R;
@@ -53,26 +54,17 @@ public class RescuerFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         seemorebtn = view.findViewById(R.id.seemorebtn);
 
-        //================= click button with dialog ============================
+        //================= See more button ============================
         seemorebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (NetworkAccess.isConnected(getActivity())) {
-                    // Network is connected, go to the next activity
-                    Intent intent = new Intent(getActivity(), RescuerListActivity.class);
-                    startActivity(intent);
-                    getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
-                } else {
-                    // Network is not connected, show the no connection dialog
-                    NetworkAccess.showNoConnectionDialog(getActivity(), "আরো প্রশ্নোত্তর দেখতে ইন্টারনেটে সংযোগ চালু করুন");
-                }
-
-
+                Toast.makeText(getContext(), "Hang tight! We're loading your data.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), RescuerListActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
-        //================= click button with dialog ============================
+        //================= See more button ============================
 
         // Set up RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

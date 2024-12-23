@@ -68,10 +68,10 @@ public class ArticleListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
-        MyAdmob.loadAdUnit();
+
+        MyAdmob.checkAdStatus(this);
 
         AdmobAd admobAd = new AdmobAd(this);
-
         admobAd.loadAdmobInterstitialAd();
 
 

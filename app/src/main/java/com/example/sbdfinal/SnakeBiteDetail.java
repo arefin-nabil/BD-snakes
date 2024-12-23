@@ -28,7 +28,7 @@ public class SnakeBiteDetail extends AppCompatActivity {
         tooltitel = findViewById(R.id.tooltitel);
 
 
-        MyAdmob.loadAdUnit();
+        MyAdmob.checkAdStatus(this);
 
         AdmobAd admobAd = new AdmobAd(this);
         admobAd.loadBanner(findViewById(R.id.bannerAd));

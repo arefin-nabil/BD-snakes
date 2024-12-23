@@ -105,7 +105,6 @@ public class NonVenomFragment extends Fragment {
                                 arrayList.add(hashMap);
                             }
 
-                            // Notify the adapter that the data set has changed
                             adapter.notifyDataSetChanged();
 
                         } catch (JSONException e) {
@@ -119,7 +118,7 @@ public class NonVenomFragment extends Fragment {
                 loadinglottie.setVisibility(View.GONE);
                 lottieAnimationView.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "Please ensure you have an active internet connection and try again.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "It looks like you're offline. Please reconnect to the internet to continue.", Toast.LENGTH_SHORT).show();
             }
         });
 

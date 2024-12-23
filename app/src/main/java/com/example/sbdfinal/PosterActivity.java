@@ -66,7 +66,7 @@ public class PosterActivity extends AppCompatActivity {
         loadinglottie = findViewById(R.id.loadinglottie);
         lottieAnimationView = findViewById(R.id.lottieAnimationView);
 
-        MyAdmob.loadAdUnit();
+        MyAdmob.checkAdStatus(this);
 
         AdmobAd admobAd = new AdmobAd(this);
         admobAd.loadBanner(findViewById(R.id.bannerAd));
@@ -177,7 +177,7 @@ public class PosterActivity extends AppCompatActivity {
             // Load image with Glide
             Glide.with(context)
                     .load(imageUrl)
-                    .placeholder(R.drawable.logo)
+                    .placeholder(R.drawable.poster)
                     .into(holder.image);
 
             // OnClick to view full image

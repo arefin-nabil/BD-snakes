@@ -116,7 +116,7 @@
                             android:layout_weight="1"
                             android:scaleType="centerCrop"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/logo"
+                            android:src="@drawable/hospital"
                             />
 
                         <!-- TextView for item title -->
@@ -127,7 +127,7 @@
                             android:text="মেডিক্যাল কলেজ"
                             android:fontFamily="@font/font1"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_13ssp"
+                            android:textSize="@dimen/_16ssp"
                             android:gravity="center" />
 
                     </LinearLayout>
@@ -161,7 +161,7 @@
                             android:layout_weight="1"
                             android:scaleType="centerCrop"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/logo"
+                            android:src="@drawable/hospital"
                             />
 
                         <!-- TextView for item title -->
@@ -172,7 +172,7 @@
                             android:text="জেলা সদর হাসপাতাল"
                             android:fontFamily="@font/font1"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_13ssp"
+                            android:textSize="@dimen/_16ssp"
                             android:gravity="center" />
 
                     </LinearLayout>

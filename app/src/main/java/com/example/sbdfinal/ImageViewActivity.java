@@ -29,7 +29,7 @@ public class ImageViewActivity extends AppCompatActivity {
         backbtn = findViewById(R.id.backbtn);
         tooltitel = findViewById(R.id.tooltitel);
 
-        MyAdmob.loadAdUnit();
+        MyAdmob.checkAdStatus(this);
 
         AdmobAd admobAd = new AdmobAd(this);
         admobAd.loadBanner(findViewById(R.id.bannerAd));
