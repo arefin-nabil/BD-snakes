@@ -97,7 +97,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:background="#20B1B1B1"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">

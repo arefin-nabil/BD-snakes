@@ -116,7 +116,7 @@
                             android:layout_weight="1"
                             android:scaleType="centerCrop"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/hospital"
+                            android:src="@drawable/mediclg"
                             />
 
                         <!-- TextView for item title -->
@@ -161,7 +161,7 @@
                             android:layout_weight="1"
                             android:scaleType="centerCrop"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/hospital"
+                            android:src="@drawable/zillahosp"
                             />
 
                         <!-- TextView for item title -->

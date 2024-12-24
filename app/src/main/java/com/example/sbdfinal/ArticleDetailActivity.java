@@ -20,16 +20,13 @@ import com.bdtopcoder.smartadmob.AdmobAdCallBack;
 import com.bumptech.glide.Glide;
 
 public class ArticleDetailActivity extends AppCompatActivity {
-
     ImageView backbtn, authorimage, coverimg, facebook;
     TextView tooltitel, text1, text2, articletitel, authordes, authorname;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_detail);
-
 
         MyAdmob.checkAdStatus(this);
 
@@ -47,7 +44,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
         authorname = findViewById(R.id.authorname);
         coverimg = findViewById(R.id.coverimg);
         facebook = findViewById(R.id.facebook);
-
 
         // Back button click handler
         backbtn.setOnClickListener(v -> {
@@ -71,7 +67,6 @@ public class ArticleDetailActivity extends AppCompatActivity {
         });
         //---------- Back Button -----------
 
-
         String coverimg = getIntent().getStringExtra("coverimg");
         String title = getIntent().getStringExtra("title");
         String author = getIntent().getStringExtra("author");
@@ -83,7 +78,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
 
 
         Glide.with(this).load(coverimg).into(this.coverimg);
-        Glide.with(this).load(authorimg).circleCrop().placeholder(R.drawable.logo).into(this.authorimage);
+        Glide.with(this).load(authorimg).fitCenter().circleCrop().placeholder(R.drawable.loadingimg).into(this.authorimage);
 
         articletitel.setText(title);
         authorname.setText(author);
@@ -91,14 +86,11 @@ public class ArticleDetailActivity extends AppCompatActivity {
         this.text1.setText(text1);
         this.text2.setText(text2);
 
-
         facebook.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/" + sfacebook));
             startActivity(intent);
         });
 
-
     }
-
 
 }

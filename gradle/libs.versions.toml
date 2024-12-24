@@ -16,6 +16,7 @@ sdpAndroid = "1.1.1"
 smartadmob = "6.0"
 sspAndroid = "1.1.1"
 volley = "1.2.1"
+swiperefreshlayout = "1.1.0"
 
 [libraries]
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
@@ -34,6 +35,7 @@ sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdpAndroid
 smartadmob = { module = "com.github.AtikulSoftware:SmartAdmob", version.ref = "smartadmob" }
 ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "sspAndroid" }
 volley = { module = "com.android.volley:volley", version.ref = "volley" }
+swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

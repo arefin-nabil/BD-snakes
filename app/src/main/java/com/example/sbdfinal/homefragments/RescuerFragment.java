@@ -14,9 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
-
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,9 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sbdfinal.ArticleListActivity;
-import com.example.sbdfinal.FaqListActivity;
-import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.R;
 import com.example.sbdfinal.RescuerListActivity;
 
@@ -50,7 +44,6 @@ public class RescuerFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rescuer, container, false);
 
-
         recyclerView = view.findViewById(R.id.recyclerView);
         seemorebtn = view.findViewById(R.id.seemorebtn);
 
@@ -58,7 +51,6 @@ public class RescuerFragment extends Fragment {
         seemorebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Hang tight! We're loading your data.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), RescuerListActivity.class);
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

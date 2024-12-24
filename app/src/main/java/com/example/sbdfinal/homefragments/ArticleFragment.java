@@ -43,16 +43,13 @@ public class ArticleFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_article, container, false);
 
-
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         seemorebtn = view.findViewById(R.id.seemorebtn);
-
 
         //================= See more button ============================
         seemorebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Hang tight! We're loading your data.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), ArticleListActivity.class);
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -60,10 +57,8 @@ public class ArticleFragment extends Fragment {
         });
         //================= See more button ============================
 
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new ArticleFragment.myAdapter());
-
 
         ArticleFragment.myAdapter adapter = new ArticleFragment.myAdapter();
         recyclerView.setAdapter(adapter);

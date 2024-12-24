@@ -28,6 +28,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
@@ -48,13 +49,14 @@ import java.util.HashMap;
 import java.util.List;
 
 public class PosterActivity extends AppCompatActivity {
-    private LinearLayout loadinglottie;
-    private RecyclerView recyclerView;
-    private TextView tooltitel;
-    private ImageView backbtn;
-    private LottieAnimationView lottieAnimationView;
-    private ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
-    private MyAdapter adapter;
+    SwipeRefreshLayout swipeRefreshLayout;
+    LinearLayout loadinglottie;
+    RecyclerView recyclerView;
+    TextView tooltitel;
+    ImageView backbtn;
+    LottieAnimationView lottieAnimationView;
+    ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
+    MyAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +67,7 @@ public class PosterActivity extends AppCompatActivity {
         backbtn = findViewById(R.id.backbtn);
         loadinglottie = findViewById(R.id.loadinglottie);
         lottieAnimationView = findViewById(R.id.lottieAnimationView);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
 
         MyAdmob.checkAdStatus(this);
 
@@ -80,6 +83,14 @@ public class PosterActivity extends AppCompatActivity {
         backbtn.setOnClickListener(v -> {
             finish();
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                arrayList.clear();
+                loadImages(); // Fetch new data
+            }
         });
 
         // Handle back press
@@ -124,20 +135,24 @@ public class PosterActivity extends AppCompatActivity {
 
                             adapter.notifyDataSetChanged();
                             loadinglottie.setVisibility(View.GONE);
+                            swipeRefreshLayout.setRefreshing(false);
+
                         } catch (JSONException e) {
                             Log.e("PosterActivity", "JSON Parsing Error", e);
+                            swipeRefreshLayout.setRefreshing(false);
                             loadinglottie.setVisibility(View.GONE);
-                            Toast.makeText(PosterActivity.this, "Data parsing error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PosterActivity.this, "Data parsing error. We're working to resolve it.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        swipeRefreshLayout.setRefreshing(false);
                         loadinglottie.setVisibility(View.GONE);
                         lottieAnimationView.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.GONE);
-                        Toast.makeText(PosterActivity.this, "Please check your internet connection.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PosterActivity.this, "It looks like you're offline. Please reconnect to the internet to continue.", Toast.LENGTH_SHORT).show();
                     }
                 });
 

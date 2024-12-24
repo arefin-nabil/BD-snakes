@@ -1,13 +1,18 @@
 package com.example.sbdfinal;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
@@ -18,6 +23,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bdtopcoder.smartadmob.AdmobAd;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -35,6 +41,11 @@ public class SnakeBiteList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_snake_bite_list);
+
+        MyAdmob.checkAdStatus(this);
+
+        AdmobAd admobAd = new AdmobAd(this);
+        admobAd.loadBanner(findViewById(R.id.bannerAd));
 
         backbtn = findViewById(R.id.backbtn);
         tooltitel = findViewById(R.id.tooltitel);
@@ -82,8 +93,8 @@ public class SnakeBiteList extends AppCompatActivity {
         hashMap.put("title", "বিষের ধরন");
         hashMap.put("detail", "সাপের বিষ ভেনম (Venom) নামে পরিচিত। এটি স্বচ্ছ, আঠালো, চটচটে হালকা হলুদ বা খড় রংয়ের প্রোটিনধর্মী তরল পদার্থ। বিষক্রিয়ার উপর ভিত্তি করে সাপের বিষ প্রধানত দুই ধরনের-\n" +
                 "১. নিউরোটক্সিন। যেমনঃ- গোখরা, কেউটে, কালাচ প্রজাতির সাপের বিষ\n" +
-                "২. হিমোটক্সিন। যেমনঃ- চন্দ্রবোড়া, গ্রীন পিট ভাইপার প্রজাতির সাপের বিষ। তাছাড়াও সাপের বিষে সাইটোটক্সিন ও মায়োটক্সিন ধরনের বিষও পাওয়া যায়।\n\n" +
-                "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
+                "২. হিমোটক্সিন। যেমনঃ- চন্দ্রবোড়া, গ্রীন পিট ভাইপার প্রজাতির সাপের বিষ। তাছাড়াও সাপের বিষে সাইটোটক্সিন ও মায়োটক্সিন ধরনের বিষও পাওয়া যায়।\n");
+        hashMap.put("resource", "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
         hashMap.put("image", "https://www.rainforesttrust.org/app/uploads/2024/07/Black-Mamba-by-reptiles4all-2shutterstock_190881020-400x257.jpg");
         arrayList.add(hashMap);
 
@@ -95,8 +106,8 @@ public class SnakeBiteList extends AppCompatActivity {
                 "৩. হাত-পা অবশ হয়ে যায় ও অচেতন হয়ে পড়ে, ঘাড় সোজা রাখতে পারে না, প্রস্রাব বন্ধ হয়ে যায়;\n" +
                 "৪. বমি বমিভাব বা বমি হওয়া;\n" +
                 "৫. মুখ দিয়ে লালা ঝরে, খাবার ও ঢোক গিলতে অসুবিধা হয় প্রভৃতি;\n" +
-                "৬. তবে অনেক সময় কালাচ প্রজাতির সাপের দংশনে কোন প্রকার ব্যাথা অনুভূত হয়না এবং দংশনের চিহ্ন থাকে না।\n\n" +
-                "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
+                "৬. তবে অনেক সময় কালাচ প্রজাতির সাপের দংশনে কোন প্রকার ব্যাথা অনুভূত হয়না এবং দংশনের চিহ্ন থাকে না।\n" );
+        hashMap.put("resource", "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
         hashMap.put("image", "https://www.rainforesttrust.org/app/uploads/2024/07/Black-Mamba-by-reptiles4all-2shutterstock_190881020-400x257.jpg");
         arrayList.add(hashMap);
 
@@ -107,44 +118,44 @@ public class SnakeBiteList extends AppCompatActivity {
                 "২. ক্ষতস্থানে প্রচণ্ড ব্যথা অনুভূত হওয়া, কখনো কখনো সারা শরীর ফুলে যাওয়া;\n" +
                 "৩. চোখ লাল হয়ে যায় এবং মুখ, নাক, প্রস্রাব, মল ও দাতেঁর গোড়া দিয়ে রক্ত বের হয়;\n" +
                 "৪. শরীরের অভ্যন্তরে রক্তক্ষরণের ফলে রোগী অজ্ঞান হয়ে যেতে পারে;\n" +
-                "৫. পেটে তীব্র ব্যথা, হৎপিন্ডের স্পন্দন দূর্বল হয়ে যায় এবং কিডনির কার্যকারীতা বিকল হয়ে রোগীর মৃত্যু হয়।\n\n" +
-                "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
+                "৫. পেটে তীব্র ব্যথা, হৎপিন্ডের স্পন্দন দূর্বল হয়ে যায় এবং কিডনির কার্যকারীতা বিকল হয়ে রোগীর মৃত্যু হয়।\n");
+        hashMap.put("resource", "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
         hashMap.put("image", "https://www.rainforesttrust.org/app/uploads/2024/07/Black-Mamba-by-reptiles4all-2shutterstock_190881020-400x257.jpg");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("title", "সর্প দংশন প্রতিরোধে করণীয়");
         hashMap.put("detail", "আমাদের দেশে সাধারণত গ্রামাঞ্চলে মানুষ বেশি সৰ্প দংশনের শিকার হয়। সাপ বন জঙ্গল ছাড়াও বাড়িঘরের আশেপাশে থাকে। সর্প দংশন প্রতিরোধ করার উপায়সমূহঃ\n\n" +
-                "\n১. সাপ নিয়ে নাড়াচড়া বা খেলাধুলা করা যাবে না;\n\n" +
-                "২. সাপ থাকতে পারে এমন জায়গা যেমন- ঘন ঘাস বা ঝোপঝাড়, ইট বা পাথরের ফাঁক, ইঁদুর বা কোন প্রকার গর্ত ইত্যাদি এড়িয়ে চলতে হবে;\n\n" +
-                "৩. জঙ্গল বা ঝোপঝাড়ে যেতে হলে অবশ্যই লম্বা লাঠি ব্যবহার করতে হবে;\n\n" +
-                "৪. রাতে চলাফেরার সময় টর্চ লাইট বা অন্য কোনো বাতি ব্যবহার করতে হবে;\n\n" +
+                "\n১. সাপ নিয়ে নাড়াচড়া বা খেলাধুলা করা যাবে না;\n" +
+                "২. সাপ থাকতে পারে এমন জায়গা যেমন- ঘন ঘাস বা ঝোপঝাড়, ইট বা পাথরের ফাঁক, ইঁদুর বা কোন প্রকার গর্ত ইত্যাদি এড়িয়ে চলতে হবে;\n" +
+                "৩. জঙ্গল বা ঝোপঝাড়ে যেতে হলে অবশ্যই লম্বা লাঠি ব্যবহার করতে হবে;\n" +
+                "৪. রাতে চলাফেরার সময় টর্চ লাইট বা অন্য কোনো বাতি ব্যবহার করতে হবে;\n" +
                 "৫. বাড়ির চারপাশ পরিষ্কার পরিচ্ছন্ন রাখতে হবে যাতে সাপ লুকিয়ে থাকতে না পারে। প্রয়োজনে ঘরের চারপাশে ব্লিচিং পাউডার ব্যবহার করতে হবে যাতে পোকামাকড়, ইঁদুরসহ অন্যান্য প্রাণী ঘরে প্রবেশ করতে না পারে;\n\n" +
-                "৬. রাতে মাটিতে ঘুমানো যাবে না;\n\n" +
-                "৭. রাতে ঘুমানোর সময় অবশ্যই মশারি ব্যবহার করতে হবে ও বিছানার চারপাশে ভালভাবে গুঁজে দিতে হবে;\n\n" +
-                "৮. ঘরবাড়ি ইঁদুর মুক্ত রাখতে হবে;\n\n" +
-                "৯. বাড়ির ভেতর-বাহিরে কোন গর্ত থাকলে তা ভরাট করে দিতে হবে;\n\n" +
-                "১০. মাছ ধরার সময় ‘চাই’ কিংবা ‘জালের' মধ্যে হাত দেওয়ার আগে সাপ আছে কি-না তা দেখে নিতে হবে;\n\n" +
-                "১১. খালি পায়ে চলাচল না করা;\n\n" +
-                "১২. কৃষি কাজ করার সময় প্রয়োজনে গামবুট ব্যবহার করতে হবে;\n\n" +
-                "১৩. সাপ দেখা মাত্রই অহেতুক মারতে যাওয়া যাবে না ইত্যাদি।\n\n\n" +
-                "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
+                "৬. রাতে মাটিতে ঘুমানো যাবে না;\n" +
+                "৭. রাতে ঘুমানোর সময় অবশ্যই মশারি ব্যবহার করতে হবে ও বিছানার চারপাশে ভালভাবে গুঁজে দিতে হবে;\n" +
+                "৮. ঘরবাড়ি ইঁদুর মুক্ত রাখতে হবে;\n" +
+                "৯. বাড়ির ভেতর-বাহিরে কোন গর্ত থাকলে তা ভরাট করে দিতে হবে;\n" +
+                "১০. মাছ ধরার সময় ‘চাই’ কিংবা ‘জালের' মধ্যে হাত দেওয়ার আগে সাপ আছে কি-না তা দেখে নিতে হবে;\n" +
+                "১১. খালি পায়ে চলাচল না করা;\n" +
+                "১২. কৃষি কাজ করার সময় প্রয়োজনে গামবুট ব্যবহার করতে হবে;\n" +
+                "১৩. সাপ দেখা মাত্রই অহেতুক মারতে যাওয়া যাবে না ইত্যাদি।\n");
+        hashMap.put("resource", "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
         hashMap.put("image", "https://www.rainforesttrust.org/app/uploads/2024/07/Black-Mamba-by-reptiles4all-2shutterstock_190881020-400x257.jpg");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("title", "সর্প দংশনের প্রাথমিক চিকিৎসা");
-        hashMap.put("detail", "১. রোগীকে মানসিকভাবে শান্ত রাখা;\n\n" +
-                "২. ক্ষতস্থান পরিস্কার পানি দিয়ে পরিস্কার করা;\n\n" +
+        hashMap.put("detail", "১. রোগীকে মানসিকভাবে শান্ত রাখা;\n" +
+                "২. ক্ষতস্থান পরিস্কার পানি দিয়ে পরিস্কার করা;\n" +
                 "৩. প্রযোজ্য ক্ষেত্রে সর্প দংশিত স্থানের দুই আঙ্গুল উপরে ক্রেপ ব্যান্ডেজ/তিন ইঞ্চি শাড়ির পাড়/গামছা দিয়ে হালকা করে বাধঁতে হবে, যাতে হৎপিন্ডের দিকে রক্তের প্রবাহের গতি কমে যায়;\n\n" +
                 "৪. বাঁধন যেন কোন অবস্থাতেই খুব বেশী শক্ত না হয়, সেদিকে লক্ষ্য রাখতে হবে। বাধঁনে নাইলনের মিহি বা চিকন সূতা/দড়ি ব্যবহার করা যাবে না;\n\n" +
-                "৫. রোগীকে কোন ভাবেই হাঁটাচলা করতে দেওয়া যাবে না;\n\n" +
-                "৬.রোগীকে যথাসম্ভব স্থির অবস্থায় বসিয়ে রাখতে হবে;\n\n" +
-                "৭. শরীরের যে অংশে সাপ কেটেছে তা বুকের অবস্থান থেকে যথেষ্ট নিচে রাখতে হবে;\n\n" +
-                "৮. সাপে কাটলে তাৎক্ষণিকভাবে শরীরের আংটি, চুরি, ব্রেসলেট, ঘড়ি খুলে ফেলতে হবে;\n\n" +
-                "৯. ওঝা বা বেদের মাধ্যমে অবৈজ্ঞানিক উপায়ে চিকিৎসা করিয়ে সময় নষ্ট করা যাবে না;\n\n" +
-                "১০. রোগীকে অবশ্যই যানবাহন যোগে হাসপাতালে নেয়া উচিত এবং সবসময় রোগীকে যানবাহনের মাঝখানে বসিয়ে নিতে হবে।\n\n\n" +
-                "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
+                "৫. রোগীকে কোন ভাবেই হাঁটাচলা করতে দেওয়া যাবে না;\n" +
+                "৬.রোগীকে যথাসম্ভব স্থির অবস্থায় বসিয়ে রাখতে হবে;\n" +
+                "৭. শরীরের যে অংশে সাপ কেটেছে তা বুকের অবস্থান থেকে যথেষ্ট নিচে রাখতে হবে;\n" +
+                "৮. সাপে কাটলে তাৎক্ষণিকভাবে শরীরের আংটি, চুরি, ব্রেসলেট, ঘড়ি খুলে ফেলতে হবে;\n" +
+                "৯. ওঝা বা বেদের মাধ্যমে অবৈজ্ঞানিক উপায়ে চিকিৎসা করিয়ে সময় নষ্ট করা যাবে না;\n" +
+                "১০. রোগীকে অবশ্যই যানবাহন যোগে হাসপাতালে নেয়া উচিত এবং সবসময় রোগীকে যানবাহনের মাঝখানে বসিয়ে নিতে হবে।\n");
+        hashMap.put("resource", "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
         hashMap.put("image", "https://www.rainforesttrust.org/app/uploads/2024/07/Black-Mamba-by-reptiles4all-2shutterstock_190881020-400x257.jpg");
         arrayList.add(hashMap);
 
@@ -162,8 +173,8 @@ public class SnakeBiteList extends AppCompatActivity {
                 "১০. রোগীর দংশিত স্থানে চুন ও শিমের বিচি লাগানো;\n" +
                 "১১. রাসেল'স ভাইপার, গ্রিন পিট ভাইপার দংশন হলে আক্রান্ত স্থান ফুলে গেলে ছিদ্র করে রক্ত বের করার চেষ্টা করা;\n" +
                 "১২. সাপ হত্যা না করলে রোগী সুস্থ হবে না-এই মতবাদে সাপ ধরতে উদ্বুদ্ধ হওয়া;\n" +
-                "১৩. কড়ি বা বাটি চালান দিয়ে দংশিত সাপকে আনার অপচেষ্টা করা ইত্যাদি।\n\n" +
-                "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
+                "১৩. কড়ি বা বাটি চালান দিয়ে দংশিত সাপকে আনার অপচেষ্টা করা ইত্যাদি।\n");
+        hashMap.put("resource", "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
         hashMap.put("image", "https://www.rainforesttrust.org/app/uploads/2024/07/Black-Mamba-by-reptiles4all-2shutterstock_190881020-400x257.jpg");
         arrayList.add(hashMap);
 
@@ -181,8 +192,8 @@ public class SnakeBiteList extends AppCompatActivity {
                 "■ মাইট্যা বা মেটে সাপ দংশনের পরে গোবরে পা পড়লে মৃত্যু নিশ্চিত;\n" +
                 "■ শনি-মঙ্গলবার বিষহীন সাপের বিষ হয়;\n" +
                 "■ সাপের পা দেখলে, ধনী হয়ে যাবে;\n" +
-                "■ যে কোন সাপ দংশন করলে ওঝা ভালো করতে পারে ইত্যাদি।\n\n" +
-                "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
+                "■ যে কোন সাপ দংশন করলে ওঝা ভালো করতে পারে ইত্যাদি।\n");
+        hashMap.put("resource", "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
         hashMap.put("image", "https://www.rainforesttrust.org/app/uploads/2024/07/Black-Mamba-by-reptiles4all-2shutterstock_190881020-400x257.jpg");
         arrayList.add(hashMap);
 
@@ -191,23 +202,23 @@ public class SnakeBiteList extends AppCompatActivity {
         hashMap.put("detail", "■ সাপ আমাদের পরিবেশের ভারসাম্য রক্ষায় গুরুত্বপূর্ণ ভূমিকা পালন করে;\n" +
                 "■ একটি প্রাপ্ত বয়স্ক দাঁড়াশ সাপ বছরে ৮০-১০০ টি ইঁদুর খেয়ে থাকে এবং কৃষকের বন্ধু হিসেবে কাজ করে;\n" +
                 "■ মানুষের জীবন রক্ষায় বিষধর সাপের দংশনের প্রতিষেধক হিসেবে অ্যান্টিভেনম তৈরীতে বিষধর সাপের বিষ ব্যবহৃত হয়;\n" +
-                "■ এছাড়াও সাপের বিষ জীবন রক্ষাকারী ঔষধ তৈরীর কাঁচামাল হিসেবে ব্যবহৃত হয়।\n\n" +
-                "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
+                "■ এছাড়াও সাপের বিষ জীবন রক্ষাকারী ঔষধ তৈরীর কাঁচামাল হিসেবে ব্যবহৃত হয়।\n" );
+        hashMap.put("resource", "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
         hashMap.put("image", "https://www.rainforesttrust.org/app/uploads/2024/07/Black-Mamba-by-reptiles4all-2shutterstock_190881020-400x257.jpg");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("title", "সর্প দংশনের চিকিৎসাসেবা");
         hashMap.put("detail", "সরকারি হিসেবে প্রতি বছরে আমাদের দেশে ৭৫০০ জন মানুষ সর্পদংশনে মৃত্যুবরণ করে । যার মূল কারণ হলো বিষধর ও নির্বিষ সাপ না চেনা, সর্পদংশন প্রতিরোধ, প্রাথমিক ও আধুনিক চিকিৎসা সম্পর্কে সঠিকভাবে না জানা ৷ সর্পদংশন পরবর্তী ওঝার বা বৈদ্যের কাছে গিয়ে মূল্যবান সময় নষ্ট করে দেরীতে মুমূর্ষু অবস্থায় হাসপাতোলে পৌঁছানো ৷\n\n" +
-                "সর্পদংশন চিকিৎসার জন্য বিষক্রিয়ার লক্ষণ বা উপসর্গ দেখে চিকিৎসা প্রদান করা হয়। বিষধর সাপে দংশিত রোগীর চিকিৎসা বলতে অ্যান্টিভেনাম প্রয়োগ একমাত্র উপায়। তবে তা বিষক্রিয়ার লক্ষণ বা উপসর্গ দেখে সর্পদংশনের পর যত তাড়াতাড়ি সম্ভব প্রয়োগ করতে হবে। তাই সর্পদংশনের সঙ্গে সঙ্গে যত দ্রুত সম্ভব রোগীকে নিকটবর্তী সরকারি হাসপাতালে নিয়ে যেতে হবে।\n\n\n" +
-                "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
+                "সর্পদংশন চিকিৎসার জন্য বিষক্রিয়ার লক্ষণ বা উপসর্গ দেখে চিকিৎসা প্রদান করা হয়। বিষধর সাপে দংশিত রোগীর চিকিৎসা বলতে অ্যান্টিভেনাম প্রয়োগ একমাত্র উপায়। তবে তা বিষক্রিয়ার লক্ষণ বা উপসর্গ দেখে সর্পদংশনের পর যত তাড়াতাড়ি সম্ভব প্রয়োগ করতে হবে। তাই সর্পদংশনের সঙ্গে সঙ্গে যত দ্রুত সম্ভব রোগীকে নিকটবর্তী সরকারি হাসপাতালে নিয়ে যেতে হবে।\n" );
+        hashMap.put("resource", "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
         hashMap.put("image", "https://www.rainforesttrust.org/app/uploads/2024/07/Black-Mamba-by-reptiles4all-2shutterstock_190881020-400x257.jpg");
         arrayList.add(hashMap);
 
         hashMap = new HashMap<>();
         hashMap.put("title", "অ্যান্টিভেনম");
-        hashMap.put("detail", "অ্যান্টিভেনম হলে৷ সাপের বিষের বিরুদ্ধে কার্যকারী একমাত্র উপাদান। স্বাস্থ্য অধিদপ্তর প্রতিবছরই সরকারিভাবে অ্যান্টিভেনম আমদানি করে এবং সরকারি হাসপাতালগুলোতে (মেডিকেল কলেজ হাসপাতাল, জেলা সদর হাসপাতাল ও উপজেলা স্বাস্থ্য কম্পপ্লেক্স) তাদের চাহিদা অনুযায়ী সররবারহ করে থাকে যা, সর্পদংশিত রোগীদের বিনামূল্যে প্রদান করা হয় ৷\n\n\n" +
-                "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
+        hashMap.put("detail", "অ্যান্টিভেনম হলে৷ সাপের বিষের বিরুদ্ধে কার্যকারী একমাত্র উপাদান। স্বাস্থ্য অধিদপ্তর প্রতিবছরই সরকারিভাবে অ্যান্টিভেনম আমদানি করে এবং সরকারি হাসপাতালগুলোতে (মেডিকেল কলেজ হাসপাতাল, জেলা সদর হাসপাতাল ও উপজেলা স্বাস্থ্য কম্পপ্লেক্স) তাদের চাহিদা অনুযায়ী সররবারহ করে থাকে যা, সর্পদংশিত রোগীদের বিনামূল্যে প্রদান করা হয় ৷\n" );
+        hashMap.put("resource", "রিসোর্স - সর্প দংশনে সচেতনতা অ্যাপ");
         hashMap.put("image", "https://www.rainforesttrust.org/app/uploads/2024/07/Black-Mamba-by-reptiles4all-2shutterstock_190881020-400x257.jpg");
         arrayList.add(hashMap);
 
@@ -219,18 +230,26 @@ public class SnakeBiteList extends AppCompatActivity {
     //=============== Adapter Class created for recyclerview STARTS here================================
     private class myAdapter extends RecyclerView.Adapter<SnakeBiteList.myAdapter.myViewholder> {
 
+        private SparseBooleanArray expandedPositions = new SparseBooleanArray();
+        private int expandedPosition = RecyclerView.NO_POSITION;
         private class myViewholder extends RecyclerView.ViewHolder {
             //item view er variable nibo eikhane
-            CardView cardbg;
-            TextView title;
-            ImageView image;
+            LinearLayout motherLayout, discLayout;
+            RelativeLayout itemClicked;
+            ImageView arrowImg, image;
+            TextView question, answer, resource;
 
             public myViewholder(@NonNull View itemView) {
                 super(itemView);
 
-                cardbg = itemView.findViewById(R.id.cardbg);
-                title = itemView.findViewById(R.id.title);
-                image = itemView.findViewById(R.id.image);
+                motherLayout = itemView.findViewById(R.id.motherLayout);
+                itemClicked = itemView.findViewById(R.id.itemClicked);
+                arrowImg = itemView.findViewById(R.id.arrowImg);
+                discLayout = itemView.findViewById(R.id.discLayout);
+                question = itemView.findViewById(R.id.question);
+                answer = itemView.findViewById(R.id.answer);
+                resource = itemView.findViewById(R.id.author);
+                image = itemView.findViewById(R.id.bookImg);
 
             }
         }
@@ -240,7 +259,7 @@ public class SnakeBiteList extends AppCompatActivity {
         public SnakeBiteList.myAdapter.myViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             //item view nibo eikhane,, item view er layout inflate korbo
             LayoutInflater inflater = getLayoutInflater();
-            View myView = inflater.inflate(R.layout.snakebiteitems, parent, false);
+            View myView = inflater.inflate(R.layout.faqitems, parent, false);
             return new SnakeBiteList.myAdapter.myViewholder(myView);
         }
 
@@ -249,12 +268,15 @@ public class SnakeBiteList extends AppCompatActivity {
 
             //hashmap theke ene item view e data set korbo,,
             HashMap<String, String> hashMap = arrayList.get(position);
-            String title = (String) hashMap.get("title");
-            String detail = (String) hashMap.get("detail");
-            String image = (String) hashMap.get("image");
+            String question = (String) hashMap.get("title");
+            String answer = (String) hashMap.get("detail");
+            String resource = (String) hashMap.get("resource");
+            String image = hashMap.get("image");
 
 
-            holder.title.setText(title);
+            holder.question.setText(question);
+            holder.answer.setText(answer);
+            holder.resource.setText(resource);
 
             // Load profile image using Glide
             Glide.with(SnakeBiteList.this)
@@ -264,18 +286,36 @@ public class SnakeBiteList extends AppCompatActivity {
                     .placeholder(R.drawable.loadingimg)
                     .into(holder.image);
 
-            holder.cardbg.setOnClickListener(v -> {
-                // Navigate to the next activity
-                Intent intent = new Intent(SnakeBiteList.this, SnakeBiteDetail.class);
-                intent.putExtra("title", title);
-                intent.putExtra("detail", detail);
+            boolean isExpanded = expandedPosition == position;
 
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            boolean isDarkMode = (SnakeBiteList.this.getResources().getConfiguration().uiMode
+                    & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
 
+            holder.discLayout.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+
+            if (isDarkMode) {
+                holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#33000000"));
+            }else {
+                holder.motherLayout.setBackgroundColor(isExpanded ? Color.parseColor("#724CAF50") : Color.parseColor("#FFFFF0"));
+            }
+
+            holder.arrowImg.setImageResource(isExpanded ? R.drawable.uparrow : R.drawable.downarrow);
+
+            // Handle click listener to expand/collapse the item
+            holder.itemClicked.setOnClickListener(v -> {
+                boolean currentlyExpanded = expandedPositions.get(position, false);
+                int previousExpandedPosition = expandedPosition;
+
+                // Set the new expanded position (collapse if clicking the same item)
+                expandedPosition = isExpanded ? RecyclerView.NO_POSITION : position;
+
+                // Notify changes to collapse the previous item and expand the new one
+                notifyItemChanged(previousExpandedPosition);
+                notifyItemChanged(expandedPosition);
             });
+
             //item er animation control
-            holder.itemView.startAnimation(AnimationUtils.loadAnimation(SnakeBiteList.this, android.R.anim.slide_in_left));
+            holder.itemView.setAnimation(null);
         }
 
         @Override

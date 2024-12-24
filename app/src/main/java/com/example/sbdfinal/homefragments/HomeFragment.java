@@ -160,7 +160,6 @@ public class HomeFragment extends Fragment {
 
                 if (position >= 0 && position <= 3) {
                     snakelistactivity(position);
-                    Toast.makeText(getContext(), "Hang tight! We're loading your data.", Toast.LENGTH_SHORT).show();
                 } else if (position == 4) {
                     openActivity(SnakeBiteList.class, false);
                 } else if (position == 5) {
