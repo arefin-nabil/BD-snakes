@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "49720889177",
+    "project_id": "sbd-final-88039",
+    "storage_bucket": "sbd-final-88039.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49720889177:android:6394e31026520d25b98648",
+        "android_client_info": {
+          "package_name": "com.example.sbdfinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0_0qoqabJPwCE-IZv4K353psm4dTHQZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
