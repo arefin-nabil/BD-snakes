@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.sbdfinal.R;
 import com.example.sbdfinal.RescuerListActivity;
+import com.example.sbdfinal.RescuerRequestActivity;
 
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ import java.util.HashMap;
 public class RescuerFragment extends Fragment {
 
     RecyclerView recyclerView;
-    AppCompatButton seemorebtn;
+    AppCompatButton seemorebtn, reqrescuer;
     ArrayList<HashMap<String, Object>> arrayList = new ArrayList<>();
     HashMap<String, Object> hashMap;
 
@@ -46,6 +47,7 @@ public class RescuerFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView);
         seemorebtn = view.findViewById(R.id.seemorebtn);
+        reqrescuer = view.findViewById(R.id.reqrescuer);
 
         //================= See more button ============================
         seemorebtn.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +59,18 @@ public class RescuerFragment extends Fragment {
             }
         });
         //================= See more button ============================
+
+        //================= Rescuer request button ============================
+        reqrescuer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), RescuerRequestActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+        //================= Rescuer Request button ============================
+
 
         // Set up RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -77,7 +91,7 @@ public class RescuerFragment extends Fragment {
     private void hashMapdata() {
 
         hashMap = new HashMap<>();
-        hashMap.put("name", "Wildlife And Snake Rescue Team in Bangladesh-WSRTBD ");
+        hashMap.put("name", "Wildlife And Snake Rescue Team in Bangladesh - WSRTBD");
         hashMap.put("number", "01722938276");
         hashMap.put("profileimg", R.drawable.wsrtbd);
         arrayList.add(hashMap);

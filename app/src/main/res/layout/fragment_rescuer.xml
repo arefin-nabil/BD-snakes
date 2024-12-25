@@ -33,7 +33,7 @@
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:elevation="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_15sdp"
                 app:cardElevation="@dimen/_5sdp"
@@ -49,6 +49,39 @@
                     android:fontFamily="@font/font1"
                     android:padding="@dimen/_10sdp"
                     android:text="রেসকিউয়ার তালিকা দেখুন..."
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_18ssp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:elevation="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:cardElevation="@dimen/_5sdp"
+
+                >
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/reqrescuer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/Theme_color"
+                    android:fontFamily="@font/font1"
+                    android:padding="@dimen/_10sdp"
+                    android:text="রেসকিউয়ার হতে আবেদন করুন"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18ssp"
                     android:clickable="true"

@@ -5,16 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PosterActivity"
-    android:orientation="vertical"
-    android:background="@color/Night_BG"
-    >
+    tools:context=".RescuerRequestActivity"
+    android:background="@color/Day_BG">
 
     <LinearLayout
         android:id="@+id/titellinear"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/Night_AppBar"
+        android:background="@color/Theme_color"
         android:orientation="horizontal"
         android:padding="16dp">
 
@@ -43,7 +41,7 @@
             android:scrollHorizontally="true"
             android:singleLine="true"
             android:text="@string/marquetxt"
-            android:textColor="@color/Theme_color"
+            android:textColor="@color/black"
             android:textSize="19sp" />
 
     </LinearLayout>
@@ -58,28 +56,45 @@
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/nointernet"
         android:visibility="gone"
-        android:layout_below="@+id/titellinear"
         />
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefreshLayout"
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/font1"
+        android:gravity="center"
+        android:text="আপনি কি একজন রেস্কিউয়ার হতে চান?\nআপনি কি বন্যপ্রাণী নিয়ে কাজ করতে চান?"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_17ssp"
+        android:textStyle="bold"
+        android:layout_below="@id/titellinear"/>
+
+    <TextView
+        android:id="@+id/heading2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font1"
+        android:gravity="center"
+        android:text="বন্যপ্রাণীর প্রতি আপনার আগ্রহের কথা বিবেচনা করেই বাংলাদেশের জনপ্রিয় স্বেচ্ছাসেবী সংগঠন সমূহ প্রতিনিয়য়তই নানা প্রকার প্রশিক্ষণ কর্মশালা আয়োজন করে যাচ্ছে।\nজীববৈচিত্র রক্ষায় তাদের সাথে যুক্ত হোন আপনিও..."
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        android:paddingLeft="@dimen/_8sdp"
+        android:paddingRight="@dimen/_8sdp"
+        android:layout_below="@id/heading"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/titellinear"
-        android:layout_above="@+id/bannerAd"
+        android:clipToPadding="false"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"
-        >
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:scrollbars="none"
-            />
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        android:scrollbars="none"
+        android:layout_below="@id/heading2"
+        />
 
     <LinearLayout
         android:id="@+id/loadinglottie"
@@ -99,14 +114,5 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/loadingsquare" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/bannerAd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        />
-
 
 </RelativeLayout>

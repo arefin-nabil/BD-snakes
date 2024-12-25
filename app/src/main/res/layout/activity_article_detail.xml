@@ -78,7 +78,7 @@
                     android:id="@+id/articletitel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="২ টা একই প্রজাতির সাপকে একটা বয়ামে আটকে রাখি,, এবং অনেক দিন কোনো কিছু খেতে না দেই,, তবে কী তারা একে অপরকে খেয়ে ফেলতে চাইবে?"
+                    android:text=""
                     android:textSize="@dimen/_17ssp"
                     android:gravity="center"
                     android:textStyle="bold"
@@ -130,7 +130,7 @@
                         <TextView
                             android:id="@+id/authordes"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="0dp"
                             android:text="Member,, wsrtbd"
                             android:textSize="@dimen/_12sdp"
                             android:gravity="center"

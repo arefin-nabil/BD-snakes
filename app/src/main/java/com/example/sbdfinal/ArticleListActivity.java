@@ -299,7 +299,8 @@ public class ArticleListActivity extends AppCompatActivity {
                             context.startActivity(intent);
                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                        }}).showAdmobInterstitial(true);
+                        }
+                    }).showAdmobInterstitial(true);
 
                 }else {
                     Intent intent = new Intent(context, ArticleDetailActivity.class);
