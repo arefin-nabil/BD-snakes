@@ -28,7 +28,6 @@ import android.widget.Toast;
 
 
 import com.example.sbdfinal.HospitalActivity;
-import com.example.sbdfinal.NetworkAccess;
 import com.example.sbdfinal.PosterActivity;
 import com.example.sbdfinal.R;
 import com.example.sbdfinal.SnakeBiteList;
@@ -161,12 +160,11 @@ public class HomeFragment extends Fragment {
                 if (position >= 0 && position <= 3) {
                     snakelistactivity(position);
                 } else if (position == 4) {
-                    openActivity(SnakeBiteList.class, false);
+                    openActivity(SnakeBiteList.class);
                 } else if (position == 5) {
-                    openActivity(HospitalActivity.class, false);
+                    openActivity(HospitalActivity.class);
                 } else if (position == 6) {
-                    Toast.makeText(getContext(), "Hang tight! We're loading your data.", Toast.LENGTH_SHORT).show();
-                    openActivity(PosterActivity.class, false);
+                    openActivity(PosterActivity.class);
                 } else if (position == 7) {
                     emergencycontactdialog();
                 }
@@ -193,10 +191,7 @@ public class HomeFragment extends Fragment {
     }
 
     // Helper method for opening activities
-    private void openActivity(Class<?> activityClass, boolean showToast) {
-        if (showToast) {
-            Toast.makeText(getContext(), "Hang tight! We're loading your data.", Toast.LENGTH_SHORT).show();
-        }
+    private void openActivity(Class<?> activityClass) {
         Intent intent = new Intent(getActivity(), activityClass);
         startActivity(intent);
         requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

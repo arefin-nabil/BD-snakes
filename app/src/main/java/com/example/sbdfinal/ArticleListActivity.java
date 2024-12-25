@@ -202,7 +202,7 @@ public class ArticleListActivity extends AppCompatActivity {
                 lottieAnimationView.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.GONE);
                 searchview.setVisibility(View.GONE);
-                Toast.makeText(ArticleListActivity.this, "Please ensure you have an active internet connection and try again.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ArticleListActivity.this, "Please check your internet connection and try again.", Toast.LENGTH_SHORT).show();
 
             }
         });

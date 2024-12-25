@@ -181,7 +181,7 @@ public class FaqListActivity extends AppCompatActivity {
                 lottieAnimationView.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.GONE);
                 searchview.setVisibility(View.GONE);
-                Toast.makeText(FaqListActivity.this, "Please ensure you have an active internet connection and try again.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FaqListActivity.this, "Please check your internet connection and try again.", Toast.LENGTH_SHORT).show();
             }
         });
 

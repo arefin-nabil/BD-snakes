@@ -153,7 +153,7 @@ public class RescuerRequestActivity extends AppCompatActivity {
                         loadinglottie.setVisibility(View.GONE);
                         lottieAnimationView.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.GONE);
-                        Toast.makeText(RescuerRequestActivity.this, "It looks like you're offline. Please reconnect to the internet to continue.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RescuerRequestActivity.this, "Please check your internet connection and try again.", Toast.LENGTH_SHORT).show();
                     }
                 });
 

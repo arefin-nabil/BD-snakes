@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/_8sdp"
             android:orientation="vertical"
+            android:background="@drawable/three_color"
             >
             <RelativeLayout
                 android:layout_width="match_parent"

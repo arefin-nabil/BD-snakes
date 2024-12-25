@@ -48,7 +48,7 @@
                     android:background="@color/Theme_color"
                     android:fontFamily="@font/font1"
                     android:padding="@dimen/_10sdp"
-                    android:text="আরো প্রশ্নোত্তোর দেখুন..."
+                    android:text="আরো প্রশ্নোত্তর দেখুন..."
                     android:textColor="@color/black"
                     android:textSize="@dimen/_18ssp"
                     android:clickable="true"

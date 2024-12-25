@@ -62,19 +62,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:orientation="vertical">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/Night_BG" />
+            android:orientation="vertical"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:orientation="horizontal"
-                android:padding="@dimen/_10sdp">
+                android:padding="@dimen/_10sdp"
+                >
 
                 <ImageView
                     android:id="@+id/image"
@@ -109,7 +106,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                >
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"

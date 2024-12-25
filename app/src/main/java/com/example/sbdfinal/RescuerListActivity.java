@@ -178,7 +178,7 @@ public class RescuerListActivity extends AppCompatActivity {
                 lottieAnimationView.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.GONE);
                 searchview.setVisibility(View.GONE);
-                Toast.makeText(RescuerListActivity.this, "Please ensure you have an active internet connection and try again.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RescuerListActivity.this, "Please check your internet connection and try again.", Toast.LENGTH_SHORT).show();
             }
         });
 

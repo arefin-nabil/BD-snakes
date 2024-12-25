@@ -116,7 +116,7 @@ public class MidVenomFragment extends Fragment {
                 loadinglottie.setVisibility(View.GONE);
                 lottieAnimationView.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "It looks like you're offline. Please reconnect to the internet to continue.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please check your internet connection and try again.", Toast.LENGTH_SHORT).show();
             }
         });
 

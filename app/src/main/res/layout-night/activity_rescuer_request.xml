@@ -55,6 +55,7 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/nointernet"
+        android:layout_below="@+id/heading"
         android:visibility="gone"
         />
 
