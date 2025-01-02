@@ -11,12 +11,10 @@
 
     <!-- reclycer view here -->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <GridView
+        android:id="@+id/gridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
         android:padding="@dimen/_8sdp"
         android:clipToPadding="false"
         android:scrollbars="none"

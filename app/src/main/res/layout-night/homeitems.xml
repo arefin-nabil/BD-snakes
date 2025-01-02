@@ -3,19 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/Night_BG">
+    >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/_8sdp"
         app:cardCornerRadius="@dimen/_15sdp"
         app:cardElevation="@dimen/_4sdp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
         >
 
         <LinearLayout

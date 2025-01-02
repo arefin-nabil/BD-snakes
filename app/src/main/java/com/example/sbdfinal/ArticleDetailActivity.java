@@ -28,10 +28,14 @@ public class ArticleDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_detail);
 
-        MyAdmob.checkAdStatus(this);
+        if (NetworkAccess.isConnected(ArticleDetailActivity.this)) {
+            MyAdmob.checkAdStatus(this);
 
-        AdmobAd admobAd = new AdmobAd(this);
-        admobAd.loadBanner(findViewById(R.id.bannerAd));
+            AdmobAd admobAd = new AdmobAd(this);
+            admobAd.loadBanner(findViewById(R.id.bannerAd));
+        }
+
+
 
         // Initialize views
         tooltitel = findViewById(R.id.tooltitel);

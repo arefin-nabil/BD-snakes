@@ -20,7 +20,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -37,30 +39,39 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
-    RecyclerView recyclerView;
+    GridView gridView;
     ArrayList<HashMap<String, Object>> arrayList = new ArrayList<>();
     HashMap<String, Object> hashMap;
 
-
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        gridView = view.findViewById(R.id.gridView);
 
-        recyclerView = view.findViewById(R.id.recyclerView);
 
-        // Set up RecyclerView
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new myAdapter());
-
-        myAdapter adapter = new myAdapter();
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-
-        //Hashmap data function
+        // Load data into the ArrayList
         hashMapdata();
+
+        gridView.setNumColumns(2);
+        // Set up GridView adapter
+        MyAdapter adapter = new MyAdapter();
+        gridView.setAdapter(adapter);
+
+        // Set item click listener
+        gridView.setOnItemClickListener((parent, view1, position, id) -> {
+            if (position >= 0 && position <= 3) {
+                snakelistactivity(position);
+            } else if (position == 4) {
+                openActivity(SnakeBiteList.class);
+            } else if (position == 5) {
+                openActivity(HospitalActivity.class);
+            } else if (position == 6) {
+                openActivity(PosterActivity.class);
+            } else if (position == 7) {
+                emergencycontactdialog();
+            }
+        });
 
         return view;
     }
@@ -118,92 +129,67 @@ public class HomeFragment extends Fragment {
 
 
     //=============== Adapter Class created for recyclerview STARTS here================================
-    private class myAdapter extends RecyclerView.Adapter<myAdapter.myViewholder>{
-        private class myViewholder extends RecyclerView.ViewHolder{
-            //item view er variable nibo eikhane
-            TextView textView;
-            ImageView imageView;
-            CardView cardView;
-            public myViewholder(@NonNull View itemView) {
-                super(itemView);
-
-                textView = (TextView) itemView.findViewById(R.id.textView);
-                imageView = (ImageView) itemView.findViewById(R.id.imageView);
-                cardView = (CardView) itemView.findViewById(R.id.cardView);
-
-            }
-        }
-
-        @NonNull
+    private class MyAdapter extends BaseAdapter {
         @Override
-        public myViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            //item view nibo eikhane,, item view er layout inflate korbo
-            LayoutInflater inflater = getLayoutInflater();
-            View myView = inflater.inflate(R.layout.homeitems,parent,false);
-            return new myViewholder(myView);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull myViewholder holder, int position) {
-            //hashmap theke ene item view e data set korbo,,
-            HashMap<String, Object> hashMap = arrayList.get(position);
-            String titel = (String) hashMap.get("titel");
-            int image = (int) hashMap.get("image");
-
-            holder.imageView.setImageResource(image);
-            holder.textView.setText(titel);
-
-
-            //item ke click korle kaj korabo
-            holder.cardView.setOnClickListener(v -> {
-
-                if (position >= 0 && position <= 3) {
-                    snakelistactivity(position);
-                } else if (position == 4) {
-                    openActivity(SnakeBiteList.class);
-                } else if (position == 5) {
-                    openActivity(HospitalActivity.class);
-                } else if (position == 6) {
-                    openActivity(PosterActivity.class);
-                } else if (position == 7) {
-                    emergencycontactdialog();
-                }
-
-            });
-
-
-            //item er animation control
-            holder.itemView.startAnimation(AnimationUtils.loadAnimation(getContext(), android.R.anim.slide_in_left));
-        }
-        @Override
-        public int getItemCount() {
+        public int getCount() {
             return arrayList.size();
         }
-    }
-    //=============== Adapter Class for recyclerview ENDS here ================================
 
+        @Override
+        public Object getItem(int position) {
+            return arrayList.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder holder;
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.homeitems, parent, false);
+                holder = new ViewHolder();
+                holder.imageView = convertView.findViewById(R.id.imageView);
+                holder.textView = convertView.findViewById(R.id.textView);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            HashMap<String, Object> item = arrayList.get(position);
+            holder.textView.setText((String) item.get("titel"));
+            holder.imageView.setImageResource((int) item.get("image"));
+
+
+            return convertView;
+        }
+
+        class ViewHolder {
+            TextView textView;
+            ImageView imageView;
+        }
+    }
 
     private void snakelistactivity(int tabPosition) {
         Intent intent = new Intent(getActivity(), SnakeListActivity.class);
-        intent.putExtra("TAB_POSITION", tabPosition); // Pass tab position
+        intent.putExtra("TAB_POSITION", tabPosition);
         startActivity(intent);
         requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    // Helper method for opening activities
     private void openActivity(Class<?> activityClass) {
         Intent intent = new Intent(getActivity(), activityClass);
         startActivity(intent);
         requireActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    //====================== contact us Alert Dialog ========================
-    private String[] emergencyNumbers = {"999", "333", "16163", "1090", "16430"}; // Array of emergency numbers
+    private String[] emergencyNumbers = {"999", "333", "16163", "1090", "16430"};
 
     private void emergencycontactdialog() {
-        // Inflate the custom layout
         LayoutInflater inflater = getLayoutInflater();
-        android.view.View customView = inflater.inflate(R.layout.emergencynumdialog, null);
+        View customView = inflater.inflate(R.layout.emergencynumdialog, null);
 
         LinearLayout callicon = customView.findViewById(R.id.callicon);
         LinearLayout callicon1 = customView.findViewById(R.id.callicon1);
@@ -217,12 +203,10 @@ public class HomeFragment extends Fragment {
         builder.setView(customView);
         AlertDialog dialog = builder.create();
 
-        // Set background transparent
         if (dialog.getWindow() != null) {
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         }
 
-        // Close button action
         seemorebtn.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://bangladesh.gov.bd/site/page/aaebba14-f52a-4a3d-98fd-a3f8b911d3d9"));
             startActivity(intent);
@@ -231,31 +215,26 @@ public class HomeFragment extends Fragment {
 
         closebutton.setOnClickListener(v -> dialog.dismiss());
 
-        // Call button actions for each emergency number
-        callicon.setOnClickListener(v -> callNumber(emergencyNumbers[0])); // Call 999
-        callicon1.setOnClickListener(v -> callNumber(emergencyNumbers[1])); // Call 333
-        callicon2.setOnClickListener(v -> callNumber(emergencyNumbers[2])); // Call 16163
-        callicon3.setOnClickListener(v -> callNumber(emergencyNumbers[3])); // Call 1090
-        callicon4.setOnClickListener(v -> callNumber(emergencyNumbers[4])); // Call 16430
+        callicon.setOnClickListener(v -> callNumber(emergencyNumbers[0]));
+        callicon1.setOnClickListener(v -> callNumber(emergencyNumbers[1]));
+        callicon2.setOnClickListener(v -> callNumber(emergencyNumbers[2]));
+        callicon3.setOnClickListener(v -> callNumber(emergencyNumbers[3]));
+        callicon4.setOnClickListener(v -> callNumber(emergencyNumbers[4]));
 
         dialog.show();
     }
 
-    // Method to handle calling a specific number
     private void callNumber(String number) {
-        String phoneNumber = "tel:" + number; // Construct the tel URI
+        String phoneNumber = "tel:" + number;
         Intent dialIntent = new Intent(Intent.ACTION_DIAL);
         dialIntent.setData(Uri.parse(phoneNumber));
 
-        // Check if there is an app that can handle this intent (like the phone dialer)
         if (dialIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-            startActivity(dialIntent); // Open the dialer with the phone number pre-filled
+            startActivity(dialIntent);
         } else {
             ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("phone number", number); // Only the number, not "tel:"
+            ClipData clip = ClipData.newPlainText("phone number", number);
             clipboard.setPrimaryClip(clip);
-
-            // Show a toast to notify the user
             Toast.makeText(getContext(), "No dialer app found. Number copied to clipboard.", Toast.LENGTH_LONG).show();
         }
     }

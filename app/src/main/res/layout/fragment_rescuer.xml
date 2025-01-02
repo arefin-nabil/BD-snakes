@@ -17,14 +17,598 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
+                android:orientation="vertical"
                 android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_5sdp"
-                android:scrollbars="none" />
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_8sdp"
+                        android:orientation="vertical"
+                        android:background="@drawable/three_color"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:id="@+id/rescuerprofileimg1"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/wsrtbd"
+                                android:layout_centerVertical="true"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_toStartOf="@id/callicon1"
+                                android:layout_toEndOf="@+id/rescuerprofileimg1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/name1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="2dp"
+                                    android:text="Wildlife And Snake Rescue Team in Bangladesh - WSRTBD"
+                                    android:fontFamily="@font/font1"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/_14ssp"
+                                    android:textStyle="bold"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="2dp"
+                                        android:text="Hotline: "
+                                        android:fontFamily="@font/font1"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        android:textStyle="bold" />
+                                    <TextView
+                                        android:id="@+id/number1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="2dp"
+                                        android:text="01722938276"
+                                        android:fontFamily="@font/font1"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        />
+
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/callicon1"
+                                android:layout_width="64dp"
+                                android:layout_height="86dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                >
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    app:lottie_rawRes="@raw/calllottie"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    android:layout_gravity="center"
+                                    />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/Theme_color"
+                                    android:layout_marginTop="1dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="20dp"
+                                    android:text="Call Now"
+                                    android:fontFamily="@font/font1"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="16sp"
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/Theme_color"
+                                    android:layout_marginTop="3dp"
+                                    />
+
+
+                            </LinearLayout>
+
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_8sdp"
+                        android:orientation="vertical"
+                        android:background="@drawable/three_color"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:id="@+id/rescuerprofileimg2"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/deep"
+                                android:layout_centerVertical="true"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_toStartOf="@id/callicon2"
+                                android:layout_toEndOf="@+id/rescuerprofileimg2"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/name2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="2dp"
+                                    android:text="Deep Ecology And Snake Conservation Foundation"
+                                    android:fontFamily="@font/font1"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/_14ssp"
+                                    android:textStyle="bold"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="2dp"
+                                        android:text="Hotline: "
+                                        android:fontFamily="@font/font1"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        android:textStyle="bold" />
+                                    <TextView
+                                        android:id="@+id/number2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="2dp"
+                                        android:text="01718414517"
+                                        android:fontFamily="@font/font1"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        />
+
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/callicon2"
+                                android:layout_width="64dp"
+                                android:layout_height="86dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                >
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    app:lottie_rawRes="@raw/calllottie"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    android:layout_gravity="center"
+                                    />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/Theme_color"
+                                    android:layout_marginTop="1dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="20dp"
+                                    android:text="Call Now"
+                                    android:fontFamily="@font/font1"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="16sp"
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/Theme_color"
+                                    android:layout_marginTop="3dp"
+                                    />
+
+
+                            </LinearLayout>
+
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_8sdp"
+                        android:orientation="vertical"
+                        android:background="@drawable/three_color"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:id="@+id/rescuerprofileimg3"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/sssa"
+                                android:layout_centerVertical="true"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_toStartOf="@id/callicon3"
+                                android:layout_toEndOf="@+id/rescuerprofileimg3"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/name3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="2dp"
+                                    android:text="Society for Snake And Snakebite Awareness (3SA)"
+                                    android:fontFamily="@font/font1"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/_14ssp"
+                                    android:textStyle="bold"
+                                    />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="2dp"
+                                        android:text="Hotline: "
+                                        android:fontFamily="@font/font1"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        android:textStyle="bold" />
+                                    <TextView
+                                        android:id="@+id/number3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="2dp"
+                                        android:text="01710364864"
+                                        android:fontFamily="@font/font1"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        />
+
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/callicon3"
+                                android:layout_width="64dp"
+                                android:layout_height="86dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                >
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    app:lottie_rawRes="@raw/calllottie"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    android:layout_gravity="center"
+                                    />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/Theme_color"
+                                    android:layout_marginTop="1dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="20dp"
+                                    android:text="Call Now"
+                                    android:fontFamily="@font/font1"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="16sp"
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/Theme_color"
+                                    android:layout_marginTop="3dp"
+                                    />
+
+
+                            </LinearLayout>
+
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_8sdp"
+                        android:orientation="vertical"
+                        android:background="@drawable/three_color"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:id="@+id/rescuerprofileimg4"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/srtbd"
+                                android:layout_centerVertical="true"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_toStartOf="@id/callicon4"
+                                android:layout_toEndOf="@+id/rescuerprofileimg4"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/name4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="2dp"
+                                    android:text="Snake Rescue Team Bangladesh - (SRTBD)"
+                                    android:fontFamily="@font/font1"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="@dimen/_14ssp"
+                                    android:textStyle="bold"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="2dp"
+                                        android:text="Hotline: "
+                                        android:fontFamily="@font/font1"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        android:textStyle="bold" />
+                                    <TextView
+                                        android:id="@+id/number4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="2dp"
+                                        android:text="01614589111"
+                                        android:fontFamily="@font/font1"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="@dimen/_14ssp"
+                                        />
+
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/callicon4"
+                                android:layout_width="64dp"
+                                android:layout_height="86dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                >
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    app:lottie_rawRes="@raw/calllottie"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true"
+                                    android:layout_gravity="center"
+                                    />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/Theme_color"
+                                    android:layout_marginTop="1dp"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="20dp"
+                                    android:text="Call Now"
+                                    android:fontFamily="@font/font1"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="16sp"
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/Theme_color"
+                                    android:layout_marginTop="3dp"
+                                    />
+
+
+                            </LinearLayout>
+
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
